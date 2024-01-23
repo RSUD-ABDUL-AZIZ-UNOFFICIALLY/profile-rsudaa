@@ -55,50 +55,50 @@ const NavigationBar = () => {
                         <Link className='item' href="/#">Dashboard</Link>
                     </div>
                     <div className="nm-item">
-                        <Link className='item' href="/#">Tentang Kami</Link>
+                        <button className='item' >Tentang Kami</button>
                         <div className="dropdown">
-                            <button className="dropdown-item">Profil Rumah Sakit</button>
-                            <button className="dropdown-item">Struktur Organisasi</button>
-                            <button className="dropdown-item">Struktur Manajemen</button>
-                            <button className="dropdown-item">Maklumat Pelayanan</button>
-                            <button className="dropdown-item">Profil Direktur</button>
+                            <Link href={`/profil`} className="dropdown-item">Profil Rumah Sakit</Link>
+                            <Link href={`/struktur-organisasi`} className="dropdown-item">Struktur Organisasi</Link>
+                            <Link href={`/struktur-manajemen`} className="dropdown-item">Struktur Manajemen</Link>
+                            <Link href={`/maklumat-pelayanan`} className="dropdown-item">Maklumat Pelayanan</Link>
+                            <Link href={`/profil-direktur`} className="dropdown-item">Profil Direktur</Link>
                         </div>
                     </div>
                     <div className="nm-item">
-                        <Link className='item' href="/#">Pelayanan Publik</Link>
+                        <button className='item' >Pelayanan Publik</button>
                         <div className="dropdown">
-                            <button className="dropdown-item">Survey Kepuasan Masyarakat</button>
-                            <button className="dropdown-item">Layanan Informasi</button>
-                            <button className="dropdown-item">Pengaduan</button>
-                            <button className="dropdown-item">Informasi Poliklinik</button>
-                            <button className="dropdown-item">Jadwal Praktek</button>
-                            <button className="dropdown-item">Fasilitas & Tarif</button>
-                            <button className="dropdown-item">Pendaftaran Online</button>
+                            <Link href={`/survei-kepuasan-masyarakat`} className="dropdown-item">Survey Kepuasan Masyarakat</Link>
+                            <Link href={`/layanan-informasi`} className="dropdown-item">Layanan Informasi</Link>
+                            <Link href={`/pengaduan`} className="dropdown-item">Pengaduan</Link>
+                            <Link href={`/informasi-poliklinik`} className="dropdown-item">Informasi Poliklinik</Link>
+                            <Link href={`/jadwal-praktek`} className="dropdown-item">Jadwal Praktek</Link>
+                            <Link href={`/fasilitas-tarif`} className="dropdown-item">Fasilitas & Tarif</Link>
+                            <Link href={`/pendaftaran-online`} className="dropdown-item">Pendaftaran Online</Link>
                         </div>
                     </div>
                     <div className="nm-item">
-                        <Link className='item' href="/#">Karir</Link>
+                        <button className='item'>Karir</button>
                         <div className="dropdown">
-                            <button className="dropdown-item">Lowongan Pekerjaan</button>
-                            <button className="dropdown-item">Magang</button>
+                            <Link href={`#`} className="dropdown-item">Lowongan Pekerjaan</Link>
+                            <Link href={`#`} className="dropdown-item">Magang</Link>
                         </div>
                     </div>
                     <div className="nm-item">
-                        <Link className='item' href="/#">Aplikasi</Link>
+                        <button className='item' >Aplikasi</button>
                         <div className="dropdown">
-                            <button className="dropdown-item">Lorem ipsum</button>
-                            <button className="dropdown-item">Lorem ipsum</button>
-                            <button className="dropdown-item">Lorem ipsum</button>
-                            <button className="dropdown-item">Lorem ipsum</button>
+                            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+                            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+                            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+                            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
                         </div>
                     </div>
                     <div className="nm-item">
-                        <Link className='item' href="/#">Dasar Hukum</Link>
+                        <button className='item'>Dasar Hukum</button>
                         <div className="dropdown">
-                            <button className="dropdown-item">Lorem ipsum</button>
-                            <button className="dropdown-item">Lorem ipsum</button>
-                            <button className="dropdown-item">Lorem ipsum</button>
-                            <button className="dropdown-item">Lorem ipsum</button>
+                            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+                            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+                            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+                            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
                         </div>
                     </div>
                     <div className="nm-item">

@@ -1,10 +1,10 @@
 'use client'
-import Jumbotron from './component/Jumbotron';
-import NavigationBar from './component/NavigationBar'
+import Jumbotron from '../component/Jumbotron';
+import NavigationBar from '../component/NavigationBar'
 import { NextUIProvider } from "@nextui-org/system";
-import { BaseProvider } from './context/BaseContext';
-import SectionHome from './component/SectionHome';
-import Footer from './component/Footer';
+import { BaseProvider } from '../context/BaseContext';
+import SectionHome from '../component/SectionHome';
+import Footer from '../component/Footer';
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
         <main className="">
           <NavigationBar />
           <Jumbotron />
-          <SectionHome />
+          profil
           <Footer />
         </main>
       </BaseProvider>

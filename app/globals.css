@@ -17,7 +17,7 @@
   --info: #d9f8f3;
   --info-hover: #c2ddd8;
   --white: #ffffff;
-  --white-hover: #f2f2f2;
+  --white-hover: #fcfcfc;
   --black: #101110;
   --transparant: #ffffff00;
   --transparant-hover: #00000015;
@@ -27,7 +27,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  background-color: var(--white);
 }
 
 .navbar {
@@ -113,10 +113,55 @@ body {
 .section {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 60px;
 }
 .section .item-section {
   width: 90%;
+}
+
+.card-dokter {
+  box-shadow: 0px 10px 18px -15px var(--dark);
+  overflow: hidden;
+  border-radius: 10px;
+}
+.card-dokter .body {
+  position: relative;
+}
+.card-dokter .body .desc {
+  width: 100%;
+  height: fit-content;
+  background-color: var(--white);
+  padding: 10px;
+  text-align: center;
+}
+.card-dokter .body .desc .name {
+  font-size: 25px;
+  font-weight: bold;
+}
+.card-dokter .body .desc .motto {
+  font-size: 15px;
+  color: var(--primary);
+  font-style: italic;
+}
+
+.footer {
+  padding: 20px;
+  padding-top: 50px;
+  padding-left: 200px;
+  padding-right: 200px;
+  background-color: var(--primary);
+  color: var(--white);
+}
+.footer .footer-item {
+  width: 100%;
+}
+.footer .footer-item .head {
+  font-size: 20px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.footer .footer-item .body {
+  padding: 10px;
 }
 
 @media screen and (max-width: 768px) {
@@ -141,12 +186,12 @@ body {
   }
   .sidebar-menu .sidebar-item .item {
     display: flex;
-    align-items: left;
+    align-items: flex-start;
     padding: 10px;
     height: 100%;
     min-width: 100%;
     text-align: left;
-    justify-content: left;
+    justify-content: flex-start;
   }
   .sidebar-menu .sidebar-item .item.active {
     background-color: var(--primary);
@@ -183,7 +228,7 @@ body {
     padding-right: 5px;
     position: fixed;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
   }
   .navbar.top {
     background-color: var(--white);
@@ -254,10 +299,50 @@ body {
   .section {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 0px;
   }
   .section .item-section {
     width: 100%;
+  }
+  .card-dokter {
+    box-shadow: 0px 10px 18px -15px var(--dark);
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  .card-dokter .body {
+    position: relative;
+  }
+  .card-dokter .body .desc {
+    width: 100%;
+    height: fit-content;
+    background-color: var(--white);
+    padding: 10px;
+    text-align: center;
+  }
+  .card-dokter .body .desc .name {
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .card-dokter .body .desc .poli {
+    font-size: 12px;
+  }
+  .card-dokter .body .desc .motto {
+    font-size: 10px;
+  }
+  .footer {
+    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--primary);
+    color: var(--white);
+  }
+  .footer .footer-item {
+    width: 100%;
+  }
+  .footer .footer-item .head {
+    font-size: 20px;
+    font-weight: normal;
+    text-transform: uppercase;
   }
 }
 .text-white {
@@ -423,6 +508,81 @@ button.btn.btn-warning:hover {
   display: block;
   padding: 20px;
   border-radius: 100px;
+}
+
+button.btn-circle {
+  border-radius: 100%;
+  transition: 0.2s ease;
+}
+button.btn-circle:active {
+  transform: scale(0.97);
+}
+button.btn-circle.btn-transparant {
+  background-color: var(--transparant);
+  padding: 7px;
+}
+button.btn-circle.btn-transparant:hover {
+  background-color: var(--transparant-hover);
+}
+button.btn-circle.btn-white {
+  background-color: var(--white);
+  padding: 7px;
+}
+button.btn-circle.btn-white:hover {
+  background-color: var(--white-hover);
+}
+button.btn-circle.btn-primary {
+  background-color: var(--primary);
+  padding: 7px;
+}
+button.btn-circle.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+button.btn-circle.btn-dark {
+  background-color: var(--dark);
+  padding: 7px;
+}
+button.btn-circle.btn-dark:hover {
+  background-color: var(--dark-hover);
+}
+button.btn-circle.btn-midDark {
+  background-color: var(--midDark);
+  padding: 7px;
+}
+button.btn-circle.btn-midDark:hover {
+  background-color: var(--midDark-hover);
+}
+button.btn-circle.btn-secondary {
+  background-color: var(--secondary);
+  padding: 7px;
+}
+button.btn-circle.btn-secondary:hover {
+  background-color: var(--secondary-hover);
+}
+button.btn-circle.btn-info {
+  background-color: var(--info);
+  padding: 7px;
+}
+button.btn-circle.btn-info:hover {
+  background-color: var(--info-hover);
+}
+button.btn-circle.btn-black {
+  background-color: var(--black);
+  padding: 7px;
+}
+button.btn-circle.btn-black:hover {
+  background-color: var(--black);
+}
+button.btn-circle.btn-warning {
+  background-color: var(--warning-hover);
+  padding: 7px;
+}
+button.btn-circle.btn-warning:hover {
+  background-color: var(--warning-hover);
+}
+
+.icon {
+  filter: brightness(0) invert(1);
 }
 
 /*# sourceMappingURL=globals.css.map */

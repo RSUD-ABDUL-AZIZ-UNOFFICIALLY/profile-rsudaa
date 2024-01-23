@@ -12,15 +12,15 @@ const SectionHomePelayananPublic = () => {
 
     return (
         <div className='mt-4 w-full gap-4'>
-            <div className="grid lg:md:grid-cols-7 grid-cols-3 gap-2">
+            <div className="grid lg:md:grid-cols-5 grid-cols-3 lg:gap-5 gap-4 justify-center">
                 <div className="">
-                    <button className="btn btn-white shadow-lg aspect-square w-full">
-                        <div className="h-[70%] flex justify-center">
+                    <button className="btn btn-white shadow-md aspect-square w-full">
+                        <div className="h-[70%] flex justify-center items-center">
                             <Image
                                 src={iconSurveiKepuasan}
                                 alt="Picture of the author"
                                 // height={80}
-                                className='lg:md:h-full h-[80%]'
+                                className='lg:md:h-[60%] h-[60%]'
                             // className='h-full'
                             />
                         </div>
@@ -30,13 +30,13 @@ const SectionHomePelayananPublic = () => {
                     </button>
                 </div>
                 <div className="">
-                    <button className="btn btn-white shadow-lg aspect-square w-full" >
-                        <div className="h-[70%] flex justify-center">
+                    <button className="btn btn-white shadow-md aspect-square w-full" >
+                        <div className="h-[70%] flex justify-center items-center">
                             <Image
                                 src={iconInformation}
                                 alt="Picture of the author"
                                 // height={80}
-                                className='lg:md:h-full h-[80%]'
+                                className='lg:md:h-[60%] h-[60%]'
                             // className='h-full'
                             />
                         </div>
@@ -46,13 +46,13 @@ const SectionHomePelayananPublic = () => {
                     </button>
                 </div>
                 <div className="">
-                    <button className="btn btn-white shadow-lg aspect-square w-full" >
-                        <div className="h-[70%] flex justify-center">
+                    <button className="btn btn-white shadow-md aspect-square w-full" >
+                        <div className="h-[70%] flex justify-center items-center">
                             <Image
                                 src={iconPengaduan}
                                 alt="Picture of the author"
                                 // height={80}
-                                className='lg:md:h-full h-[80%]'
+                                className='lg:md:h-[60%] h-[60%]'
                             // className='h-full'
                             />
                         </div>
@@ -62,13 +62,13 @@ const SectionHomePelayananPublic = () => {
                     </button>
                 </div>
                 <div className="">
-                    <button className="btn btn-white shadow-lg aspect-square w-full" >
-                        <div className="h-[70%] flex justify-center">
+                    <button className="btn btn-white shadow-md aspect-square w-full" >
+                        <div className="h-[70%] flex justify-center items-center">
                             <Image
                                 src={iconPoli}
                                 alt="Picture of the author"
                                 // height={80}
-                                className='lg:md:h-full h-[80%]'
+                                className='lg:md:h-[60%] h-[60%]'
                             // className='h-full'
                             />
                         </div>
@@ -78,13 +78,13 @@ const SectionHomePelayananPublic = () => {
                     </button>
                 </div>
                 <div className="">
-                    <button className="btn btn-white shadow-lg aspect-square w-full" >
-                        <div className="h-[70%] flex justify-center">
+                    <button className="btn btn-white shadow-md aspect-square w-full" >
+                        <div className="h-[70%] flex justify-center items-center">
                             <Image
                                 src={iconJadwal}
                                 alt="Picture of the author"
                                 // height={80}
-                                className='lg:md:h-full h-[80%]'
+                                className='lg:md:h-[60%] h-[60%]'
                             // className='h-full'
                             />
                         </div>
@@ -94,13 +94,13 @@ const SectionHomePelayananPublic = () => {
                     </button>
                 </div>
                 <div className="">
-                    <button className="btn btn-white shadow-lg aspect-square w-full" >
-                        <div className="h-[70%] flex justify-center">
+                    <button className="btn btn-white shadow-md aspect-square w-full" >
+                        <div className="h-[70%] flex justify-center items-center">
                             <Image
                                 src={iconFasilitas}
                                 alt="Picture of the author"
                                 // height={80}
-                                className='lg:md:h-full h-[80%]'
+                                className='lg:md:h-[60%] h-[60%]'
                             // className='h-full'
                             />
                         </div>
@@ -110,13 +110,13 @@ const SectionHomePelayananPublic = () => {
                     </button>
                 </div>
                 <div className="">
-                    <button className="btn btn-white shadow-lg aspect-square w-full" >
-                        <div className="h-[70%] flex justify-center">
+                    <button className="btn btn-white shadow-md aspect-square w-full" >
+                        <div className="h-[70%] flex justify-center items-center">
                             <Image
                                 src={iconRegistrasi}
                                 alt="Picture of the author"
                                 // height={80}
-                                className='lg:md:h-full h-[80%]'
+                                className='lg:md:h-[60%] h-[60%]'
                             // className='h-full'
                             />
                         </div>

@@ -22,7 +22,7 @@ const Jumbotron = () => {
                     </div>
                 </div>
             </div>
-            <img className='object-cover w-full lg:md:h-full  h-[40vh]' src="/tron.jpg" alt="" />
+            <img className='object-cover w-full lg:md:h-full h-[60vh]' src="/tron.jpg" alt="" />
         </div>
     )
 }
