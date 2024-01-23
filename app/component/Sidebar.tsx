@@ -27,7 +27,7 @@ const Sidebar = ({ handleSidebar }: { handleSidebar: any }) => {
             </div>
             <div className="sidebar-menu mt-4">
                 <div className="sidebar-item">
-                    <button onClick={() => handleNavigation()} className={`item ${active == 'dashboard' && 'active'}`}>Dashboard</button>
+                    <Link className='item' href="/">Dashboard</Link>
                 </div>
                 <div className="sidebar-item">
                     <button onClick={() => handleActiveSidebar('tentang-kami')} className={`item ${active == 'tentang-kami' && 'active'}`}>
@@ -42,11 +42,11 @@ const Sidebar = ({ handleSidebar }: { handleSidebar: any }) => {
 
                     </button>
                     <div className={`dropdown ${active == 'tentang-kami' && `active`}`}>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Profil Rumah Sakit</button>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Struktur Organisasi</button>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Struktur Manajemen</button>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Maklumat Pelayanan</button>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Profil Direktur</button>
+                        <Link href={`/profil`} className="dropdown-item">Profil Rumah Sakit</Link>
+                        <Link href={`/struktur-organisasi`} className="dropdown-item">Struktur Organisasi</Link>
+                        <Link href={`/struktur-manajemen`} className="dropdown-item">Struktur Manajemen</Link>
+                        <Link href={`/maklumat-pelayanan`} className="dropdown-item">Maklumat Pelayanan</Link>
+                        <Link href={`/profil-direktur`} className="dropdown-item">Profil Direktur</Link>
                     </div>
                 </div>
                 <div className="sidebar-item">
@@ -61,13 +61,13 @@ const Sidebar = ({ handleSidebar }: { handleSidebar: any }) => {
                         </div>
                     </button>
                     <div className={`dropdown ${active == 'pelayanan-publik' && `active`}`}>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Survey Kepuasan Masyarakat</button>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Layanan Informasi</button>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Pengaduan</button>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Informasi Poliklinik</button>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Jadwal Praktek</button>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Fasilitas & Tarif</button>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Pendaftaran Online</button>
+                        <Link href={`/survei-kepuasan-masyarakat`} className="dropdown-item">Survey Kepuasan Masyarakat</Link>
+                        <Link href={`/layanan-informasi`} className="dropdown-item">Layanan Informasi</Link>
+                        <Link href={`/pengaduan`} className="dropdown-item">Pengaduan</Link>
+                        <Link href={`/informasi-poliklinik`} className="dropdown-item">Informasi Poliklinik</Link>
+                        <Link href={`/jadwal-praktek`} className="dropdown-item">Jadwal Praktek</Link>
+                        <Link href={`/fasilitas-tarif`} className="dropdown-item">Fasilitas & Tarif</Link>
+                        <Link href={`/pendaftaran-online`} className="dropdown-item">Pendaftaran Online</Link>
                     </div>
                 </div>
                 <div className="sidebar-item">
@@ -82,8 +82,8 @@ const Sidebar = ({ handleSidebar }: { handleSidebar: any }) => {
                         </div>
                     </button>
                     <div className={`dropdown ${active == 'karir' && `active`}`}>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Lowongan Pekerjaan</button>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Magang</button>
+                        <Link href={`#`} className="dropdown-item">Lowongan Pekerjaan</Link>
+                        <Link href={`#`} className="dropdown-item">Magang</Link>
                     </div>
                 </div>
                 <div className="sidebar-item">
@@ -98,10 +98,10 @@ const Sidebar = ({ handleSidebar }: { handleSidebar: any }) => {
                         </div>
                     </button>
                     <div className={`dropdown ${active == 'aplikasi' && `active`}`}>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Lorem ipsum</button>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Lorem ipsum</button>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Lorem ipsum</button>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Lorem ipsum</button>
+                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
                     </div>
                 </div>
                 <div className="sidebar-item">
@@ -116,14 +116,14 @@ const Sidebar = ({ handleSidebar }: { handleSidebar: any }) => {
                         </div>
                     </button>
                     <div className={`dropdown ${active == 'dasar-hukum' && `active`}`}>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Lorem ipsum</button>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Lorem ipsum</button>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Lorem ipsum</button>
-                        <button onClick={() => handleNavigation()} className="dropdown-item">Lorem ipsum</button>
+                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>s
                     </div>
                 </div>
                 <div className="sidebar-item">
-                    <button onClick={() => handleNavigation()} className={`item ${active == 'faq' && 'active'}`}>Faq</button>
+                    <Link className='item' href="/">Faq</Link>
                 </div>
             </div>
         </div>

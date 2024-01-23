@@ -211,7 +211,6 @@ body {
   .sidebar-menu .sidebar-item .dropdown.active .dropdown-item {
     padding: 13px;
     color: var(--primary);
-    border-width: 2px;
     text-align: center;
     min-width: 100px;
   }

@@ -52,7 +52,7 @@ const NavigationBar = () => {
             <div className="nav-right">
                 <div className="nav-menu">
                     <div className="nm-item">
-                        <Link className='item' href="/#">Dashboard</Link>
+                        <Link className='item' href="/">Dashboard</Link>
                     </div>
                     <div className="nm-item">
                         <button className='item' >Tentang Kami</button>
@@ -102,7 +102,7 @@ const NavigationBar = () => {
                         </div>
                     </div>
                     <div className="nm-item">
-                        <Link className='item' href="/#">Faq</Link>
+                        <Link className='item' href="/">Faq</Link>
                     </div>
                 </div>
             </div>
