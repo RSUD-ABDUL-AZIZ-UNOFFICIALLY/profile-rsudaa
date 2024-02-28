@@ -1,13 +1,35 @@
+'use client'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import item from "../../public/hospital.webp";
+import { motion, useInView, useAnimation } from "framer-motion"
 const SectionHomeKegiatan = () => {
     const date = new Date()
     const today = `${date.getDate()} ${date.getMonth() + 1} ${date.getFullYear()}`
+
+    const motionRef = useRef(null)
+    const isInView = useInView(motionRef, { once: true })
+    const mainControls = useAnimation()
+
+    useEffect(() => {
+        if (isInView) {
+            mainControls.start("visible")
+        }
+    }, [isInView])
     return (
         <>
-            <div className="grid gap-4">
-                <div className='grid lg:md:grid-cols-10 '>
+            <motion.div
+                className="grid gap-4"
+                ref={motionRef}
+                variants={{
+                    hidden: { opacity: 0, y: 75 },
+                    visible: { opacity: 1, y: 0 }
+                }}
+                initial="hidden"
+                animate={mainControls}
+                transition={{ duration: 0.5, delay: 0.5 }}
+            >
+                <div className='grid lg:md:grid-cols-10'>
                     <div className="col-span-5 overflow-hidden">
                         <Image
                             src={item}
@@ -47,7 +69,7 @@ const SectionHomeKegiatan = () => {
                         <button className="btn btn-primary text-white mt-2">Read more</button>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </>
     )
 }

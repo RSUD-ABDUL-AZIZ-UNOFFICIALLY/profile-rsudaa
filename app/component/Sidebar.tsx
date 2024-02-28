@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import close from "../../public/icon/close.svg";
-const Sidebar = ({ handleSidebar }: { handleSidebar: any }) => {
+const Sidebar = ({ handleSidebar, open }: { handleSidebar: any, open: boolean }) => {
     const [active, setActive] = useState<string>('')
 
     const handleActiveSidebar = (e: string) => {
@@ -15,7 +15,7 @@ const Sidebar = ({ handleSidebar }: { handleSidebar: any }) => {
     }
 
     return (
-        <div className="sidebar p-2">
+        <div className={`sidebar p-2 ${open ? `active` : `non-active`}`}>
             <div className="flex justify-end">
                 <button onClick={() => handleSidebar(false)} className="btn btn-sidebar ">
                     <Image
@@ -119,7 +119,7 @@ const Sidebar = ({ handleSidebar }: { handleSidebar: any }) => {
                         <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
                         <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
                         <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>s
+                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
                     </div>
                 </div>
                 <div className="sidebar-item">
