@@ -4,7 +4,13 @@ import { Input } from "@nextui-org/react";
 import Image from 'next/image'
 import skw from "../../public/skw.png";
 import login from "../../public/login.jpg";
+import { useRouter } from 'next/navigation';
+
 const SectionLogin = () => {
+    const router: any = useRouter()
+    const navigate = () => {
+        router.push('/admin-rsaa')
+    }
     return (
         <div className='lg:md:w-[50vw] w-[90vw]'>
             <div className="grid lg:grid-cols-2 gap-2">
@@ -27,7 +33,7 @@ const SectionLogin = () => {
                         <Input type="number" min={0} label="WhatsApp OTP" placeholder="Enter your whatsapp OTP" />
                     </div>
                     <hr className='mt-4 mb-4' />
-                    <button className="btn btn-midDark text-white uppercase font-bold">
+                    <button onClick={() => navigate()} className="btn btn-midDark text-white uppercase font-bold">
                         Login
                     </button>
                     <div className="mt-3 text-center">
