@@ -1,15 +1,18 @@
 'use client'
-import { NextUIProvider } from "@nextui-org/system";
 import { BaseProvider } from '../context/BaseContext';
+import NavbarAdmin from "./compoenent/NavbarAdmin";
+import AdminDashboard from "./compoenent/AdminDashboard";
+
 
 export default function Home() {
   return (
-    <NextUIProvider>
       <BaseProvider>
-        <main className="">
-          admin
+        <main className="p-4  relative">
+          <NavbarAdmin />
+          <div className="p-3 bg-slate-100 mt-4">
+            <AdminDashboard />
+          </div>
         </main>
       </BaseProvider>
-    </NextUIProvider>
   )
 }

@@ -12,7 +12,7 @@ const SectionHomePelayananPublic = () => {
 
     return (
         <div className='mt-4 w-full gap-4'>
-            <div className="grid lg:md:grid-cols-5 grid-cols-3 lg:gap-5 gap-4 justify-center">
+            <div className="grid lg:md:grid-cols-7 grid-cols-3 lg:gap-5 gap-4 justify-center">
                 <div className="">
                     <button className="btn btn-white shadow-md aspect-square w-full">
                         <div className="h-[70%] flex justify-center items-center">
