@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import React from 'react'
 import call from "../../public/icon/call.svg";
@@ -7,13 +8,13 @@ import ig from "../../public/icon/instagram.svg";
 import skw from "../../public/skw.png";
 const Footer = () => {
     return (
-        <div className='footer grid lg:grid-cols-2 gap-2 lg:md:mt-[20px]'>
-            <div className="footer-item">
+        <div className='foot-bar grid lg:grid-cols-2 gap-2 lg:md:mt-[20px]'>
+            <div className="foot-bar-item">
                 {/* <div className="head">Kontak kami</div> */}
                 <div className="body">
                     <div className="mt-2 grid gap-2">
                         <div className="flex items-center">
-                            <button className="btn-circle btn-dark ">
+                            <button className="button-circle button-dark ">
                                 <Image
                                     src={call}
                                     alt="Picture of the author"
@@ -23,7 +24,7 @@ const Footer = () => {
                             <div className="ml-2">(0562) 631798</div>
                         </div>
                         <div className="flex items-center">
-                            <button className="btn-circle btn-dark ">
+                            <button className="button-circle button-dark ">
                                 <Image
                                     src={mail}
                                     alt="Picture of the author"
@@ -33,7 +34,7 @@ const Footer = () => {
                             <div className="ml-2">rsudaa@singkawangkota.go.id</div>
                         </div>
                         <div className="flex items-center">
-                            <button className="btn-circle btn-dark ">
+                            <button className="button-circle button-dark ">
                                 <Image
                                     src={fb}
                                     alt="Picture of the author"
@@ -43,7 +44,7 @@ const Footer = () => {
                             <div className="ml-2">(0562) 631798</div>
                         </div>
                         <div className="flex items-center">
-                            <button className="btn-circle btn-dark ">
+                            <button className="button-circle button-dark ">
                                 <Image
                                     src={ig}
                                     alt="Picture of the author"

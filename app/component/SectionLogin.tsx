@@ -1,9 +1,9 @@
 'use client'
 import React from 'react'
-import { Input } from "@nextui-org/react";
 import Image from 'next/image'
 import skw from "../../public/skw.png";
 import login from "../../public/login.jpg";
+import wa from "../../public/icon/whatsapp.svg";
 import { useRouter } from 'next/navigation';
 
 const SectionLogin = () => {
@@ -26,14 +26,14 @@ const SectionLogin = () => {
                     </div>
                     <div className="text-center font-bold text-midDark text-3xl mt-3 mb-3">RSUD dr Abdul Aziz</div>
                     <div className="flex gap-2">
-                        <Input type="number" min={0} label="WhatsApp Number" placeholder="Enter your whatsapp number" />
-                        <button className="btn rounded-lg btn-midDark min-w-20 max-w-36 text-white">Get OTP</button>
+                <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                        <button className="button rounded-lg button-midDark min-w-20 max-w-36 text-white">Get OTP</button>
                     </div>
                     <div className="flex gap-2">
-                        <Input type="number" min={0} label="WhatsApp OTP" placeholder="Enter your whatsapp OTP" />
+                        {/* <Input type="number" min={0} label="WhatsApp OTP" placeholder="Enter your whatsapp OTP" /> */}
                     </div>
                     <hr className='mt-4 mb-4' />
-                    <button onClick={() => navigate()} className="btn btn-midDark text-white uppercase font-bold">
+                    <button onClick={() => navigate()} className="button button-midDark text-white uppercase font-bold">
                         Login
                     </button>
                     <div className="mt-3 text-center">

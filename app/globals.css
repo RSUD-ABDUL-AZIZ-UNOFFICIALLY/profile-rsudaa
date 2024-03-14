@@ -34,7 +34,7 @@ body {
   display: none;
 }
 
-.navbar {
+.navigation-bar {
   position: fixed;
   top: 0;
   left: 0;
@@ -45,29 +45,29 @@ body {
   justify-content: space-between;
   z-index: 100;
 }
-.navbar.top {
+.navigation-bar.top {
   background-color: transparent;
   color: var(--white);
 }
-.navbar.bottom {
+.navigation-bar.bottom {
   background-color: var(--white);
   color: var(--primary);
   box-shadow: 0px 0px 10px -5px var(--black);
 }
-.navbar .nav-left {
+.navigation-bar .nav-left {
   display: flex;
   align-items: center;
   height: auto;
 }
-.navbar .nav-left .btn-sidebar {
+.navigation-bar .nav-left .button-sidebar {
   display: none;
 }
-.navbar .nav-left .nav-logo {
+.navigation-bar .nav-left .nav-logo {
   background-color: var(--white);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-.navbar .nav-right {
+.navigation-bar .nav-right {
   height: auto;
 }
 
@@ -153,7 +153,7 @@ body {
   font-style: italic;
 }
 
-.footer {
+.foot-bar {
   padding: 20px;
   padding-top: 50px;
   padding-left: 200px;
@@ -161,15 +161,15 @@ body {
   background-color: var(--primary);
   color: var(--white);
 }
-.footer .footer-item {
+.foot-bar .foot-bar-item {
   width: 100%;
 }
-.footer .footer-item .head {
+.foot-bar .foot-bar-item .head {
   font-size: 20px;
   font-weight: normal;
   text-transform: uppercase;
 }
-.footer .footer-item .body {
+.foot-bar .foot-bar-item .body {
   padding: 10px;
 }
 
@@ -289,35 +289,35 @@ body {
     background-color: var(--primary-hover);
     color: var(--white);
   }
-  .navbar {
+  .navigation-bar {
     padding-left: 5px;
     padding-right: 5px;
     position: fixed;
     display: flex;
     justify-content: flex-start;
   }
-  .navbar.top {
+  .navigation-bar.top {
     background-color: var(--white);
     color: var(--white);
     color: var(--primary);
     box-shadow: 0px 0px 20px -7px var(--midDark);
   }
-  .navbar.bottom {
+  .navigation-bar.bottom {
     background-color: var(--white);
     color: var(--primary);
     box-shadow: 0px 0px 20px -7px var(--midDark);
   }
-  .navbar .nav-left {
+  .navigation-bar .nav-left {
     display: flex;
     justify-content: space-between;
     width: 100%;
   }
-  .navbar .nav-left .btn-sidebar {
+  .navigation-bar .nav-left .button-sidebar {
     display: block;
     padding: 20px;
     border-radius: 100px;
   }
-  .navbar .nav-right {
+  .navigation-bar .nav-right {
     display: none;
   }
   .nav-logo {
@@ -395,17 +395,17 @@ body {
   .card-dokter .body .desc .motto {
     font-size: 10px;
   }
-  .footer {
+  .foot-bar {
     padding: 20px;
     padding-left: 20px;
     padding-right: 20px;
     background-color: var(--primary);
     color: var(--white);
   }
-  .footer .footer-item {
+  .foot-bar .foot-bar-item {
     width: 100%;
   }
-  .footer .footer-item .head {
+  .foot-bar .foot-bar-item .head {
     font-size: 20px;
     font-weight: normal;
     text-transform: uppercase;
@@ -499,151 +499,151 @@ body {
   border-color: var(--black);
 }
 
-button.btn {
+button.button {
   border-radius: 5px;
   transition: 0.2s ease;
 }
-button.btn:active {
+button.button:active {
   transform: scale(0.97);
 }
-button.btn.btn-transparant {
+button.button.button-transparant {
   background-color: var(--transparant);
   padding: 7px;
 }
-button.btn.btn-transparant:hover {
+button.button.button-transparant:hover {
   background-color: var(--transparant-hover);
 }
-button.btn.btn-white {
+button.button.button-white {
   background-color: var(--white);
   padding: 7px;
 }
-button.btn.btn-white:hover {
+button.button.button-white:hover {
   background-color: var(--white-hover);
 }
-button.btn.btn-primary {
+button.button.button-primary {
   background-color: var(--primary);
   padding: 7px;
 }
-button.btn.btn-primary:hover {
+button.button.button-primary:hover {
   background-color: var(--primary-hover);
 }
-button.btn.btn-dark {
+button.button.button-dark {
   background-color: var(--dark);
   padding: 7px;
 }
-button.btn.btn-dark:hover {
+button.button.button-dark:hover {
   background-color: var(--dark-hover);
 }
-button.btn.btn-midDark {
+button.button.button-midDark {
   background-color: var(--midDark);
   padding: 7px;
 }
-button.btn.btn-midDark:hover {
+button.button.button-midDark:hover {
   background-color: var(--midDark-hover);
 }
-button.btn.btn-secondary {
+button.button.button-secondary {
   background-color: var(--secondary);
   padding: 7px;
 }
-button.btn.btn-secondary:hover {
+button.button.button-secondary:hover {
   background-color: var(--secondary-hover);
 }
-button.btn.btn-info {
+button.button.button-info {
   background-color: var(--info);
   padding: 7px;
 }
-button.btn.btn-info:hover {
+button.button.button-info:hover {
   background-color: var(--info-hover);
 }
-button.btn.btn-black {
+button.button.button-black {
   background-color: var(--black);
   padding: 7px;
 }
-button.btn.btn-black:hover {
+button.button.button-black:hover {
   background-color: var(--black);
 }
-button.btn.btn-warning {
+button.button.button-warning {
   background-color: var(--warning-hover);
   padding: 7px;
 }
-button.btn.btn-warning:hover {
+button.button.button-warning:hover {
   background-color: var(--warning-hover);
 }
 
-.btn-sidebar {
+.button-sidebar {
   display: block;
   padding: 20px;
   border-radius: 100px;
 }
 
-button.btn-circle {
+button.button-circle {
   border-radius: 100%;
   transition: 0.2s ease;
 }
-button.btn-circle:active {
+button.button-circle:active {
   transform: scale(0.97);
 }
-button.btn-circle.btn-transparant {
+button.button-circle.button-transparant {
   background-color: var(--transparant);
   padding: 7px;
 }
-button.btn-circle.btn-transparant:hover {
+button.button-circle.button-transparant:hover {
   background-color: var(--transparant-hover);
 }
-button.btn-circle.btn-white {
+button.button-circle.button-white {
   background-color: var(--white);
   padding: 7px;
 }
-button.btn-circle.btn-white:hover {
+button.button-circle.button-white:hover {
   background-color: var(--white-hover);
 }
-button.btn-circle.btn-primary {
+button.button-circle.button-primary {
   background-color: var(--primary);
   padding: 7px;
 }
-button.btn-circle.btn-primary:hover {
+button.button-circle.button-primary:hover {
   background-color: var(--primary-hover);
 }
-button.btn-circle.btn-dark {
+button.button-circle.button-dark {
   background-color: var(--dark);
   padding: 7px;
 }
-button.btn-circle.btn-dark:hover {
+button.button-circle.button-dark:hover {
   background-color: var(--dark-hover);
 }
-button.btn-circle.btn-midDark {
+button.button-circle.button-midDark {
   background-color: var(--midDark);
   padding: 7px;
 }
-button.btn-circle.btn-midDark:hover {
+button.button-circle.button-midDark:hover {
   background-color: var(--midDark-hover);
 }
-button.btn-circle.btn-secondary {
+button.button-circle.button-secondary {
   background-color: var(--secondary);
   padding: 7px;
 }
-button.btn-circle.btn-secondary:hover {
+button.button-circle.button-secondary:hover {
   background-color: var(--secondary-hover);
 }
-button.btn-circle.btn-info {
+button.button-circle.button-info {
   background-color: var(--info);
   padding: 7px;
 }
-button.btn-circle.btn-info:hover {
+button.button-circle.button-info:hover {
   background-color: var(--info-hover);
 }
-button.btn-circle.btn-black {
+button.button-circle.button-black {
   background-color: var(--black);
   padding: 7px;
 }
-button.btn-circle.btn-black:hover {
+button.button-circle.button-black:hover {
   background-color: var(--black);
 }
-button.btn-circle.btn-warning {
+button.button-circle.button-warning {
   background-color: var(--warning-hover);
   padding: 7px;
 }
-button.btn-circle.btn-warning:hover {
+button.button-circle.button-warning:hover {
   background-color: var(--warning-hover);
 }
 

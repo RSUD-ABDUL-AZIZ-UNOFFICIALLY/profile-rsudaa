@@ -46,7 +46,7 @@ body {
   display: none;
 }
 
-.navbar {
+.navigation-bar {
   // padding: 20px;
   position: fixed;
   top: 0;
@@ -74,7 +74,7 @@ body {
     align-items: center;
     height: auto;
 
-    .btn-sidebar {
+    .button-sidebar {
       display: none;
     }
 
@@ -193,7 +193,7 @@ body {
   }
 }
 
-.footer {
+.foot-bar {
   padding: 20px;
   padding-top: 50px;
   padding-left: 200px;
@@ -201,7 +201,7 @@ body {
   background-color: var(--primary);
   color: var(--white);
 
-  .footer-item {
+  .foot-bar-item {
     width: 100%;
 
     .head {
@@ -363,7 +363,7 @@ body {
     }
   }
 
-  .navbar {
+  .navigation-bar {
     padding-left: 5px;
     padding-right: 5px;
     position: fixed;
@@ -388,7 +388,7 @@ body {
       justify-content: space-between;
       width: 100%;
 
-      .btn-sidebar {
+      .button-sidebar {
         display: block;
         padding: 20px;
         border-radius: 100px;
@@ -499,14 +499,14 @@ body {
     }
   }
 
-  .footer {
+  .foot-bar {
     padding: 20px;
     padding-left: 20px;
     padding-right: 20px;
     background-color: var(--primary);
     color: var(--white);
 
-    .footer-item {
+    .foot-bar-item {
       width: 100%;
 
       .head {
@@ -612,7 +612,7 @@ body {
 }
 
 button {
-  &.btn {
+  &.button {
     border-radius: 5px;
     transition: 0.2s ease;
 
@@ -620,7 +620,7 @@ button {
       transform: scale(0.97);
     }
 
-    &.btn-transparant {
+    &.button-transparant {
       background-color: var(--transparant);
       padding: 7px;
 
@@ -629,7 +629,7 @@ button {
       }
     }
 
-    &.btn-white {
+    &.button-white {
       background-color: var(--white);
       padding: 7px;
 
@@ -639,7 +639,7 @@ button {
     }
 
 
-    &.btn-primary {
+    &.button-primary {
       background-color: var(--primary);
       padding: 7px;
 
@@ -648,7 +648,7 @@ button {
       }
     }
 
-    &.btn-dark {
+    &.button-dark {
       background-color: var(--dark);
       padding: 7px;
 
@@ -657,7 +657,7 @@ button {
       }
     }
 
-    &.btn-midDark {
+    &.button-midDark {
       background-color: var(--midDark);
       padding: 7px;
 
@@ -666,7 +666,7 @@ button {
       }
     }
 
-    &.btn-secondary {
+    &.button-secondary {
       background-color: var(--secondary);
       padding: 7px;
 
@@ -675,7 +675,7 @@ button {
       }
     }
 
-    &.btn-info {
+    &.button-info {
       background-color: var(--info);
       padding: 7px;
 
@@ -684,7 +684,7 @@ button {
       }
     }
 
-    &.btn-black {
+    &.button-black {
       background-color: var(--black);
       padding: 7px;
 
@@ -693,7 +693,7 @@ button {
       }
     }
 
-    &.btn-warning {
+    &.button-warning {
       background-color: var(--warning-hover);
       padding: 7px;
 
@@ -704,14 +704,14 @@ button {
   }
 }
 
-.btn-sidebar {
+.button-sidebar {
   display: block;
   padding: 20px;
   border-radius: 100px;
 }
 
 button {
-  &.btn-circle {
+  &.button-circle {
     border-radius: 100%;
     transition: 0.2s ease;
 
@@ -719,7 +719,7 @@ button {
       transform: scale(0.97);
     }
 
-    &.btn-transparant {
+    &.button-transparant {
       background-color: var(--transparant);
       padding: 7px;
 
@@ -728,7 +728,7 @@ button {
       }
     }
 
-    &.btn-white {
+    &.button-white {
       background-color: var(--white);
       padding: 7px;
 
@@ -738,7 +738,7 @@ button {
     }
 
 
-    &.btn-primary {
+    &.button-primary {
       background-color: var(--primary);
       padding: 7px;
 
@@ -747,7 +747,7 @@ button {
       }
     }
 
-    &.btn-dark {
+    &.button-dark {
       background-color: var(--dark);
       padding: 7px;
 
@@ -756,7 +756,7 @@ button {
       }
     }
 
-    &.btn-midDark {
+    &.button-midDark {
       background-color: var(--midDark);
       padding: 7px;
 
@@ -765,7 +765,7 @@ button {
       }
     }
 
-    &.btn-secondary {
+    &.button-secondary {
       background-color: var(--secondary);
       padding: 7px;
 
@@ -774,7 +774,7 @@ button {
       }
     }
 
-    &.btn-info {
+    &.button-info {
       background-color: var(--info);
       padding: 7px;
 
@@ -783,7 +783,7 @@ button {
       }
     }
 
-    &.btn-black {
+    &.button-black {
       background-color: var(--black);
       padding: 7px;
 
@@ -792,7 +792,7 @@ button {
       }
     }
 
-    &.btn-warning {
+    &.button-warning {
       background-color: var(--warning-hover);
       padding: 7px;
 

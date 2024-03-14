@@ -42,7 +42,7 @@ const SectionHome = () => {
                         >
                             <div className="flex justify-between mb-10">
                                 <div className={`text-primary uppercase w-fit font-bold text-3xl pb-2 pr-5 border-b-8 border-primary`}>Kegiatan</div>
-                                <button className="btn btn-transparant">
+                                <button className="button button-transparant">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                     </svg>

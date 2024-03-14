@@ -46,7 +46,7 @@ const SectionHomeKegiatan = () => {
                         </div>
                         <div className="bg-yellow-400 p-2 text-xs w-fit rounded-sm">{today}</div>
                         <div className="text-justify p-3 overflow-hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero commodi, provident officia ea ut quam eum est, officiis amet doloribus atque dolores quaerat facere et debitis repellat ad autem minus odio, magnam unde consequatur suscipit corporis? Vitae nam repellat cupiditate quo minus, ut distinctio sint omnis beatae assumenda et nemo id pariatur eveniet eligendi impedit voluptatibus eos! </div>
-                        <button className="btn btn-primary text-white mt-2">Read more</button>
+                        <button className="button button-primary text-white mt-2">Read more</button>
                     </div>
                 </div>
                 <div className='grid lg:md:grid-cols-10'>
@@ -66,7 +66,7 @@ const SectionHomeKegiatan = () => {
                         </div>
                         <div className="bg-yellow-400 p-2 text-xs w-fit rounded-sm">{today}</div>
                         <div className="text-justify p-3 overflow-hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero commodi, provident officia ea ut quam eum est, officiis amet doloribus atque dolores quaerat facere et debitis repellat ad autem minus odio, magnam unde consequatur suscipit corporis? Vitae nam repellat cupiditate quo minus, ut distinctio sint omnis beatae assumenda et nemo id pariatur eveniet eligendi impedit voluptatibus eos! </div>
-                        <button className="btn btn-primary text-white mt-2">Read more</button>
+                        <button className="button button-primary text-white mt-2">Read more</button>
                     </div>
                 </div>
             </motion.div>

@@ -50,9 +50,9 @@ const NavigationBar = () => {
     }, [isInView]);
 
     return (
-        <div className={`navbar ${isScrolled == true ? `bottom` : `top`}`} ref={navbarRef}>
+        <div className={`navigation-bar p-0 ${isScrolled == true ? `bottom` : `top`}`} ref={navbarRef}>
             <div className="nav-left">
-                <button onClick={(() => handleSidebar(true))} className="btn-sidebar rounded-full btn btn-transparant">
+                <button onClick={(() => handleSidebar(true))} className="button-sidebar rounded-full button button-transparant">
                     <Image
                         src={sidebarIcon}
                         alt="Picture of the author"
