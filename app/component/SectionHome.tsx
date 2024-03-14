@@ -40,7 +40,7 @@ const SectionHome = () => {
                             animate={mainControls}
                             transition={{ duration: 0.5, delay: 0 }}
                         >
-                            <div className="flex justify-between">
+                            <div className="flex justify-between mb-10">
                                 <div className={`text-primary uppercase w-fit font-bold text-3xl pb-2 pr-5 border-b-8 border-primary`}>Kegiatan</div>
                                 <button className="btn btn-transparant">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -48,9 +48,9 @@ const SectionHome = () => {
                                     </svg>
                                 </button>
                             </div>
-                            <div className="uppercase flex justify-center mt-10 mb-10 text-center">
+                            {/* <div className="uppercase flex justify-center mt-10 mb-10 text-center">
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            </div>
+                            </div> */}
                             <SectionHomeKegiatan />
                         </motion.div>
                         <motion.div
@@ -85,9 +85,9 @@ const SectionHome = () => {
                             <div className="flex justify-right">
                                 <div className={`text-primary uppercase w-fit font-bold text-3xl pb-2 pr-5 border-b-8 border-primary`}>Pelayanan Publik</div>
                             </div>
-                            <div className="uppercase flex justify-center mt-10 mb-10 text-center">
+                            {/* <div className="uppercase flex justify-center mt-10 mb-10 text-center">
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            </div>
+                            </div> */}
                             <SectionHomePelayananPublic />
                         </div>
                     </div>
@@ -100,9 +100,9 @@ const SectionHome = () => {
                             <div className="flex justify-center">
                                 <div className={`text-primary uppercase w-fit font-bold text-3xl pb-2 pr-2 pl-2 border-b-8 border-primary`}>Dokter Kami</div>
                             </div>
-                            <div className="uppercase flex justify-center mt-10 mb-10 text-center">
+                            {/* <div className="uppercase flex justify-center mt-10 mb-10 text-center">
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            </div>
+                            </div> */}
                             <SectionHomeDaftarDokter />
                             {/* <SectionHomePelayananPublic /> */}
                         </div>

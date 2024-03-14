@@ -59,12 +59,12 @@ const NavigationBar = () => {
                         className='h-[20px] w-auto'
                     />
                 </button>
-                <div className="nav-logo bg-white h-full">
+                <div className="nav-logo h-full">
                     <div className="">
                         <Image
                             src={skwLogo}
                             alt="Picture of the author"
-                            className='lg:h-[80px] h-[50px] w-auto'
+                            className='lg:h-[70px] h-[50px] w-auto'
                         />
                     </div>
                 </div>

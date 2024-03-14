@@ -18,6 +18,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [nextui()],
+  plugins: [],
 }
 export default config
