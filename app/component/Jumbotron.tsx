@@ -12,7 +12,7 @@ const Jumbotron = () => {
     }, [isInView])
     return (
         <div ref={ref} className="">
-            <div className='overflow-hidden flex justify-center items-center'>
+            <div className='overflow-hidden flex justify-center items-center bg-[url("/tron.jpg")] min-h-[70vh] bg-cover bg-center'>
                 <div className={`absolute text-white translate-y-10`}>
                     <motion.div
                         variants={{
@@ -38,7 +38,6 @@ const Jumbotron = () => {
                         </div>
                     </motion.div>
                 </div>
-                <img className='object-cover w-full lg:md:h-full h-[60vh]' src="/tron.jpg" alt="" />
             </div>
         </div >
     )
