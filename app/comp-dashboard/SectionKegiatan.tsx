@@ -5,6 +5,10 @@ import axios, { AxiosResponse } from 'axios'
 import { ActivityResponse } from '../Model/activity.model'
 import itemImage from "../../public/hospital.webp";
 import Image from 'next/image'
+import moment from 'moment'
+import Link from 'next/link'
+require('moment/locale/id');
+moment.locale('id');
 
 const SectionKegiatan = () => {
     const motionRef = useRef(null)
@@ -18,7 +22,7 @@ const SectionKegiatan = () => {
 
     const getActivity = useCallback(async () => {
         try {
-            const res: AxiosResponse<any> = await axios.get(`http://localhost:4444/api/activity?data=2`);
+            const res: AxiosResponse<any> = await axios.get(`http://localhost:4444/api/activity?data=3`);
 
             const responseData: ActivityResponse[] = res.data.data.activity;
 
@@ -30,6 +34,12 @@ const SectionKegiatan = () => {
             console.error('Failed to fetch activity:', error);
         }
     }, [dataActivity]);
+
+    const [tab, setTab] = useState<string>('kegiatan')
+
+    const handleTab = (e: string) => {
+        setTab(e)
+    }
 
     useEffect(() => {
         getActivity()
@@ -52,47 +62,60 @@ const SectionKegiatan = () => {
             animate={mainControls}
             transition={{ duration: 0.5, delay: 0 }}
         >
-            <div className="flex justify-between mb-10">
-                <div className={`text-primary uppercase w-fit font-bold text-3xl pb-2 pr-5 border-b-8 border-primary`}>Kegiatan</div>
-                <button className="button button-transparant">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                    </svg>
-                </button>
+
+            <div role="tablist" className="tabs tabs-lifted">
+                <input type="radio" name="my_tabs_2" role="tab" className={`tab  uppercase ${tab === 'kegiatan' ? `text-primary font-bold text-2xl` : `text-sm`}`} aria-label="Kegiatan" onChange={() => handleTab('kegiatan')} checked={tab === 'kegiatan' ? true : false} />
+                <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                    <motion.div
+                        className="grid lg:md:gap-6 gap-4"
+                        ref={motionRefItem}
+                        variants={{
+                            hidden: { opacity: 0, y: 75 },
+                            visible: { opacity: 1, y: 0 }
+                        }}
+                        initial="hidden"
+                        animate={mainControlsItem}
+                        transition={{ duration: 0.5, delay: 0.5 }}
+                    >
+                        {dataActivity ?
+                            <>
+                                {dataActivity.map((item: ActivityResponse, index: number) => {
+                                    const desc: any = item.desc
+                                    const shortString = desc.split(" ").slice(0, 50).join(" "); // Ambil 100 kata pertama
+
+                                    const truncatedString = desc.slice(0, 250) + " ...";
+                                    // const truncatedString = shortString + "..."; // Tambahkan "---" di belakangnya
+                                    return (
+                                        <div key={index} className='grid lg:md:grid-cols-10 gap-1'>
+                                            <div className="col-span-4 overflow-hidden">
+                                                <Image src={itemImage} alt="Picture of the author" sizes='100%' style={{ objectFit: 'cover' }} />
+                                            </div>
+                                            <div className="col-span-6 lg:md:pl-3 lg:md:pr-3 text-black h-full">
+                                                <div className="lg:md:text-xl text-xl font-bold uppercase">{item.title}</div>
+                                                <div className="bg-yellow-400 p-1 text-xs w-fit rounded-sm">
+                                                    {moment(item.createdAt).format('HH:MM')} - <span> {moment(item.createdAt).format('DD MMMM YYYY')}</span>
+                                                </div>
+                                                <div className="text-justify p-3 overflow-hidden">{truncatedString}</div>
+                                                <button className="button button-primary text-white mt-2 w-fit">Read more</button>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                                <Link href={''} className='hover:underline active:scale-95 duration-200  text-left mt-4'>Semua Kegiatan {`>>>`}</Link>
+                            </>
+
+                            :
+                            <>
+                                <span className="loading loading-spinner loading-lg"></span>
+                            </>
+
+                        }
+                    </motion.div>
+                </div>
+
+                <input type="radio" name="my_tabs_2" role="tab" className={`tab  uppercase ${tab === 'artikel' ? `text-primary font-bold text-2xl` : `text-sm`}`} aria-label="Artikel" onChange={() => handleTab('artikel')} checked={tab === 'artikel' ? true : false} />
+                <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">Tab content 2</div>
             </div>
-
-            <motion.div
-                className="grid gap-4"
-                ref={motionRefItem}
-                variants={{
-                    hidden: { opacity: 0, y: 75 },
-                    visible: { opacity: 1, y: 0 }
-                }}
-                initial="hidden"
-                animate={mainControlsItem}
-                transition={{ duration: 0.5, delay: 0.5 }}
-            >
-                {dataActivity && dataActivity.map((item: ActivityResponse, index: number) => {
-                    const desc: any = item.desc
-                    const shortString = desc.split(" ").slice(0, 50).join(" "); // Ambil 100 kata pertama
-
-                    const truncatedString = desc.slice(0, 250) + " ...";
-                    // const truncatedString = shortString + "..."; // Tambahkan "---" di belakangnya
-                    return (
-                        <div key={index} className='grid lg:md:grid-cols-10 gap-1'>
-                            <div className="col-span-5 overflow-hidden">
-                                <Image src={itemImage} alt="Picture of the author" sizes='100%' style={{ objectFit: 'cover' }} />
-                            </div>
-                            <div className="col-span-5 lg:md:pl-3 lg:md:pr-3 text-black h-full">
-                                <div className="lg:md:text-3xl text-xl font-bold ">{item.title}</div>
-                                <div className="bg-yellow-400 p-2 text-xs w-fit rounded-sm">{item.createdAt}</div>
-                                <div className="text-justify p-3 overflow-hidden">{truncatedString}</div>
-                                <button className="button button-primary text-white mt-2 w-fit">Read more</button>
-                            </div>
-                        </div>
-                    )
-                })}
-            </motion.div>
         </motion.div>
     )
 }

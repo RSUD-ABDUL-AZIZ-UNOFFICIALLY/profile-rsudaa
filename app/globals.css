@@ -14,7 +14,7 @@
   --midDark-hover: #04433b;
   --secondary: #aacd71;
   --secondary-hover: rgb(153, 183, 104)1;
-  --info: #d9f8f3;
+  --info: #eefdfb;
   --info-hover: #c2ddd8;
   --white: #ffffff;
   --white-hover: #fcfcfc;
@@ -52,7 +52,7 @@ body {
 .navigation-bar.bottom {
   background-color: var(--white);
   color: var(--primary);
-  box-shadow: 0px 0px 10px -5px var(--black);
+  box-shadow: 0px 0px 20px -15px var(--black);
 }
 .navigation-bar .nav-left {
   display: flex;

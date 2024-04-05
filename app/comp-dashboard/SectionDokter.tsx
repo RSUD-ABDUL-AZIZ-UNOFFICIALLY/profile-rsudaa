@@ -16,12 +16,13 @@ function SectionDokter() {
                         </div>
                         <div className="flex gap-6 flex-wrap justify-center mt-4 lg:md:pl-[120px] lg:md:pr-[120px]">
                             <div className="flex justify-center lg:md:w-[22%] w-[45%]">
+                                <div className="grid grid-cola-5"></div>
                                 <div className="card-dokter lg:md:w-[100%]">
                                     <div className="body h-full">
                                         <Image
                                             src={dokter1}
                                             alt="Picture of the author"
-                                            className='img-dokter object-fill w-full'
+                                            className=''
                                         />
                                         <div className="desc w-max">
                                             <div className="name">Nama Dokter</div>

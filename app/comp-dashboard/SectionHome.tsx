@@ -1,9 +1,9 @@
 'use client'
 import React from 'react'
-import SectionDokter from './sectionDokter'
 import SectionPelayananPublik from './SectionPelayananPublik'
 import SectionKegiatan from './SectionKegiatan'
 import SectionPengumuman from './SectionPengumuman'
+import SectionDokter from './SectionDokter'
 
 const SectionHome = () => {
     return (

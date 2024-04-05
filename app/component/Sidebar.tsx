@@ -2,6 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import close from "../../public/icon/close.svg";
+import { TentangKami, PelayananPublik, Aplikasi, DasarHukum, Karir } from './navItem';
+
+
 const Sidebar = ({ handleSidebar, open }: { handleSidebar: any, open: boolean }) => {
     const [active, setActive] = useState<string>('')
 
@@ -42,11 +45,7 @@ const Sidebar = ({ handleSidebar, open }: { handleSidebar: any, open: boolean })
 
                     </button>
                     <div className={`dropdown ${active == 'tentang-kami' && `active`}`}>
-                        <Link href={`/profil`} className="dropdown-item">Profil Rumah Sakit</Link>
-                        <Link href={`/struktur-organisasi`} className="dropdown-item">Struktur Organisasi</Link>
-                        <Link href={`/struktur-manajemen`} className="dropdown-item">Struktur Manajemen</Link>
-                        <Link href={`/maklumat-pelayanan`} className="dropdown-item">Maklumat Pelayanan</Link>
-                        <Link href={`/profil-direktur`} className="dropdown-item">Profil Direktur</Link>
+                        {TentangKami()}
                     </div>
                 </div>
                 <div className="sidebar-item">
@@ -61,13 +60,7 @@ const Sidebar = ({ handleSidebar, open }: { handleSidebar: any, open: boolean })
                         </div>
                     </button>
                     <div className={`dropdown ${active == 'pelayanan-publik' && `active`}`}>
-                        <Link href={`/survei-kepuasan-masyarakat`} className="dropdown-item">Survey Kepuasan Masyarakat</Link>
-                        <Link href={`/layanan-informasi`} className="dropdown-item">Layanan Informasi</Link>
-                        <Link href={`/pengaduan`} className="dropdown-item">Pengaduan</Link>
-                        <Link href={`/informasi-poliklinik`} className="dropdown-item">Informasi Poliklinik</Link>
-                        <Link href={`/jadwal-praktek`} className="dropdown-item">Jadwal Praktek</Link>
-                        <Link href={`/fasilitas-tarif`} className="dropdown-item">Fasilitas & Tarif</Link>
-                        <Link href={`/pendaftaran-online`} className="dropdown-item">Pendaftaran Online</Link>
+                        {PelayananPublik()}
                     </div>
                 </div>
                 <div className="sidebar-item">
@@ -82,8 +75,7 @@ const Sidebar = ({ handleSidebar, open }: { handleSidebar: any, open: boolean })
                         </div>
                     </button>
                     <div className={`dropdown ${active == 'karir' && `active`}`}>
-                        <Link href={`#`} className="dropdown-item">Lowongan Pekerjaan</Link>
-                        <Link href={`#`} className="dropdown-item">Magang</Link>
+                        {Karir()}
                     </div>
                 </div>
                 <div className="sidebar-item">
@@ -98,10 +90,7 @@ const Sidebar = ({ handleSidebar, open }: { handleSidebar: any, open: boolean })
                         </div>
                     </button>
                     <div className={`dropdown ${active == 'aplikasi' && `active`}`}>
-                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+                        {Aplikasi()}
                     </div>
                 </div>
                 <div className="sidebar-item">
@@ -116,10 +105,7 @@ const Sidebar = ({ handleSidebar, open }: { handleSidebar: any, open: boolean })
                         </div>
                     </button>
                     <div className={`dropdown ${active == 'dasar-hukum' && `active`}`}>
-                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-                        <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+                        {DasarHukum()}
                     </div>
                 </div>
                 <div className="sidebar-item">

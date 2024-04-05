@@ -6,6 +6,8 @@ import sidebarIcon from "../../public/icon/sidebarIcon.svg";
 import skwLogo from "../../public/skw.png";
 import Sidebar from './Sidebar';
 import { motion, useInView, useAnimation } from "framer-motion"
+import { TentangKami, PelayananPublik, Karir, DasarHukum } from './navItem';
+
 const NavigationBar = () => {
     const navbarRef = useRef(null);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -70,7 +72,7 @@ const NavigationBar = () => {
                 </div>
             </div>
             <Sidebar handleSidebar={handleSidebar} open={sidebar} />
-            <div className="nav-right">
+            <div className="nav-right text-sm">
                 <motion.div
                     className="nav-menu"
                     ref={motionRef}
@@ -88,48 +90,31 @@ const NavigationBar = () => {
                     <div className="nm-item" onMouseEnter={onHover} onMouseLeave={offHover}>
                         <button className='item' >Tentang Kami</button>
                         <div className="dropdown">
-                            <Link href={`/profil`} className="dropdown-item">Profil Rumah Sakit</Link>
-                            <Link href={`/struktur-organisasi`} className="dropdown-item">Struktur Organisasi</Link>
-                            <Link href={`/struktur-manajemen`} className="dropdown-item">Struktur Manajemen</Link>
-                            <Link href={`/maklumat-pelayanan`} className="dropdown-item">Maklumat Pelayanan</Link>
-                            <Link href={`/profil-direktur`} className="dropdown-item">Profil Direktur</Link>
+                            {TentangKami()}
                         </div>
                     </div>
                     <div className="nm-item">
                         <button className='item' >Pelayanan Publik</button>
                         <div className="dropdown">
-                            <Link href={`/survei-kepuasan-masyarakat`} className="dropdown-item">Survey Kepuasan Masyarakat</Link>
-                            <Link href={`/layanan-informasi`} className="dropdown-item">Layanan Informasi</Link>
-                            <Link href={`/pengaduan`} className="dropdown-item">Pengaduan</Link>
-                            <Link href={`/informasi-poliklinik`} className="dropdown-item">Informasi Poliklinik</Link>
-                            <Link href={`/jadwal-praktek`} className="dropdown-item">Jadwal Praktek</Link>
-                            <Link href={`/fasilitas-tarif`} className="dropdown-item">Fasilitas & Tarif</Link>
-                            <Link href={`/pendaftaran-online`} className="dropdown-item">Pendaftaran Online</Link>
+                            {PelayananPublik()}
                         </div>
                     </div>
                     <div className="nm-item">
                         <button className='item'>Karir</button>
                         <div className="dropdown">
-                            <Link href={`#`} className="dropdown-item">Lowongan Pekerjaan</Link>
-                            <Link href={`#`} className="dropdown-item">Magang</Link>
+                            {Karir()}
                         </div>
                     </div>
                     <div className="nm-item">
                         <button className='item' >Aplikasi</button>
                         <div className="dropdown">
-                            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-                            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-                            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-                            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+
                         </div>
                     </div>
                     <div className="nm-item">
                         <button className='item'>Dasar Hukum</button>
                         <div className="dropdown">
-                            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-                            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-                            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-                            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+                            {DasarHukum()}
                         </div>
                     </div>
                     <div className="nm-item">
