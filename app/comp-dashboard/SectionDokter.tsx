@@ -12,7 +12,7 @@ function SectionDokter() {
                 <div className="grid lg:grid-cols-10 lg:md:gap-4 h-full">
                     <div className="lg:md:col-span-10 bg-white p-4">
                         <div className="flex justify-center">
-                            <div className={`text-primary uppercase w-fit font-bold text-3xl pb-2 pr-2 pl-2 border-b-8 border-primary`}>Dokter Kami</div>
+                            <div className={`text-primary uppercase w-fit font-bold text-xl pb-2 pr-2 pl-2 border-b-4 border-primary`}>Dokter Kami</div>
                         </div>
                         <div className="flex gap-6 flex-wrap justify-center mt-4 lg:md:pl-[120px] lg:md:pr-[120px]">
                             <div className="flex justify-center lg:md:w-[22%] w-[45%]">

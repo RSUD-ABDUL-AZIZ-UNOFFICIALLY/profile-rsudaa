@@ -7,16 +7,16 @@ import JumbotronPage from '../component/JumbotronPage';
 import Section from './component/Section';
 
 export default function Home() {
-  return (
-    <NextUIProvider>
-      <BaseProvider>
-        <main className="">
-          <NavigationBar />
-          <JumbotronPage title='Profil Rumah Sakit' />
-          <Section />
-          <Footer />
-        </main>
-      </BaseProvider>
-    </NextUIProvider>
-  )
+    return (
+        <NextUIProvider>
+            <BaseProvider>
+                <main className="">
+                    <NavigationBar />
+                    <JumbotronPage title='Artikel' />
+                    <Section />
+                    <Footer />
+                </main>
+            </BaseProvider>
+        </NextUIProvider>
+    )
 }

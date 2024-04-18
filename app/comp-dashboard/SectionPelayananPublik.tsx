@@ -27,7 +27,7 @@ const SectionPelayananPublik = () => {
                 <div className="grid grid-cols-10 gap-4 h-full">
                     <div className="col-span-10 bg-white p-4">
                         <div className="flex justify-right">
-                            <div className={`text-primary uppercase w-fit font-bold text-2xl pb-2 pr-5 border-b-8 border-primary`}>Pelayanan Publik</div>
+                            <div className={`text-primary uppercase w-fit font-bold text-xl pb-2 pr-5 border-b-4 border-primary`}>Pelayanan Publik</div>
                         </div>
                         <motion.div
                             className="lg:md:mt-8 mt-4 w-full gap-4"

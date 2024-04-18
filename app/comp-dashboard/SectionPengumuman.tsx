@@ -15,7 +15,7 @@ const SectionPengumuman = () => {
 
     const getAnnouncement = useCallback(async () => {
         try {
-            const res: AxiosResponse<any> = await axios.get(`http://localhost:4444/api/announcement?data=4`);
+            const res: AxiosResponse<any> = await axios.get(`http://localhost:4444/api/announcement?data=3`);
 
             const responseData: AnnoucementResponse[] = res.data.data.announcement;
 
@@ -46,7 +46,7 @@ const SectionPengumuman = () => {
             animate={mainControls}
             transition={{ duration: 0.5, delay: 0 }}
         >
-            <div className={`text-primary uppercase w-fit font-bold text-2xl pb-2 pr-5 border-b-8 border-primary`}>Pengumuman</div>
+            <div className={`text-primary uppercase w-fit font-bold text-xl pb-2 pr-5 border-b-4 border-primary`}>Pengumuman</div>
             <div className="grid gap-3 mt-4">
                 {dataAnnouncement && dataAnnouncement.map((item: AnnoucementResponse, index: number) => {
                     const desc: any = item.desc

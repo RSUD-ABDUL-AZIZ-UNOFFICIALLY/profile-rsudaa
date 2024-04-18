@@ -6,11 +6,9 @@ const TentangKami = () => {
         <React.Fragment>
             <Link href={`/profil`} className="dropdown-item">Profil Rumah Sakit</Link>
             <Link href={`/struktur-organisasi`} className="dropdown-item">Struktur Organisasi</Link>
-            <Link href={`/struktur-manajemen`} className="dropdown-item">Struktur Manajemen</Link>
             <Link href={`/maklumat-pelayanan`} className="dropdown-item">Maklumat Pelayanan</Link>
-            <Link href={`/profil-direktur`} className="dropdown-item">Profil Direktur</Link>
-            <Link href={`/profil-direktur`} className="dropdown-item">Kegiatan</Link>
-            <Link href={`/profil-direktur`} className="dropdown-item">Artikel</Link>
+            <Link href={`/kegiatan`} className="dropdown-item">Kegiatan</Link>
+            <Link href={`/artikel`} className="dropdown-item">Artikel</Link>
         </React.Fragment>
     )
 }
