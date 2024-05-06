@@ -2,7 +2,7 @@ import { UUID } from "crypto"
 
 export class ArticleResponse {
     id?: Number
-    articleID?: UUID
+    articleID?: string
     title?: string
     desc?: string
     images?: []

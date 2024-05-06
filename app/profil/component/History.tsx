@@ -20,7 +20,7 @@ const History = () => {
 
     useEffect(() => {
         getHistory()
-    }, [History])
+    }, [])
     return (
         <div className='lg:pl-32 lg:pr-32 lg:p-5 md:pl-15 md:pr-15 md:p-3 p-2 flex justify-center'>
             <div className="lg:grid lg:grid-cols-5 gap-2 lg:w-[80%]">

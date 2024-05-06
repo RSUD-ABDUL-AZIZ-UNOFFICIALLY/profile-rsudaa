@@ -1,6 +1,45 @@
-import React from 'react'
+'use client'
+import { ProfileResponse } from '@/app/Model/profile.model'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 const VisiMisi = () => {
+    const [visi, setVisi] = useState<ProfileResponse>()
+    const [misi, setMisi] = useState<ProfileResponse>()
+
+    const API_URL = process.env.API_URL
+    const getVisi = async () => {
+        try {
+            const response = await axios.get(`${API_URL}/api/profile/visi`)
+            
+            if (response.data.data) {
+                setVisi(response.data.data)
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const getMisi = async () => {
+        try {
+            const response = await axios.get(`${API_URL}/api/profile/misi`)
+
+            if (response.data.data) {
+                setMisi(response.data.data)
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        getVisi()
+        getMisi()
+    }, [])
+
+    console.log(visi?.desc);
+
+
     return (
         <div className='bg-cover bg-center bg-[url("https://www.breachcandyhospital.org/sites/default/files/17-compressed.jpg")] relative'>
             <div className="bg-[#000000b4] min-h-10 lg:p-4 p-2">
@@ -11,7 +50,14 @@ const VisiMisi = () => {
                                 Visi
                             </div>
                         </div>
-                        <div className="lg:md:text-md text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae laudantium eveniet fugiat iure rerum sint facilis eligendi doloribus rem. Sapiente minus exercitationem eos! Nulla maxime sequi perspiciatis excepturi fugiat quibusdam possimus omnis fuga ad corporis et quae magni, voluptate deserunt. Sapiente error, sunt, voluptatum aspernatur molestiae sit magni fugiat accusantium praesentium asperiores architecto saepe corrupti earum nihil fuga optio cumque similique eveniet alias enim cupiditate numquam pariatur eos necessitatibus. Dicta quaerat perferendis omnis debitis incidunt est saepe architecto pariatur obcaecati, ratione tenetur ipsam quia. Aperiam fuga vitae quidem ipsam possimus? Dolorum ipsum possimus beatae ea libero officiis, tempore quo assumenda!</div>
+                        <div className="lg:md:text-md text-sm">
+                            {visi ? visi.desc :
+                                <>
+                                    <div className="flex justify-center items-center min-h-24">
+                                        <span className="loading loading-ring loading-md"></span>
+                                    </div>
+                                </>
+                            }</div>
                     </div>
                 </div>
                 <div className="flex justify-center items-center mt-4">
@@ -21,11 +67,18 @@ const VisiMisi = () => {
                                 Misi
                             </div>
                         </div>
-                        <div className="lg:md:text-md text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae laudantium eveniet fugiat iure rerum sint facilis eligendi doloribus rem. Sapiente minus exercitationem eos! Nulla maxime sequi perspiciatis excepturi fugiat quibusdam possimus omnis fuga ad corporis et quae magni, voluptate deserunt. Sapiente error, sunt, voluptatum aspernatur molestiae sit magni fugiat accusantium praesentium asperiores architecto saepe corrupti earum nihil fuga optio cumque similique eveniet alias enim cupiditate numquam pariatur eos necessitatibus. Dicta quaerat perferendis omnis debitis incidunt est saepe architecto pariatur obcaecati, ratione tenetur ipsam quia. Aperiam fuga vitae quidem ipsam possimus? Dolorum ipsum possimus beatae ea libero officiis, tempore quo assumenda!</div>
+                        <div className="lg:md:text-md text-sm">
+                            {misi ? misi.desc :
+                                <>
+                                    <div className="flex justify-center items-center min-h-24">
+                                        <span className="loading loading-ring loading-md"></span>
+                                    </div>
+                                </>
+                            }</div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

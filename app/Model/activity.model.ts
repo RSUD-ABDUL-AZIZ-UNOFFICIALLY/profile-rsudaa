@@ -2,7 +2,7 @@ import { UUID } from "crypto"
 
 export class ActivityResponse {
     id?: Number
-    activityID?: UUID
+    activityID?: string
     title?: string
     desc?: string
     images?: []

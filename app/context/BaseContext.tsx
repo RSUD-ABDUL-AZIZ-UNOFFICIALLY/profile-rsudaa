@@ -1,22 +1,46 @@
 'use client'
 
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { ActivityResponse } from "../Model/activity.model";
+import { ArticleResponse } from "../Model/article.model";
 
-export const BaseContext: any | null = createContext(null)
+interface BaseContextType {
+    modalActivity: boolean
+    modalActivityItem: ActivityResponse
+    modalArticle: boolean
+    modalArticleItem: ArticleResponse
+    setModalActivity: React.Dispatch<React.SetStateAction<boolean>>
+    setModalActivityItem: React.Dispatch<React.SetStateAction<ActivityResponse>>
+    setModalArticle: React.Dispatch<React.SetStateAction<boolean>>
+    setModalArticleItem: React.Dispatch<React.SetStateAction<ArticleResponse>>
+}
+
+export const BaseContext = createContext<BaseContextType>({
+    modalActivity: false,
+    modalActivityItem: {},
+    modalArticle: false,
+    modalArticleItem: {},
+    setModalActivity: () => { },
+    setModalActivityItem: () => { },
+    setModalArticle: () => { },
+    setModalArticleItem: () => { }
+})
 
 export const BaseProvider = ({ children }: { children: any }) => {
-    const color = {
-        primary: '#2e997d',
-        dark: '#002722',
-        midDark: '#002722',
-        secondary: '#aacd71',
-        info: '#d9f8f3',
-        white: '#ffffff',
-        black: '#101110',
-    }
+    const [modalActivity, setModalActivity] = useState<boolean>(false)
+    const [modalActivityItem, setModalActivityItem] = useState<ActivityResponse>({})
+
+    const [modalArticle, setModalArticle] = useState<boolean>(false)
+    const [modalArticleItem, setModalArticleItem] = useState<ArticleResponse>({})
 
     return (
-        <BaseContext.Provider value={{ color }} >
+        <BaseContext.Provider
+            value={{
+                modalActivity, setModalActivity,
+                modalActivityItem, setModalActivityItem,
+                modalArticle, setModalArticle,
+                modalArticleItem, setModalArticleItem
+            }} >
             {children}
         </BaseContext.Provider>
     )

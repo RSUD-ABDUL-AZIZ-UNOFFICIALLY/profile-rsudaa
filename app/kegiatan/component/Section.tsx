@@ -8,7 +8,6 @@ const Section = () => {
         <div>
             <Head />
             <Kegiatan />
-            <HighLight />
         </div>
     )
 }

@@ -11,11 +11,11 @@ const SectionHome = () => {
             <div className='section'>
                 <div className="item-section">
                     <div className="grid lg:md:grid-cols-10 lg:md:gap-4 h-full">
-                        <div className="lg:md:col-span-7">
-                            <SectionKegiatan />
-                        </div>
                         <div className="lg:md:col-span-3">
                             <SectionPengumuman />
+                        </div>
+                        <div className="lg:md:col-span-7">
+                            <SectionKegiatan />
                         </div>
                     </div>
                 </div>

@@ -14,7 +14,7 @@ export default function Home() {
       <BaseProvider>
         <main className="">
           <NavigationBar />
-          <JumbotronPage title='Pendaftaran Online' />
+          <JumbotronPage title='Lowongan Pekerjaan' />
           <Section />
           <Footer />
         </main>

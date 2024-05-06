@@ -6,9 +6,11 @@ import React, { useEffect, useState } from 'react'
 
 const AboutUs = () => {
     const [AboutUs, setAboutUs] = useState<ProfileResponse>()
+
+    const API_URL = process.env.API_URL
     const getAboutUs = async () => {
         try {
-            const data = await axios.get('http://localhost:4444/api/profile/about-us')
+            const data = await axios.get(`${API_URL}/api/profile/about-us`)
 
             if (data.data.data) {
                 setAboutUs(data.data.data)
@@ -21,7 +23,7 @@ const AboutUs = () => {
 
     useEffect(() => {
         getAboutUs()
-    }, [AboutUs])
+    }, [])
 
     return (
         <div className='lg:pl-32 lg:pr-32 lg:p-5 md:pl-15 md:pr-15 md:p-3 p-2'>

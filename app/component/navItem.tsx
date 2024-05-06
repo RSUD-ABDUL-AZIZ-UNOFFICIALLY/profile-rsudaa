@@ -29,8 +29,8 @@ const PelayananPublik = () => {
 const Karir = () => {
     return (
         <React.Fragment>
-            <Link href={`#`} className="dropdown-item">Lowongan Pekerjaan</Link>
-            <Link href={`#`} className="dropdown-item">Magang</Link>
+            <Link href={`/loker`} className="dropdown-item">Lowongan Pekerjaan</Link>
+            <Link href={`/magang`} className="dropdown-item">Magang</Link>
         </React.Fragment>
     )
 }

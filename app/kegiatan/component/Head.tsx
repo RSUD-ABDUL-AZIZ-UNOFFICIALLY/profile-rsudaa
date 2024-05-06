@@ -6,9 +6,11 @@ import React, { useEffect, useState } from 'react'
 const Head = () => {
     const [Data, setData] = useState<ProfileResponse>()
 
+    const API_URL = process.env.API_URL
+
     const getArtikel = async () => {
         try {
-            const response = await axios.get(`http://localhost:4444/api/profile/activity`)
+            const response = await axios.get(`${API_URL}/api/profile/activity`)
 
             if (response.data.data) {
                 setData(response.data.data)
