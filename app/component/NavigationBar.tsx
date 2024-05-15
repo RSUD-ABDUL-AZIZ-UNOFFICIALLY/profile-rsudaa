@@ -105,17 +105,20 @@ const NavigationBar = () => {
                             {Karir()}
                         </div>
                     </div>
-                    <div className="nm-item">
+                    {/* <div className="nm-item">
                         <button className='item' >Aplikasi</button>
                         <div className="dropdown">
 
                         </div>
-                    </div>
+                    </div> */}
                     <div className="nm-item">
                         <button className='item'>Dasar Hukum</button>
                         <div className="dropdown">
                             {DasarHukum()}
                         </div>
+                    </div>
+                    <div className="nm-item">
+                        <Link className='item' href="/laporan-tahunan">Laporan Tahunan</Link>
                     </div>
                     <div className="nm-item">
                         <Link className='item' href="/">Faq</Link>
