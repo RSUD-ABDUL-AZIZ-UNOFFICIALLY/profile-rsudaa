@@ -6,6 +6,9 @@ import { BaseProvider } from '../context/BaseContext';
 import SectionHome from '../comp-dashboard/SectionHome';
 import Footer from '../component/Footer';
 import JumbotronPage from '../component/JumbotronPage';
+import Section from './Section';
+import SectionPelayananPublik from '../comp-dashboard/SectionPelayananPublik';
+import SectionDokter from '../comp-dashboard/SectionDokter';
 
 export default function Home() {
   return (
@@ -14,7 +17,9 @@ export default function Home() {
         <main className="">
           <NavigationBar />
           <JumbotronPage title='Informasi Poliklinik' />
-          profil
+          <Section />
+          <SectionPelayananPublik />
+          <SectionDokter />
           <Footer />
         </main>
       </BaseProvider>

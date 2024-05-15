@@ -33,8 +33,8 @@ const SectionPelayananPublik = () => {
                             className="lg:md:mt-8 mt-4 w-full gap-4"
                             ref={motionRef}
                             variants={{
-                                hidden: { opacity: 0, y: 200 },
-                                visible: { opacity: 1, y: 0 }
+                                hidden: { opacity: 0, x: -200 },
+                                visible: { opacity: 1, x: 0 }
                             }}
                             initial="hidden"
                             animate={mainControls}

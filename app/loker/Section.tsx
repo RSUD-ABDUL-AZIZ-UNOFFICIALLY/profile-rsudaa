@@ -59,13 +59,13 @@ const Section = () => {
 
                 <div className="rounded-sm shadow-sm p-3 ">
                     <div className="pb-1 pr-5 w-fit border-b-4 border-primary text-primary mb-3">Daftar Lowongan</div>
-                    <div className="lg:flex grid justify-center items-center gap-2">
-                        {data && data.length > 0 ? data.map((item: LokerResponse, index) => {
+                    <div className="lg:flex grid justify-center items-center gap-2 h-full">
+                        {data && data.length > 0 ? data.map((item: LokerResponse, index: number) => {
                             const desc: any = item.desc
                             const id = item.id ? item.id : ''
-                            const truncate = desc.slice(0, 150) + "...";
+                            const truncate = desc.slice(0, 200) + " ...";
                             return (
-                                <React.Fragment>
+                                <React.Fragment key={index}>
                                     <div className="card lg:w-[30%] bg-base-100 shadow-sm rounded-sm">
                                         <div className="card-body">
                                             <h2 className="card-title">{item.name}</h2>

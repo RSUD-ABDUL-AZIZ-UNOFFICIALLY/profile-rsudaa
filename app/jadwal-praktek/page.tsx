@@ -6,6 +6,8 @@ import { BaseProvider } from '../context/BaseContext';
 import SectionHome from '../comp-dashboard/SectionHome';
 import Footer from '../component/Footer';
 import JumbotronPage from '../component/JumbotronPage';
+import Section from './Section';
+import SectionPelayananPublik from '../comp-dashboard/SectionPelayananPublik';
 
 export default function Home() {
   return (
@@ -14,7 +16,8 @@ export default function Home() {
         <main className="">
           <NavigationBar />
           <JumbotronPage title='Jadwal Praktek' />
-          profil
+          <Section />
+          <SectionPelayananPublik />
           <Footer />
         </main>
       </BaseProvider>

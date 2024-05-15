@@ -50,7 +50,7 @@ const VisiMisi = () => {
                                 Visi
                             </div>
                         </div>
-                        <div className="lg:md:text-md text-sm">
+                        <div className="lg:md:text-md text-md">
                             {visi ? visi.desc :
                                 <>
                                     <div className="flex justify-center items-center min-h-24">
@@ -67,7 +67,7 @@ const VisiMisi = () => {
                                 Misi
                             </div>
                         </div>
-                        <div className="lg:md:text-md text-sm">
+                        <div className="lg:md:text-md text-md">
                             {misi ? misi.desc :
                                 <>
                                     <div className="flex justify-center items-center min-h-24">

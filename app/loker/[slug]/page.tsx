@@ -16,7 +16,7 @@ export default function Home({ params }: { params: { slug: string } }) {
       <BaseProvider>
         <main className="">
           <NavigationBar />
-          <JumbotronPage title='  ' />
+          <JumbotronPage title='Lowongan Pekerjaan' />
           <Section slug={slug} />
           <Footer />
         </main>
