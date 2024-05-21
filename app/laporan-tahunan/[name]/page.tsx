@@ -1,20 +1,24 @@
 'use client'
-import Jumbotron from '../../component/Jumbotron';
 import NavigationBar from '../../component/NavigationBar'
 import { NextUIProvider } from "@nextui-org/system";
 import { BaseProvider } from '../../context/BaseContext';
-import SectionHome from '../../comp-dashboard/SectionHome';
 import Footer from '../../component/Footer';
 import JumbotronPage from '../../component/JumbotronPage';
+import Section from './Section';
+Section
 
-export default function Home() {
+
+export default function Home({ params }: { params: { name: string } }) {
+  let name: string = decodeURIComponent(params.name)
+
+
   return (
     <NextUIProvider>
       <BaseProvider>
         <main className="">
           <NavigationBar />
-          <JumbotronPage title='Renaksi' />
-          profil
+          <JumbotronPage title='Lowongan Pekerjaan' />
+          <Section name={name} />
           <Footer />
         </main>
       </BaseProvider>

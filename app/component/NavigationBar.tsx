@@ -6,7 +6,7 @@ import sidebarIcon from "../../public/icon/sidebarIcon.svg";
 import skwLogo from "../../public/skw.png";
 import Sidebar from './Sidebar';
 import { motion, useInView, useAnimation } from "framer-motion"
-import { TentangKami, PelayananPublik, Karir, DasarHukum } from './navItem';
+import { TentangKami, PelayananPublik, Karir, DasarHukum, Aplikasi } from './navItem';
 
 const NavigationBar = () => {
     const navbarRef = useRef(null);
@@ -105,12 +105,12 @@ const NavigationBar = () => {
                             {Karir()}
                         </div>
                     </div>
-                    {/* <div className="nm-item">
+                    <div className="nm-item">
                         <button className='item' >Aplikasi</button>
                         <div className="dropdown">
-
+                            {Aplikasi()}
                         </div>
-                    </div> */}
+                    </div>
                     <div className="nm-item">
                         <button className='item'>Dasar Hukum</button>
                         <div className="dropdown">
