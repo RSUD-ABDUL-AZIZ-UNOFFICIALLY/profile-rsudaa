@@ -45,7 +45,7 @@ const FormStrukturOrganisasi = () => {
 
     useEffect(() => {
         getData()
-    }, [data])
+    }, [alertUpdate])
 
     return (
         <div className='grid gap-2 w-full'>

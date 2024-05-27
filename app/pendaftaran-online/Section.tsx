@@ -57,7 +57,7 @@ const Section = () => {
                 </div>
                 {desc && link &&
                     <div className="flex justify-center mt-10">
-                        <Link href={`https://online.rsudaa.singkawangkota.go.id`} className='btn btn-primary'>Daftar Online Sekarang</Link>
+                        <Link href={link} className='btn btn-primary'>Daftar Online Sekarang</Link>
                     </div>
                 }
             </div>

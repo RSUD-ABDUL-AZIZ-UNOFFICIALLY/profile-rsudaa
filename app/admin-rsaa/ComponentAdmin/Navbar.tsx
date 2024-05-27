@@ -49,19 +49,19 @@ const Navbar: React.FC<props> = ({ active, title }) => {
                                 <Link href={'/admin-rsaa/maklumat-pelayanan'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'maklumat-pelayanan' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Maklumat Pelayanan</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'#'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'kegiatan' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Kegiatan</Link>
+                                <Link href={'/admin-rsaa/kegiatan'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'kegiatan' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Kegiatan</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'#'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'artikel' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Artikel</Link>
+                                <Link href={'/admin-rsaa/artikel'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'artikel' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Artikel</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'#'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'survei-kepuasan-masyarakat' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Survei Kepuasan Masyarakat</Link>
+                                <Link href={'/admin-rsaa/survei-kepuasan-masyarakat'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'survei-kepuasan-masyarakat' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Survei Kepuasan Masyarakat</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'#'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'layanan-informasi-pengaduan' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Layanan Informasi Pengaduan</Link>
+                                <Link href={'/admin-rsaa/layanan-informasi-pengaduan'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'layanan-informasi-pengaduan' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Layanan Informasi Pengaduan</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'#'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'pendaftaran-online' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Pendaftaran Online</Link>
+                                <Link href={'/admin-rsaa/pendaftaran-online'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'pendaftaran-online' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Pendaftaran Online</Link>
                             </li>
                             <li className='p-1'>
                                 <Link href={'#'} className={`btn  hover:shadow-md w-full shadow-sm ${active === 'loker' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Loker</Link>

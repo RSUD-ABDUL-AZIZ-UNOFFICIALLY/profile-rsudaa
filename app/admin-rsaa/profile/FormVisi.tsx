@@ -45,7 +45,7 @@ const FormVisi = () => {
 
     useEffect(() => {
         getData()
-    }, [data])
+    }, [alertUpdate])
 
     return (
         <div className='grid gap-2'>

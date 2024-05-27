@@ -50,7 +50,7 @@ const Section = () => {
                     {skmDesc ?
                         <>
                             <span className='m-1 bg-primary text-white rounded-sm p-1'>Survei Kepuasan Masyarakat RSUD dr Abdul Aziz</span>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente obcaecati cupiditate veritatis, dolores earum ad quae voluptates similique reiciendis, ullam alias, ab suscipit ducimus? Accusantium suscipit ab tempora velit voluptates, nam tenetur deserunt quibusdam in incidunt voluptate delectus eum obcaecati ut veniam eaque pariatur dolorem maxime ipsum hic? Impedit id obcaecati debitis expedita beatae fugit ad, ipsam omnis temporibus labore mollitia reiciendis! Praesentium eos iure odio corrupti rerum similique quo obcaecati sint voluptas facilis, ratione officiis at voluptates libero. Expedita culpa earum non provident corporis vitae eveniet temporibus rem.
+                            {skmDesc}
                         </>
                         :
                         <>

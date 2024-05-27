@@ -5,14 +5,14 @@ import React, { useCallback, useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import { headers } from 'next/headers'
 
-const FormMisi = () => {
+const FormLink = () => {
     const [data, setData] = useState<string>('')
     const API_URL = process.env.API_URL
     const access_token = Cookies.get('access_token')
     const [alertUpdate, setAlertUpdate] = useState<boolean>(false)
     const getData = useCallback(async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/misi`)
+            const response = await axios.get(`${API_URL}/api/profile/pendaftaranOnlineLink`)
 
             if (response.data) {
                 setData(response.data.data.desc)
@@ -24,7 +24,7 @@ const FormMisi = () => {
 
     const handleUpdate = async () => {
         try {
-            const response = await axios.post(`${API_URL}/api/profile/update/misi`, {
+            const response = await axios.post(`${API_URL}/api/profile/update/pendaftaranOnlineLink`, {
                 desc: data
             }, {
                 headers: {
@@ -48,15 +48,15 @@ const FormMisi = () => {
     }, [alertUpdate])
 
     return (
-        <div className='grid gap-2'>
-            <div className="">Misi RSUD</div>
+        <div className='grid gap-2 w-full'>
+            <div className="">Link Survei Kepuasan Masyarakat</div>
             {alertUpdate && <div className="p-3 bg-lime-200 rounded-md text-center font-bold uppercase">Update Successfully</div>}
             <div className="">
-                <textarea value={data} onChange={(e) => setData(e.target.value)} className="textarea textarea-bordered w-full" rows={5} placeholder="About RSUD"></textarea>
+                <input value={data} onChange={(e) => setData(e.target.value)} className="input input-bordered w-full" placeholder="About RSUD" />
             </div>
-            <button onClick={handleUpdate} className='btn btn-primary'>Update Misi</button>
+            <button onClick={handleUpdate} className='btn btn-warning'>Update Keterangan</button>
         </div>
     )
 }
 
-export default FormMisi
+export default FormLink

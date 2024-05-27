@@ -30,7 +30,7 @@ const FormUpdateImage = () => {
 
     const getData = useCallback(async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/signDirektur`)
+            const response = await axios.get(`${API_URL}/api/profile/layananInformasi-image`)
 
             if (response.data) {
                 setData(response.data.data.desc)
@@ -61,7 +61,7 @@ const FormUpdateImage = () => {
                     setData(upload.data.data.url)
                 }
 
-                const response = await axios.post(`${API_URL}/api/profile/update/signDirektur`, {
+                const response = await axios.post(`${API_URL}/api/profile/update/layananInformasi-image`, {
                     desc: upload.data.data.url
                 }, {
                     headers: {
@@ -87,9 +87,9 @@ const FormUpdateImage = () => {
 
     return (
         <div className='grid gap-2 w-full'>
-            <div className="">Sign Direktur</div>
+            <div className="">Image Layanan Informasi Pengaduan</div>
             {alertUpdate && <div className="p-3 bg-lime-200 rounded-md text-center font-bold uppercase">Update Successfully</div>}
-            <img src={imagePreview ? imagePreview : data} alt="" className='rounded w-[50%]' />
+            <img src={imagePreview ? imagePreview : data} alt="" className='rounded' />
             <div className="">
                 <input type="file" onChange={handleFileChange} className="file-input file-input-bordered w-full" />
             </div>
