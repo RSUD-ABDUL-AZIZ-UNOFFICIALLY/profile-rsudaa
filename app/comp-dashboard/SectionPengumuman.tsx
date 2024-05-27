@@ -48,7 +48,7 @@ const SectionPengumuman = () => {
         >
             <div className={`text-primary uppercase w-fit font-bold text-xl pb-2 pr-5 border-b-4 border-primary`}>Pengumuman</div>
             <div className="grid gap-3 mt-4">
-                {dataAnnouncement && dataAnnouncement.map((item: AnnoucementResponse, index: number) => {
+                {dataAnnouncement ? dataAnnouncement.map((item: AnnoucementResponse, index: number) => {
                     const desc: any = item.desc
                     const truncatedString = desc.slice(0, 150) + " ...";
                     return (
@@ -62,8 +62,31 @@ const SectionPengumuman = () => {
                             </div>
                         </React.Fragment>
                     )
-                })}
-                <Link href={''} className='hover:underline active:scale-95 duration-200  text-left'>Pengumuman Lainnya {`>>>`}</Link>
+                })
+                    :
+                    <>
+                        <div className="flex flex-col gap-9">
+                            <div className="flex flex-col gap-4 w-full">
+                                <div className="skeleton h-4 w-28"></div>
+                                <div className="skeleton h-4 w-full"></div>
+                                <div className="skeleton h-4 w-full"></div>
+                            </div>
+                            <div className="flex flex-col gap-4 w-full">
+                                <div className="skeleton h-4 w-28"></div>
+                                <div className="skeleton h-4 w-full"></div>
+                                <div className="skeleton h-4 w-full"></div>
+                            </div>
+                            <div className="flex flex-col gap-4 w-full">
+                                <div className="skeleton h-4 w-28"></div>
+                                <div className="skeleton h-4 w-full"></div>
+                                <div className="skeleton h-4 w-full"></div>
+                            </div>
+                        </div>
+                    </>
+                }
+                {dataAnnouncement &&
+                    <Link href={''} className='hover:underline active:scale-95 duration-200  text-left'>Pengumuman Lainnya {`>>>`}</Link>
+                }
             </div>
         </motion.div>
     )

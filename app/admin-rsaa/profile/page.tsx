@@ -1,12 +1,12 @@
 'use client'
-import { BaseProvider } from '../context/BaseContext';
-import Navbar from './ComponentAdmin/Navbar';
+import { BaseProvider } from '../../context/BaseContext';
+import Navbar from './../ComponentAdmin/Navbar';
 import Section from './Section';
 
 export default function Home() {
   return (
     <BaseProvider>
-      <Navbar title='home' active='home' />
+      <Navbar title='Profile' active='profile' />
       <main className='p-2' >
         <Section />
       </main>

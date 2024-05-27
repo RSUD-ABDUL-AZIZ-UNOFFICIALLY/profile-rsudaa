@@ -28,7 +28,7 @@ const Section = () => {
     }, [])
     return (
         <div className='flex justify-center p-2'>
-            <div className="lg:w-[90%]">
+            <div className="lg:w-[90%] w-[100%]">
                 <div className="grid lg:grid-cols-4 gap-4">
                     {dataPoli && dataPoli.length > 0 ? dataPoli.map((item: poliklinikResponse, index: number) => {
                         return (
@@ -53,7 +53,7 @@ const Section = () => {
                     })
                         :
                         <>
-                            <div className="card shadow-md shadow-zinc-100">
+                            <div className="card shadow-md shadow-zinc-100 w-full">
                                 <div className="card-body">
                                     <div className="">
                                         <div className="flex flex-col gap-4 w-full">
@@ -64,7 +64,7 @@ const Section = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="card shadow-md shadow-zinc-100">
+                            <div className="card shadow-md shadow-zinc-100 w-full">
                                 <div className="card-body">
                                     <div className="">
                                         <div className="flex flex-col gap-4 w-full">
@@ -75,7 +75,7 @@ const Section = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="card shadow-md shadow-zinc-100">
+                            <div className="card shadow-md shadow-zinc-100 w-full">
                                 <div className="card-body">
                                     <div className="">
                                         <div className="flex flex-col gap-4 w-full">
@@ -86,7 +86,7 @@ const Section = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="card shadow-md shadow-zinc-100">
+                            <div className="card shadow-md shadow-zinc-100 w-full">
                                 <div className="card-body">
                                     <div className="">
                                         <div className="flex flex-col gap-4 w-full">

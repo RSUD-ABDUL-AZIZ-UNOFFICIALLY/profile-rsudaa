@@ -11,7 +11,7 @@ const VisiMisi = () => {
     const getVisi = async () => {
         try {
             const response = await axios.get(`${API_URL}/api/profile/visi`)
-            
+
             if (response.data.data) {
                 setVisi(response.data.data)
             }
@@ -46,11 +46,11 @@ const VisiMisi = () => {
                 <div className="flex justify-center items-center">
                     <div className="text-gray-400 text-center lg:w-[40%]">
                         <div className="flex justify-center mb-3">
-                            <div className="uppercase font-semibold p-1 pl-4 pr-4 border-b-4 w-fit text-white">
+                            <div className="uppercase font-semibold p-1 pl-4 pr-4 border-b-4 w-fit text-white text-2xl">
                                 Visi
                             </div>
                         </div>
-                        <div className="lg:md:text-md text-md">
+                        <div className="lg:md:text-md text-lg">
                             {visi ? visi.desc :
                                 <>
                                     <div className="flex justify-center items-center min-h-24">
@@ -63,11 +63,11 @@ const VisiMisi = () => {
                 <div className="flex justify-center items-center mt-4">
                     <div className="text-gray-400 text-center lg:w-[40%]">
                         <div className="flex justify-center mb-3">
-                            <div className="uppercase font-semibold p-1 pl-4 pr-4 border-b-4 w-fit text-white">
+                            <div className="uppercase font-semibold p-1 pl-4 pr-4 border-b-4 w-fit text-white text-2xl">
                                 Misi
                             </div>
                         </div>
-                        <div className="lg:md:text-md text-md">
+                        <div className="lg:md:text-md text-lg">
                             {misi ? misi.desc :
                                 <>
                                     <div className="flex justify-center items-center min-h-24">

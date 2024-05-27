@@ -66,7 +66,7 @@ const Section = () => {
                 </div>
                 {skmDesc && skmLink &&
                     <div className="flex justify-center mt-4">
-                        <Link href={skmLink} className="btn btn-primary">Form Survei Kepuasan Masyarakat</Link>
+                        <Link href={skmLink} className="btn btn-primary" target="_blank">Form Survei Kepuasan Masyarakat</Link>
                     </div>
                 }
             </div>

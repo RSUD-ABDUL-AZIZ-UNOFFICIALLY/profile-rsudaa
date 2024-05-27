@@ -47,36 +47,38 @@ const Section = () => {
                         const photos: any = item.photo
                         const slice: any = photos.slice(0, 4)
                         return (
-                            <button className="rounded-xl shadow-lg shadow-zinc-100 overflow-hidden lg:md:w-[30%] w-[100%] active:scale-95 duration-200 h-fit active:border-none">
-                                <div className="aspect-square overflow-hidden w-full">
-                                    <img src={slice === 'http' ? item.photo : '/dokter/default.jpg'} alt="" className='object-cover' />
-                                </div>
-                                <div className="card-body">
-                                    <div className="text-sm font-bold h-10 flex items-center text-center justify-center">{item.nm_dokter}</div>
-                                    <div className="text-sm font-thin">
-                                        {item.poliklinik}
+                            <React.Fragment key={index}>
+                                <button className="rounded-xl shadow-lg shadow-zinc-100 overflow-hidden lg:md:w-[30%] w-[100%] active:scale-95 duration-200 h-fit active:border-none">
+                                    <div className="aspect-square overflow-hidden w-full">
+                                        <img src={slice === 'http' ? item.photo : '/dokter/default.jpg'} alt="" className='object-cover' />
                                     </div>
-                                    <div className="">
-                                        Spesialis {item.spesialis}
+                                    <div className="card-body">
+                                        <div className="text-sm font-bold h-10 flex items-center text-center justify-center">{item.nm_dokter}</div>
+                                        <div className="text-sm font-thin">
+                                            {item.poliklinik}
+                                        </div>
+                                        <div className="">
+                                            Spesialis {item.spesialis}
+                                        </div>
+                                        <div className="">
+                                            {item.jadwalPraktek && item.jadwalPraktek.length > 0 && item.jadwalPraktek?.map((itemm: JadwalDokterResponse, index: number) => {
+                                                return (
+                                                    <React.Fragment key={index}>
+                                                        <div className="text-xs text-left">
+                                                            {itemm.hari_kerja} : {itemm.jam_mulai} - {itemm.jam_selesai}
+                                                        </div>
+                                                    </React.Fragment>
+                                                )
+                                            })}
+                                        </div>
                                     </div>
-                                    <div className="">
-                                        {item.jadwalPraktek && item.jadwalPraktek.length > 0 && item.jadwalPraktek?.map((itemm: JadwalDokterResponse, index: number) => {
-                                            return (
-                                                <React.Fragment key={index}>
-                                                    <div className="text-xs text-left">
-                                                        {itemm.hari_kerja} : {itemm.jam_mulai} - {itemm.jam_selesai}
-                                                    </div>
-                                                </React.Fragment>
-                                            )
-                                        })}
-                                    </div>
-                                </div>
-                            </button>
+                                </button>
+                            </React.Fragment>
                         )
                     })
                         :
                         <>
-                            <div className="card flex shadow-lg shadow-zinc-100 justify-center lg:md:w-[30%] w-[45%]">
+                            <div className="card flex shadow-lg shadow-zinc-100 justify-center lg:md:w-[30%] w-[100%]">
                                 <div className="card-body flex flex-col gap-4 w-full">
                                     <div className="skeleton h-48 w-full"></div>
                                     <div className="skeleton h-4 w-28"></div>
@@ -86,7 +88,7 @@ const Section = () => {
                                     <div className="skeleton h-4 w-full"></div>
                                 </div>
                             </div>
-                            <div className="card flex shadow-lg shadow-zinc-100 justify-center lg:md:w-[30%] w-[45%]">
+                            <div className="card flex shadow-lg shadow-zinc-100 justify-center lg:md:w-[30%] w-[100%]">
                                 <div className="card-body flex flex-col gap-4 w-full">
                                     <div className="skeleton h-48 w-full"></div>
                                     <div className="skeleton h-4 w-28"></div>
@@ -96,7 +98,7 @@ const Section = () => {
                                     <div className="skeleton h-4 w-full"></div>
                                 </div>
                             </div>
-                            <div className="card flex shadow-lg shadow-zinc-100 justify-center lg:md:w-[30%] w-[45%]">
+                            <div className="card flex shadow-lg shadow-zinc-100 justify-center lg:md:w-[30%] w-[100%]">
                                 <div className="card-body flex flex-col gap-4 w-full">
                                     <div className="skeleton h-48 w-full"></div>
                                     <div className="skeleton h-4 w-28"></div>

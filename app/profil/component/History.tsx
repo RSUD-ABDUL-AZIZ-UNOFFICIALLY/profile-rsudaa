@@ -22,14 +22,14 @@ const History = () => {
         getHistory()
     }, [])
     return (
-        <div className='lg:pl-32 lg:pr-32 lg:p-5 md:pl-15 md:pr-15 md:p-3 p-2 flex justify-center'>
+        <div className='lg:pl-32 lg:pr-32 lg:p-5 md:pl-15 md:pr-15 md:p-3 p-2 flex justify-center bg-black'>
             <div className="lg:grid lg:grid-cols-5 gap-2 lg:w-[80%]">
                 <div className="col-span-4 grid items-center ">
                     <div className="">
                         <div className="uppercase text-2xl font-bold text-primary">History</div>
                         <div className="min-h-full flex items-center p-4 text-justify">
                             {History ?
-                                <div className='text-sm'>
+                                <div className='text-lg text-slate-300'>
                                     {History.desc}
                                 </div>
                                 :
@@ -40,7 +40,7 @@ const History = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-span-1 rounded-l-3xl rounded-r-md  min-h-[40vh] bg-cover bg-center bg-[url('https://www.beaconhospital.com.my/wp-content/uploads/2022/06/Beacon-Hospital-New.jpg.webp')]">
+                <div className="col-span-1  min-h-[40vh] bg-cover bg-center bg-[url('https://www.beaconhospital.com.my/wp-content/uploads/2022/06/Beacon-Hospital-New.jpg.webp')]">
                     {/* <img src="" alt="" /> */}
                 </div>
             </div>

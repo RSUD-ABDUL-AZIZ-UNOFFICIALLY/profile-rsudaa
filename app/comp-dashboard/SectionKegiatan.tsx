@@ -156,7 +156,26 @@ const SectionKegiatan = () => {
 
                             :
                             <>
-                                <span className="loading loading-spinner loading-lg"></span>
+                                {/* <span className="loading loading-spinner loading-lg"></span> */}
+
+                                <div className="flex items-center gap-4 w-full">
+                                    <div className="skeleton w-56 h-32 "></div>
+                                    <div className="flex flex-col gap-4 w-full ">
+                                        <div className="skeleton h-4 w-28"></div>
+                                        <div className="skeleton h-4 w-full"></div>
+                                        <div className="skeleton h-4 w-full"></div>
+                                        <div className="skeleton h-4 w-full"></div>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4 w-full">
+                                    <div className="skeleton w-56 h-32 "></div>
+                                    <div className="flex flex-col gap-4 w-full ">
+                                        <div className="skeleton h-4 w-28"></div>
+                                        <div className="skeleton h-4 w-full"></div>
+                                        <div className="skeleton h-4 w-full"></div>
+                                        <div className="skeleton h-4 w-full"></div>
+                                    </div>
+                                </div>
                             </>
 
                         }
@@ -205,7 +224,24 @@ const SectionKegiatan = () => {
 
                             :
                             <>
-                                <span className="loading loading-spinner loading-lg"></span>
+                                <div className="flex items-center gap-4 w-full">
+                                    <div className="skeleton w-56 h-32 "></div>
+                                    <div className="flex flex-col gap-4 w-full ">
+                                        <div className="skeleton h-4 w-28"></div>
+                                        <div className="skeleton h-4 w-full"></div>
+                                        <div className="skeleton h-4 w-full"></div>
+                                        <div className="skeleton h-4 w-full"></div>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4 w-full">
+                                    <div className="skeleton w-56 h-32 "></div>
+                                    <div className="flex flex-col gap-4 w-full ">
+                                        <div className="skeleton h-4 w-28"></div>
+                                        <div className="skeleton h-4 w-full"></div>
+                                        <div className="skeleton h-4 w-full"></div>
+                                        <div className="skeleton h-4 w-full"></div>
+                                    </div>
+                                </div>
                             </>
 
                         }
