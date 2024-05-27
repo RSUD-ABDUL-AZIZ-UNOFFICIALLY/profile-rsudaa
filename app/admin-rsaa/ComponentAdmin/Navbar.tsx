@@ -64,7 +64,7 @@ const Navbar: React.FC<props> = ({ active, title }) => {
                                 <Link href={'/admin-rsaa/pendaftaran-online'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'pendaftaran-online' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Pendaftaran Online</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'#'} className={`btn  hover:shadow-md w-full shadow-sm ${active === 'loker' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Loker</Link>
+                                <Link href={'/admin-rsaa/loker'} className={`btn  hover:shadow-md w-full shadow-sm ${active === 'loker' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Loker</Link>
                             </li>
                             <li className='p-1'>
                                 <Link href={'#'} className={`btn  hover:shadow-md w-full shadow-sm ${active === 'magang' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Magang</Link>
