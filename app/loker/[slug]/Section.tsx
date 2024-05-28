@@ -1,9 +1,9 @@
 'use client'
 import { LokerResponse } from '@/app/Model/loker.model';
 import axios from 'axios';
-import moment from 'moment';
 import React, { FC, useEffect, useState } from 'react'
 import FormApplyLoker from './FormApplyLoker';
+import moment from 'moment';
 require('moment/locale/id');
 moment.locale('id');
 

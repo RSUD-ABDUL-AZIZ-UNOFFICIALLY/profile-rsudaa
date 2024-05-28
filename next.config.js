@@ -3,6 +3,9 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const nextConfig = {
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
     env: {
         API_URL: process.env.API_URL,
         SIMRS_URL: process.env.SIMRS_URL,

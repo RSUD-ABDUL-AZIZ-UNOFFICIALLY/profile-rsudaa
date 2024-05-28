@@ -9,7 +9,7 @@ import moment from 'moment';
 require('moment/locale/id');
 moment.locale('id');
 
-const DaftLoker = () => {
+const DaftMagang = () => {
     const [data, setData] = useState<LokerResponse[]>([])
     const API_URL = process.env.API_URL
     const access_token = Cookies.get('access_token')
@@ -18,7 +18,7 @@ const DaftLoker = () => {
     const navigation = useRouter()
     const getData = useCallback(async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/loker`)
+            const response = await axios.get(`${API_URL}/api/magang`)
 
             if (response.data) {
                 setData(response.data.data)
@@ -31,7 +31,7 @@ const DaftLoker = () => {
     const handleDelete = async (id: string) => {
         setDeleteSelect(null)
         try {
-            const response = await axios.post(`${API_URL}/api/loker/delete/${id}`, {}, {
+            const response = await axios.post(`${API_URL}/api/magang/delete/${id}`, {}, {
                 headers: {
                     Authorization: `Bearer ${access_token}`
                 }
@@ -59,7 +59,7 @@ const DaftLoker = () => {
                             <div className="">
                                 Yakin ingin menghapus data ?
                                 <div className="">
-                                    <div className="text-xs p-2 bg-red-500 text-white w-fit rounded">nama loker : {deleteSelect.name}</div>
+                                    <div className="text-xs p-2 bg-red-500 text-white w-fit rounded">nama magang : {deleteSelect.name}</div>
                                 </div>
                             </div>
                             <div className="flex gap-2 mt-5 justify-center">
@@ -81,7 +81,7 @@ const DaftLoker = () => {
             {deleteStatus == true && <AlertDelete />}
             {RenderAlertDelete()}
             <div className="lg:col-span-4">
-                <button onClick={() => navigation.push('/admin-rsaa/loker/add')} className='btn btn-success text-white'>Tambah Loker</button>
+                <button onClick={() => navigation.push('/admin-rsaa/magang/add')} className='btn btn-success text-white'>Tambah Magang</button>
             </div>
             {data && data.length > 0 && data.map((item: LokerResponse, index: number) => {
                 return (
@@ -94,12 +94,12 @@ const DaftLoker = () => {
                                 <div className="">Mulai : {moment(item.dateStart).format(`DD MMMM YYYY`)}</div>
                                 <div className="">Akhir : {moment(item.dateEnd).format(`DD MMMM YYYY`)}</div>
                                 <div className="flex gap-2 mt-4 justify-center">
-                                    <button onClick={() => navigation.push(`/admin-rsaa/loker/${item.id}`)} className='btn btn-primary text-white'>
+                                    <button onClick={() => navigation.push(`/admin-rsaa/magang/${item.id}`)} className='btn btn-primary text-white'>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Zm3.75 11.625a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
                                         </svg>
                                     </button>
-                                    <button onClick={() => navigation.push(`/admin-rsaa/loker/edit/${item.id}`)} className='btn btn-warning'>
+                                    <button onClick={() => navigation.push(`/admin-rsaa/magang/edit/${item.id}`)} className='btn btn-warning'>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
                                         </svg>
@@ -119,4 +119,4 @@ const DaftLoker = () => {
     )
 }
 
-export default DaftLoker
+export default DaftMagang

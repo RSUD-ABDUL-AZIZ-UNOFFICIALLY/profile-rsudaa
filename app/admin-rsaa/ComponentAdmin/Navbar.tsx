@@ -20,13 +20,13 @@ const Navbar: React.FC<props> = ({ active, title }) => {
     }
 
     return (
-        <div className='p-4 bg-white text-primary flex justify-between items-center shadow-md sticky '>
+        <div className='p-4 bg-white text-primary flex justify-between items-center shadow-lg shadow-slate-100 sticky '>
             <div className="">
                 <div className="drawer ">
                     <input id="my-drawer" type="checkbox" className="drawer-toggle" />
                     <div className="drawer-content">
                         {/* Page content here */}
-                        <label htmlFor="my-drawer" className="btn">
+                        <label htmlFor="my-drawer" className="btn btn-ghost btn-circle bg-white hover:bg-white shadow-sm hover:scale-110 ">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                             </svg>
@@ -37,49 +37,52 @@ const Navbar: React.FC<props> = ({ active, title }) => {
                         <ul className=" p-4 w-80 min-h-full bg-white text-base-content">
                             {/* Sidebar content here */}
                             <li className='p-1'>
-                                <Link href={'/admin-rsaa'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'home' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Home</Link>
+                                <Link href={'/admin-rsaa'} className={`btn hover:shadow-sm w-full shadow-sm ${active === 'home' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Home</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'/admin-rsaa/profile'} className={`btn  hover:shadow-md w-full shadow-sm ${active === 'profile' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Profile</Link>
+                                <Link href={'/admin-rsaa/profile'} className={`btn  hover:shadow-sm w-full shadow-sm ${active === 'profile' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Profile</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'/admin-rsaa/struktur-organisasi'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'struktur-organisasi' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Struktur Organisasi</Link>
+                                <Link href={'/admin-rsaa/struktur-organisasi'} className={`btn hover:shadow-sm w-full shadow-sm ${active === 'struktur-organisasi' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Struktur Organisasi</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'/admin-rsaa/maklumat-pelayanan'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'maklumat-pelayanan' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Maklumat Pelayanan</Link>
+                                <Link href={'/admin-rsaa/maklumat-pelayanan'} className={`btn hover:shadow-sm w-full shadow-sm ${active === 'maklumat-pelayanan' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Maklumat Pelayanan</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'/admin-rsaa/kegiatan'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'kegiatan' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Kegiatan</Link>
+                                <Link href={'/admin-rsaa/kegiatan'} className={`btn hover:shadow-sm w-full shadow-sm ${active === 'kegiatan' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Kegiatan</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'/admin-rsaa/artikel'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'artikel' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Artikel</Link>
+                                <Link href={'/admin-rsaa/artikel'} className={`btn hover:shadow-sm w-full shadow-sm ${active === 'artikel' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Artikel</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'/admin-rsaa/survei-kepuasan-masyarakat'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'survei-kepuasan-masyarakat' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Survei Kepuasan Masyarakat</Link>
+                                <Link href={'/admin-rsaa/pengumuman'} className={`btn hover:shadow-sm w-full shadow-sm ${active === 'pengumuman' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Pengumuman</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'/admin-rsaa/layanan-informasi-pengaduan'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'layanan-informasi-pengaduan' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Layanan Informasi Pengaduan</Link>
+                                <Link href={'/admin-rsaa/survei-kepuasan-masyarakat'} className={`btn hover:shadow-sm w-full shadow-sm ${active === 'survei-kepuasan-masyarakat' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Survei Kepuasan Masyarakat</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'/admin-rsaa/pendaftaran-online'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'pendaftaran-online' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Pendaftaran Online</Link>
+                                <Link href={'/admin-rsaa/layanan-informasi-pengaduan'} className={`btn hover:shadow-sm w-full shadow-sm ${active === 'layanan-informasi-pengaduan' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Layanan Informasi Pengaduan</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'/admin-rsaa/loker'} className={`btn  hover:shadow-md w-full shadow-sm ${active === 'loker' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Loker</Link>
+                                <Link href={'/admin-rsaa/pendaftaran-online'} className={`btn hover:shadow-sm w-full shadow-sm ${active === 'pendaftaran-online' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Pendaftaran Online</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'#'} className={`btn  hover:shadow-md w-full shadow-sm ${active === 'magang' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Magang</Link>
+                                <Link href={'/admin-rsaa/loker'} className={`btn  hover:shadow-sm w-full shadow-sm ${active === 'loker' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Loker</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'#'} className={`btn  hover:shadow-md w-full shadow-sm ${active === 'aplikasi' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Aplikasi</Link>
+                                <Link href={'/admin-rsaa/magang'} className={`btn  hover:shadow-sm w-full shadow-sm ${active === 'magang' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Magang</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'#'} className={`btn hover:shadow-md w-full shadow-sm ${active === 'dasar-hukum' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Dasar Hukum</Link>
+                                <Link href={'#'} className={`btn  hover:shadow-sm w-full shadow-sm ${active === 'aplikasi' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Aplikasi</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'#'} className={`btn  hover:shadow-md w-full shadow-sm ${active === 'laporan-tahunan' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Laporan Tahunan</Link>
+                                <Link href={'#'} className={`btn hover:shadow-sm w-full shadow-sm ${active === 'dasar-hukum' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Dasar Hukum</Link>
                             </li>
                             <li className='p-1'>
-                                <button onClick={handleLogout} className={`btn btn-error text-white  hover:shadow-md w-full shadow-sm `}>Logout</button>
+                                <Link href={'#'} className={`btn  hover:shadow-sm w-full shadow-sm ${active === 'laporan-tahunan' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Laporan Tahunan</Link>
+                            </li>
+                            <li className='p-1'>
+                                <button onClick={handleLogout} className={`btn btn-error text-white  hover:shadow-sm w-full shadow-sm `}>Logout</button>
                             </li>
                         </ul>
                     </div>
