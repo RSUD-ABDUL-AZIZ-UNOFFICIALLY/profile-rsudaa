@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation'
 
 const Section = () => {
     const API_URL = process.env.API_URL
-    const access_token = Cookies.get('access_tokens')
+    const access_token = Cookies.get('access_token')
     const navigation = useRouter()
     const [success, setSuccess] = useState<boolean>(false)
     type Inputs = {
@@ -70,7 +70,7 @@ const Section = () => {
                             <span className="label-text">Tanggal Selesai</span>
                         </div>
                         <input type="date"  {...register("dateEnd", { required: true })} placeholder="masukan nama loker" className="input input-bordered w-full" />
-                        {errors.dateStart &&
+                        {errors.dateEnd &&
                             <div className="flex justify-end">
                                 <span className='text-xs mt-2 p-1 bg-red-600 text-white rounded-sm'>* Tanggal Selesai Harus Di Isi</span>
                             </div>
