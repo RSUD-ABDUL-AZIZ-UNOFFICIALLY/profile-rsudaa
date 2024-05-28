@@ -1,29 +1,38 @@
 'use client'
-import { AplikasiResponse } from '@/app/Model/aplikasi.model'
 import React, { useEffect, useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import Cookies from "js-cookie";
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { DasarHukumResponse } from '@/app/Model/dasarHukum.model';
 
 const Section = () => {
-    const [data, setData] = useState<AplikasiResponse[]>([])
+    const [data, setData] = useState<DasarHukumResponse[]>([])
     const navigation = useRouter()
     const access_token = Cookies.get('access_token')
     const [addSuccess, setAddSuccess] = useState<boolean>(false)
     const [deleteStatus, setDeleteStatus] = useState<boolean>(false)
-    const [deleteSelect, setDeleteSelect] = useState<AplikasiResponse | null>(null)
+    const [deleteSelect, setDeleteSelect] = useState<DasarHukumResponse | null>(null)
     type Inputs = {
         name: string
-        link: string
+        file: string
     }
     const { register, handleSubmit, watch, setValue, formState: { errors }, reset } = useForm<Inputs>()
     const API_URL = process.env.API_URL
+    const GeneralToken = process.env.TOKEN
+    const [dataImage, setDataImage] = useState<any>('')
+
+    const SIMRS_URL = process.env.SIMRS_URL
+
+    const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0]
+        setDataImage(file)
+    };
 
     const getData = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/link-aplikasi`)
+            const response = await axios.get(`${API_URL}/api/dasar-hukum`)
 
             if (response.data.success == true) {
                 setData(response.data.data)
@@ -34,30 +43,52 @@ const Section = () => {
     }
 
     const handleCreate: SubmitHandler<Inputs> = async (data) => {
-        try {
-            const response = await axios.post(`${API_URL}/api/link-aplikasi`, data, {
-                headers: {
-                    Authorization: `Bearer ${access_token}`
+        if (dataImage) {
+
+
+            try {
+                const formData = new FormData()
+
+                formData.append('file', dataImage)
+
+                const upload = await axios.post(`${SIMRS_URL}/api/cdn/upload/file`, formData, {
+                    headers: {
+                        Authorization: `Bearer ${GeneralToken}`
+                    }
+                })
+
+                console.log(upload.data);
+
+
+                if (upload.data) {
+                    setValue('file', upload.data.data.url)
                 }
-            })
 
-            if (response.data.data) {
-                setValue('name', '')
-                setValue('link', '')
-                setAddSuccess(true)
-                setTimeout(() => {
-                    setAddSuccess(false)
-                }, 3000)
+                const response = await axios.post(`${API_URL}/api/dasar-hukum`, data, {
+                    headers: {
+                        Authorization: `Bearer ${access_token}`
+                    }
+                })
+
+                if (response.data.data) {
+                    setValue('name', '')
+                    setValue('file', '')
+                    setAddSuccess(true)
+                    setTimeout(() => {
+                        setAddSuccess(false)
+                    }, 3000)
+                }
+            } catch (error) {
+                console.log(error);
+
             }
-        } catch (error) {
-
         }
     }
 
     const handleDelete = async (id: string) => {
         setDeleteSelect(null)
         try {
-            const response = await axios.delete(`${API_URL}/api/link-aplikasi/${id}`, {
+            const response = await axios.delete(`${API_URL}/api/dasar-hukum/${id}`, {
                 headers: {
                     Authorization: `Bearer ${access_token}`
                 }
@@ -102,31 +133,31 @@ const Section = () => {
     const renderFormAdd = () => {
         return (
             <div className=" p-4 rounded-md bg-slate-100">
-                <div className="uppercase font-bold">Form Add Aplikasi</div>
+                <div className="uppercase font-bold">Form Add Dasar Hukum</div>
                 {addSuccess == true &&
-                    <div className="p-2 bg-lime-200 font-bold text-primary rounded-lg text-center">Add Aplikasi Successfully</div>
+                    <div className="p-2 bg-lime-200 font-bold text-primary rounded-lg text-center">Add Dasar Hukum Successfully</div>
                 }
                 {RenderAlertDelete()}
                 <div className="">
                     <label className="form-control w-full">
                         <div className="label">
-                            <span className="label-text">Nama Aplikasi</span>
+                            <span className="label-text">Nama Dasar Hukum</span>
                         </div>
-                        <input type="text" {...register("name", { required: true })} placeholder="Masukan nama aplikasi" className="input input-bordered w-full" />
+                        <input type="text" {...register("name", { required: true })} placeholder="Masukan nama Dasar Hukum" className="input input-bordered w-full" />
                         {errors.name &&
                             <div className="flex justify-end">
-                                <span className='text-xs mt-2 p-1 bg-red-600 text-white rounded-sm'>* Nama Aplikasi Harus Di Isi</span>
+                                <span className='text-xs mt-2 p-1 bg-red-600 text-white rounded-sm'>* Nama Dasar Hukum Harus Di Isi</span>
                             </div>
                         }
                     </label>
                     <label className="form-control w-full">
                         <div className="label">
-                            <span className="label-text">Link Aplikasi</span>
+                            <span className="label-text">Link Dasar Hukum</span>
                         </div>
-                        <input type="text" {...register("link", { required: true })} placeholder="Masukan link aplikasi" className="input input-bordered w-full" />
-                        {errors.link &&
+                        <input type="file" onChange={handleFileChange} className="file-input file-input-bordered w-full" />
+                        {errors.file &&
                             <div className="flex justify-end">
-                                <span className='text-xs mt-2 p-1 bg-red-600 text-white rounded-sm'>* Link Aplikasi Harus Di Isi</span>
+                                <span className='text-xs mt-2 p-1 bg-red-600 text-white rounded-sm'>* File Dasar Hukum Harus Di Isi</span>
                             </div>
                         }
                     </label>
@@ -144,23 +175,23 @@ const Section = () => {
         <div className='p-5'>
             <div className="rounded-xl shadow-md w-full">
                 <div className="card-body">
-                    <div className="font-bold uppercase text-2xl">DAFTAR APLIKASI</div>
+                    <div className="font-bold uppercase text-2xl">DAFTAR Dasar Hukum</div>
                     <div className="lg:w-[40%] mt-4">
                         {renderFormAdd()}
                     </div>
                     <div className="grid lg:grid-cols-4 gap-3 mt-4">
-                        {data && data.map((item: AplikasiResponse, index: number) => {
+                        {data && data.length > 0 && data.map((item: DasarHukumResponse, index: number) => {
                             return (
                                 <React.Fragment key={index}>
-                                    <div className="card-body rounded-lg shadow overflow-hidden">
+                                    <div className="card-body rounded-lg shadow">
                                         {item.name}
                                         <div className="flex">
-                                            <Link href={item.link ? item.link : '#'} target='_blank' className='link '>
+                                            <Link href={item.file ? item.file : '#'} target='_blank' className='link '>
                                                 link
                                             </Link>
                                         </div>
                                         <div className="flex justify-end gap-3">
-                                            <button onClick={() => navigation.push(`/admin-rsaa/aplikasi/edit/${item.id}`)} className='btn btn-warning '>
+                                            <button onClick={() => navigation.push(`/admin-rsaa/dasar-hukum/edit/${item.id}`)} className='btn btn-warning '>
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
                                                 </svg>

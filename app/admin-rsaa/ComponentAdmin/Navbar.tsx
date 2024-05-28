@@ -76,10 +76,10 @@ const Navbar: React.FC<props> = ({ active, title }) => {
                                 <Link href={'/admin-rsaa/aplikasi'} className={`btn  hover:shadow-sm w-full shadow-sm ${active === 'aplikasi' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Aplikasi</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'#'} className={`btn hover:shadow-sm w-full shadow-sm ${active === 'dasar-hukum' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Dasar Hukum</Link>
+                                <Link href={'/admin-rsaa/dasar-hukum'} className={`btn hover:shadow-sm w-full shadow-sm ${active === 'dasar-hukum' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Dasar Hukum</Link>
                             </li>
                             <li className='p-1'>
-                                <Link href={'#'} className={`btn  hover:shadow-sm w-full shadow-sm ${active === 'laporan-tahunan' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Laporan Tahunan</Link>
+                                <Link href={'/admin-rsaa/laporan-tahunan'} className={`btn  hover:shadow-sm w-full shadow-sm ${active === 'laporan-tahunan' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Laporan Tahunan</Link>
                             </li>
                             <li className='p-1'>
                                 <button onClick={handleLogout} className={`btn btn-error text-white  hover:shadow-sm w-full shadow-sm `}>Logout</button>
