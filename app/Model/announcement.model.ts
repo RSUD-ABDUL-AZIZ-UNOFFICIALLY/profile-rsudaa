@@ -2,10 +2,10 @@ import { UUID } from "crypto"
 
 export class AnnoucementResponse {
     id?: Number
-    AnnouncementId?: UUID
+    announcementID?: string
     title?: string
     desc?: string
-    images?: []
+    images?: string
     createdAt?: string
     updatedAt?: string
 }

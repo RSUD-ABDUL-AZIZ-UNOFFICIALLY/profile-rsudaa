@@ -6,7 +6,7 @@ import Section from './Section';
 export default function Home() {
   return (
     <BaseProvider>
-      <Navbar title='pengumuman' active='pengumuman' />
+      <Navbar title='kegiatan' active='kegiatan' />
       <main className='p-2' >
         <Section />
       </main>

@@ -10,17 +10,16 @@ const SectionPengumuman = () => {
     const motionRef = useRef(null)
     const isInView = useInView(motionRef, { once: true })
     const mainControls = useAnimation()
+    const API_URL = process.env.API_URL
 
     const [dataAnnouncement, setDataAnnouncement] = useState<AnnoucementResponse[]>()
 
     const getAnnouncement = useCallback(async () => {
         try {
-            const res: AxiosResponse<any> = await axios.get(`http://localhost:4444/api/announcement?data=3`);
+            const response: AxiosResponse<any> = await axios.get(`${API_URL}/api/announcement`);
 
-            const responseData: AnnoucementResponse[] = res.data.data.announcement;
-
-            if (responseData) {
-                setDataAnnouncement(responseData);
+            if (response.data.success == true) {
+                setDataAnnouncement(response.data.data);
             }
 
         } catch (error) {
@@ -51,17 +50,19 @@ const SectionPengumuman = () => {
                 {dataAnnouncement ? dataAnnouncement.map((item: AnnoucementResponse, index: number) => {
                     const desc: any = item.desc
                     const truncatedString = desc.slice(0, 150) + " ...";
-                    return (
-                        <React.Fragment key={index}>
-                            <div className="grid bg-white p-3 border-l-8 rounded-r-3xl shadow-sm rounded-l-md">
-                                <div className="flex">
-                                    <Link href={''} className='active:scale-95 duration-200 font-bold  text-black uppercase text-lg text-left'>{item.title}</Link>
+                    if (index < 3) {
+                        return (
+                            <React.Fragment key={index}>
+                                <div className="grid bg-white p-3 border-l-8 rounded-r-3xl shadow-sm rounded-l-md">
+                                    <div className="flex">
+                                        <Link href={''} className='active:scale-95 duration-200 font-bold  text-black uppercase text-lg text-left'>{item.title}</Link>
+                                    </div>
+                                    <div className="text-xs w-fit rounded-sm text-dark">{moment(item.createdAt).format('DD MMMM YYYY')}</div>
+                                    <div className="text-sm p-2 pl-3 pr-3 ">{truncatedString}</div>
                                 </div>
-                                <div className="text-xs w-fit rounded-sm text-dark">{moment(item.createdAt).format('DD MMMM YYYY')}</div>
-                                <div className="text-sm p-2 pl-3 pr-3 ">{truncatedString}</div>
-                            </div>
-                        </React.Fragment>
-                    )
+                            </React.Fragment>
+                        )
+                    }
                 })
                     :
                     <>

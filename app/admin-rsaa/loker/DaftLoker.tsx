@@ -75,7 +75,7 @@ const DaftLoker = () => {
 
     useEffect(() => {
         getData()
-    }, [AlertDelete])
+    }, [deleteStatus])
     return (
         <div className='rounded-lg grid lg:grid-cols-4 gap-3 mt-4'>
             {deleteStatus == true && <AlertDelete />}

@@ -1,11 +1,9 @@
-import { UUID } from "crypto"
-
-export class ActivityResponse {
-    id?: Number
+export class activityResponse {
+    id?: number
     activityID?: string
     title?: string
     desc?: string
-    images?: []
+    images?: string
     createdAt?: string
     updatedAt?: string
 }
