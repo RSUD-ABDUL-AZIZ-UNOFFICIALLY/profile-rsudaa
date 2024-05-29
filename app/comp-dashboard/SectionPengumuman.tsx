@@ -43,7 +43,7 @@ const SectionPengumuman = () => {
             }}
             initial="hidden"
             animate={mainControls}
-            transition={{ duration: 0.5, delay: 0 }}
+            transition={{ duration: 1, delay: 0 }}
         >
             <div className={`text-primary uppercase w-fit font-bold text-xl pb-2 pr-5 border-b-4 border-primary`}>Pengumuman</div>
             <div className="grid gap-3 mt-4">

@@ -41,7 +41,7 @@ const SectionPelayananPublik = () => {
                             }}
                             initial="hidden"
                             animate={mainControls}
-                            transition={{ duration: 0.5, delay: 0 }}
+                            transition={{ duration: 1, delay: 0 }}
                         >
                             <div className="grid lg:md:grid-cols-6 grid-cols-3 lg:gap-5 gap-4 justify-center">
                                 <button onClick={() => navigation.push(`/survei-kepuasan-masyarakat`)} className="button button-white shadow-sm aspect-square w-full">

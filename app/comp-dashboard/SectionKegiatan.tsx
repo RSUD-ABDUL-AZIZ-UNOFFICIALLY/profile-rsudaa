@@ -108,7 +108,7 @@ const SectionKegiatan = () => {
             }}
             initial="hidden"
             animate={mainControls}
-            transition={{ duration: 0.5, delay: 0 }}
+            transition={{ duration: 1, delay: 0 }}
         >
 
             <ModalKegiatan item={baseContext.modalActivityItem} />
@@ -125,7 +125,7 @@ const SectionKegiatan = () => {
                         }}
                         initial="hidden"
                         animate={mainControlsItem}
-                        transition={{ duration: 0.5, delay: 0.5 }}
+                        transition={{ duration: 1, delay: 0.5 }}
                     >
                         {dataActivity ?
                             <>
@@ -195,7 +195,7 @@ const SectionKegiatan = () => {
                         }}
                         initial="hidden"
                         animate={mainControlsArticle}
-                        transition={{ duration: 0.5, delay: 0.1 }}
+                        transition={{ duration: 1, delay: 0.1 }}
                     >
                         {dataArticle ?
                             <>

@@ -1,5 +1,5 @@
+import UnderMaintenance from '@/app/component/UnderMaintenance';
 import React from 'react'
-
 
 interface Props {
     name: string;
@@ -7,7 +7,9 @@ interface Props {
 
 const Section: React.FC<Props> = ({ name }) => {
     return (
-        <div>{name}</div>
+        <div>
+            <UnderMaintenance />
+        </div>
 
     )
 }

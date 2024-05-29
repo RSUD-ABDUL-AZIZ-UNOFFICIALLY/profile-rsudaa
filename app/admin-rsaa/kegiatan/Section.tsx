@@ -7,6 +7,7 @@ import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation';
 import AlertDelete from '../ComponentAdmin/AlertDelete';
 import { activityResponse } from '@/app/Model/activity.model';
+import FormKegiatan from './FormKegiatan';
 require('moment/locale/id');
 moment.locale('id');
 
@@ -87,6 +88,9 @@ const Section = () => {
                 {deleteStatus == true && <AlertDelete />}
                 {RenderAlertDelete()}
                 <div className="card-body">
+                    <div className="lg:w-[60%]">
+                        <FormKegiatan />
+                    </div>
                     <button onClick={() => navigation.push(`/admin-rsaa/kegiatan/add`)} className='btn btn-success w-fit text-white uppercase'>Tambah Kegiatan</button>
                     <div className="grid lg:grid-cols-4 gap-3">
                         {data && data.length > 0 && data.map((item: activityResponse, index: number) => {

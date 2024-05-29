@@ -20,7 +20,7 @@ const Navbar: React.FC<props> = ({ active, title }) => {
     }
 
     return (
-        <div className='p-4 bg-white text-primary flex justify-between items-center shadow-lg shadow-slate-100 sticky '>
+        <div className='p-4 bg-white text-primary flex justify-between items-center shadow-lg shadow-slate-100 sticky top-0 z-50'>
             <div className="">
                 <div className="drawer ">
                     <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -41,6 +41,9 @@ const Navbar: React.FC<props> = ({ active, title }) => {
                             </li>
                             <li className='p-1'>
                                 <Link href={'/admin-rsaa/profile'} className={`btn  hover:shadow-sm w-full shadow-sm ${active === 'profile' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Profile</Link>
+                            </li>
+                            <li className='p-1'>
+                                <Link href={'/admin-rsaa/media'} className={`btn  hover:shadow-sm w-full shadow-sm ${active === 'media' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Media</Link>
                             </li>
                             <li className='p-1'>
                                 <Link href={'/admin-rsaa/struktur-organisasi'} className={`btn hover:shadow-sm w-full shadow-sm ${active === 'struktur-organisasi' ? 'btn-warning hover:bg-warning' : 'bg-white hover:bg-white'}`}>Struktur Organisasi</Link>

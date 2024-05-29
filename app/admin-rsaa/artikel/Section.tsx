@@ -6,6 +6,7 @@ import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation';
 import AlertDelete from '../ComponentAdmin/AlertDelete';
 import { articleResponse } from '@/app/Model/article.model';
+import FormArtikel from './FormArtikel';
 require('moment/locale/id');
 moment.locale('id');
 
@@ -84,6 +85,9 @@ const Section = () => {
                 {deleteStatus == true && <AlertDelete />}
                 {RenderAlertDelete()}
                 <div className="card-body">
+                    <div className="lg:w-[60%]">
+                        <FormArtikel />
+                    </div>
                     <button onClick={() => navigation.push(`/admin-rsaa/artikel/add`)} className='btn btn-success w-fit text-white uppercase'>Tambah artikel</button>
                     <div className="grid lg:grid-cols-4 gap-3">
                         {data && data.map((item: articleResponse, index: number) => {

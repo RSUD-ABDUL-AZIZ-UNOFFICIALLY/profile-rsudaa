@@ -21,7 +21,7 @@ const Jumbotron = () => {
                         }}
                         initial="hidden"
                         animate={`visible`}
-                        transition={{ duration: 0.5, delay: 0.25 }}
+                        transition={{ duration: 1, delay: 0.25 }}
                     >
                         <div className="lg:md:text-[60px] text-[30px] font-bold uppercase">
                             SELAMAT DATANG di <br /> website <span className='text-info'>pelayanan</span>

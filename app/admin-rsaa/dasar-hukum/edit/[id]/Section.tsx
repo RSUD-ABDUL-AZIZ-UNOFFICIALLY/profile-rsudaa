@@ -112,7 +112,7 @@ const Section: React.FC<props> = ({ id }) => {
                                     <div className="label">
                                         <span className="label-text">Link Aplikasi</span>
                                     </div>
-                                    <input type="file" onChange={handleFileChange} className="file-input file-input-bordered w-full" />
+                                    <input type="file" accept='application/pdf' onChange={handleFileChange} className="file-input file-input-bordered w-full" />
                                     {errors.file &&
                                         <div className="flex justify-end">
                                             <span className='text-xs mt-2 p-1 bg-red-600 text-white rounded-sm'>* File Dasar Hukum Harus Di Isi</span>

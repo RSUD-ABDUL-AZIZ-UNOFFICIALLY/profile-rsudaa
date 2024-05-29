@@ -91,7 +91,7 @@ const FormUpdateImage = () => {
             {alertUpdate && <div className="p-3 bg-lime-200 rounded-md text-center font-bold uppercase">Update Successfully</div>}
             <img src={imagePreview ? imagePreview : data} alt="" className='rounded w-[50%]' />
             <div className="">
-                <input type="file" onChange={handleFileChange} className="file-input file-input-bordered w-full" />
+                <input type="file" accept='image/*' onChange={handleFileChange} className="file-input file-input-bordered w-full" />
             </div>
             <button onClick={handleUpdate} className='btn btn-warning'>Update Image</button>
         </div>

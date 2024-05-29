@@ -4,6 +4,7 @@ import SectionPelayananPublik from './SectionPelayananPublik'
 import SectionKegiatan from './SectionKegiatan'
 import SectionPengumuman from './SectionPengumuman'
 import SectionDokter from './SectionDokter'
+import SectionStandarPelayanan from '../maklumat-pelayanan/SectionStandarPelayanan'
 
 const SectionHome = () => {
     return (
@@ -21,6 +22,7 @@ const SectionHome = () => {
                 </div>
             </div>
             <SectionPelayananPublik />
+            <SectionStandarPelayanan />
             <SectionDokter />
 
         </React.Fragment>

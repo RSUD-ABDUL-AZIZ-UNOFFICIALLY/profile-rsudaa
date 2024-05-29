@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.9",
+    "@react-pdf/renderer": "^3.4.4",
     "axios": "^1.6.8",
     "css-loader": "^6.9.1",
     "dotenv": "^16.4.5",
@@ -21,6 +22,7 @@
     "react-cookie": "^7.1.4",
     "react-dom": "^18",
     "react-hook-form": "^7.51.4",
+    "react-iframe": "^1.8.5",
     "sass": "^1.70.0",
     "webpack": "^5.89.0"
   },

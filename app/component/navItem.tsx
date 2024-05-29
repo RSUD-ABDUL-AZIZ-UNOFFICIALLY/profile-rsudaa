@@ -93,7 +93,7 @@ const DasarHukum = () => {
         <React.Fragment>
             {dasarHukum && dasarHukum.length > 0 && dasarHukum.map((item: DasarHukumResponse, index: number) => {
                 return (
-                    <Link key={index} href={'#'} className="dropdown-item">{item.name}</Link>
+                    <Link key={index} href={`/dasar-hukum/${item.id}`} className="dropdown-item">{item.name}</Link>
                 )
             })}
         </React.Fragment>

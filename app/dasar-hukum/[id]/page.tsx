@@ -5,11 +5,11 @@ import { BaseProvider } from '../../context/BaseContext';
 import Footer from '../../component/Footer';
 import JumbotronPage from '../../component/JumbotronPage';
 import Section from './Section';
-Section
+import SectionPelayananPublik from '@/app/comp-dashboard/SectionPelayananPublik';
+import SectionStandarPelayanan from '@/app/maklumat-pelayanan/SectionStandarPelayanan';
 
-
-export default function Home({ params }: { params: { name: string } }) {
-  let name: string = decodeURIComponent(params.name)
+export default function Home({ params }: { params: { id: string } }) {
+  let id: string = decodeURIComponent(params.id)
 
 
   return (
@@ -17,8 +17,10 @@ export default function Home({ params }: { params: { name: string } }) {
       <BaseProvider>
         <main className="">
           <NavigationBar />
-          <JumbotronPage title='Laporan Tahunan' />
-          <Section name={name} />
+          <JumbotronPage title='Dasar Hukum' />
+          <Section id={id} />
+          <SectionPelayananPublik />
+          <SectionStandarPelayanan />
           <Footer />
         </main>
       </BaseProvider>

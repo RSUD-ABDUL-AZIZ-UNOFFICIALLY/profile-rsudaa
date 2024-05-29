@@ -1,26 +1,13 @@
 'use client'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { maklumatPelayananResponse } from '../Model/maklumatPelayanan.model'
+import SectionStandarPelayanan from './SectionStandarPelayanan'
 
 const Section = () => {
     const [itemDesc, setItemDesc] = useState<string>()
     const [direktur, setDirektur] = useState<string>()
     const [signDirektur, setSignDirektur] = useState<string>()
-    const [data, setData] = useState<maklumatPelayananResponse[]>([])
     const API_URL = process.env.API_URL
-
-    const getData = async () => {
-        try {
-            const response = await axios.get(`${API_URL}/maklumat-pelayanan`)
-
-            if (response.data.success == true) {
-                setData(response.data.data)
-            }
-        } catch (error) {
-
-        }
-    }
 
     const getDesc = async () => {
         try {
@@ -61,7 +48,6 @@ const Section = () => {
         getDesc()
         getDirektur()
         getSignDirektur()
-        getData()
     }, [])
 
     return (
@@ -98,15 +84,7 @@ const Section = () => {
                 </div>
             </div>
             <div className="mt-5 grid lg:p-10 p-4">
-                <div className="carousel rounded-box w-fit">
-                    {data && data.length > 0 && data.map((item: maklumatPelayananResponse, index: number) => {
-                        return (
-                            <div className="carousel-item" key={index}>
-                                <img src={item.file} alt="Maklumat-pelayanan" className={`lg:w-72 w-72 ${index < data.length - 1 && 'mr-1'} object-cover`} />
-                            </div>
-                        )
-                    })}
-                </div>
+                <SectionStandarPelayanan />
             </div>
         </React.Fragment>
     )
