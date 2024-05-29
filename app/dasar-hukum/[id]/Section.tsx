@@ -4,7 +4,6 @@ import { DasarHukumResponse } from '@/app/Model/dasarHukum.model';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Iframe from 'react-iframe';
-import { Document, Page, Text, View, StyleSheet, PDFViewer, PDFRenderer, PDFDownloadLink } from '@react-pdf/renderer';
 
 interface Props {
     id: string;
@@ -25,31 +24,6 @@ const Section: React.FC<Props> = ({ id }) => {
 
         }
     }
-
-    const styles = StyleSheet.create({
-        page: {
-            flexDirection: 'row',
-            backgroundColor: '#E4E4E4',
-        },
-        section: {
-            margin: 10,
-            padding: 10,
-            flexGrow: 1,
-        },
-    });
-
-    const MyDocument = () => (
-        <Document>
-            <Page size="A4" style={styles.page}>
-                <View style={styles.section}>
-                    <Text>Section #1</Text>
-                </View>
-                <View style={styles.section}>
-                    <Text>Section #2</Text>
-                </View>
-            </Page>
-        </Document>
-    );
 
     useEffect(() => {
         getData()
