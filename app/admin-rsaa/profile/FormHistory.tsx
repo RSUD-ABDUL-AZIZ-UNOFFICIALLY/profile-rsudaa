@@ -12,7 +12,7 @@ const FormHistory = () => {
     const [alertUpdate, setAlertUpdate] = useState<boolean>(false)
     const getData = useCallback(async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/history`)
+            const response = await axios.get(`${API_URL}/profile/history`)
 
             if (response.data) {
                 setData(response.data.data.desc)
@@ -24,7 +24,7 @@ const FormHistory = () => {
 
     const handleUpdate = async () => {
         try {
-            const response = await axios.post(`${API_URL}/api/profile/update/history`, {
+            const response = await axios.post(`${API_URL}/profile/update/history`, {
                 desc: data
             }, {
                 headers: {

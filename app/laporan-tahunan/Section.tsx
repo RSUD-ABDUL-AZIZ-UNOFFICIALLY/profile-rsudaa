@@ -14,7 +14,7 @@ const Section = () => {
 
     const getDataLaporanTahunan = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/laporan-tahunan?name=`)
+            const response = await axios.get(`${API_URL}/laporan-tahunan?name=`)
 
             if (response.data.success == true) {
                 setData(response.data.data)

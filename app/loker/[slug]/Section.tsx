@@ -17,7 +17,7 @@ const Section: React.FC<Props> = ({ slug }) => {
     const [apply, setApply] = useState<boolean>(false)
     const getData = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/loker?id=${slug}`)
+            const response = await axios.get(`${API_URL}/loker?id=${slug}`)
             if (response.data.data) {
                 setData(response.data.data)
             }

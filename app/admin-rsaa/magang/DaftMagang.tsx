@@ -18,7 +18,7 @@ const DaftMagang = () => {
     const navigation = useRouter()
     const getData = useCallback(async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/magang`)
+            const response = await axios.get(`${API_URL}/magang`)
 
             if (response.data) {
                 setData(response.data.data)
@@ -31,7 +31,7 @@ const DaftMagang = () => {
     const handleDelete = async (id: string) => {
         setDeleteSelect(null)
         try {
-            const response = await axios.post(`${API_URL}/api/magang/delete/${id}`, {}, {
+            const response = await axios.post(`${API_URL}/magang/delete/${id}`, {}, {
                 headers: {
                     Authorization: `Bearer ${access_token}`
                 }

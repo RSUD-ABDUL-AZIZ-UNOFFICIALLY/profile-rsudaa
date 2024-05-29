@@ -32,7 +32,7 @@ const Section = () => {
 
     const getData = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/dasar-hukum`)
+            const response = await axios.get(`${API_URL}/dasar-hukum`)
 
             if (response.data.success == true) {
                 setData(response.data.data)
@@ -64,7 +64,7 @@ const Section = () => {
                     setValue('file', upload.data.data.url)
                 }
 
-                const response = await axios.post(`${API_URL}/api/dasar-hukum`, data, {
+                const response = await axios.post(`${API_URL}/dasar-hukum`, data, {
                     headers: {
                         Authorization: `Bearer ${access_token}`
                     }
@@ -88,7 +88,7 @@ const Section = () => {
     const handleDelete = async (id: string) => {
         setDeleteSelect(null)
         try {
-            const response = await axios.delete(`${API_URL}/api/dasar-hukum/${id}`, {
+            const response = await axios.delete(`${API_URL}/dasar-hukum/${id}`, {
                 headers: {
                     Authorization: `Bearer ${access_token}`
                 }

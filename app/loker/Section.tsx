@@ -13,7 +13,7 @@ const Section = () => {
 
     const getDesc = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/loker`)
+            const response = await axios.get(`${API_URL}/profile/loker`)
 
             if (response.data.data) {
                 setDesc(response.data.data.desc)
@@ -25,7 +25,7 @@ const Section = () => {
 
     const getDataLoker = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/loker`)
+            const response = await axios.get(`${API_URL}/loker`)
 
             if (response.data.data) {
                 setData(response.data.data)

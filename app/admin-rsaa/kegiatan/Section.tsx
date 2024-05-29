@@ -20,7 +20,7 @@ const Section = () => {
     const API_URL = process.env.API_URL
     const getData = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/activity`)
+            const response = await axios.get(`${API_URL}/activity`)
 
 
 
@@ -34,7 +34,7 @@ const Section = () => {
 
     const handleDelete = async (activityID: string) => {
         try {
-            const response = await axios.delete(`${API_URL}/api/activity/${activityID}`, {
+            const response = await axios.delete(`${API_URL}/activity/${activityID}`, {
                 headers: {
                     Authorization: `Bearer ${access_token}`
                 }

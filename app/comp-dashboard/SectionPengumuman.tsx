@@ -16,7 +16,7 @@ const SectionPengumuman = () => {
 
     const getAnnouncement = useCallback(async () => {
         try {
-            const response: AxiosResponse<any> = await axios.get(`${API_URL}/api/announcement`);
+            const response: AxiosResponse<any> = await axios.get(`${API_URL}/announcement`);
 
             if (response.data.success == true) {
                 setDataAnnouncement(response.data.data);

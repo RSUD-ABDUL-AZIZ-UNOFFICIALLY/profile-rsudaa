@@ -12,7 +12,7 @@ const FormLink = () => {
     const [alertUpdate, setAlertUpdate] = useState<boolean>(false)
     const getData = useCallback(async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/pendaftaranOnlineLink`)
+            const response = await axios.get(`${API_URL}/profile/pendaftaranOnlineLink`)
 
             if (response.data) {
                 setData(response.data.data.desc)
@@ -24,7 +24,7 @@ const FormLink = () => {
 
     const handleUpdate = async () => {
         try {
-            const response = await axios.post(`${API_URL}/api/profile/update/pendaftaranOnlineLink`, {
+            const response = await axios.post(`${API_URL}/profile/update/pendaftaranOnlineLink`, {
                 desc: data
             }, {
                 headers: {

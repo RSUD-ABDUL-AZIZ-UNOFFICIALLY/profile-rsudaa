@@ -12,7 +12,7 @@ const Form = () => {
     const [alertUpdate, setAlertUpdate] = useState<boolean>(false)
     const getData = useCallback(async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/loker`)
+            const response = await axios.get(`${API_URL}/profile/loker`)
 
             if (response.data) {
                 setData(response.data.data.desc)
@@ -24,7 +24,7 @@ const Form = () => {
 
     const handleUpdate = async () => {
         try {
-            const response = await axios.post(`${API_URL}/api/profile/update/loker`, {
+            const response = await axios.post(`${API_URL}/profile/update/loker`, {
                 desc: data
             }, {
                 headers: {

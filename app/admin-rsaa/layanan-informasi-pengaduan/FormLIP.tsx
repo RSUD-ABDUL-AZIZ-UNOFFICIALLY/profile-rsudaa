@@ -12,7 +12,7 @@ const FormLIP = () => {
     const [alertUpdate, setAlertUpdate] = useState<boolean>(false)
     const getData = useCallback(async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/layananInformasi`)
+            const response = await axios.get(`${API_URL}/profile/layananInformasi`)
 
             if (response.data) {
                 setData(response.data.data.desc)
@@ -24,7 +24,7 @@ const FormLIP = () => {
 
     const handleUpdate = async () => {
         try {
-            const response = await axios.post(`${API_URL}/api/profile/update/layananInformasi`, {
+            const response = await axios.post(`${API_URL}/profile/update/layananInformasi`, {
                 desc: data
             }, {
                 headers: {

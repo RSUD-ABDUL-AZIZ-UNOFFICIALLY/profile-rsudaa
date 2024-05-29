@@ -12,7 +12,7 @@ const Section = () => {
 
     const getSKM = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/struktur-organisasi`)
+            const response = await axios.get(`${API_URL}/profile/struktur-organisasi`)
 
             if (response.data.data) {
                 setItemDesc(response.data.data.desc)
@@ -24,7 +24,7 @@ const Section = () => {
 
     const getSKMLink = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/struktur-organisasi-image`)
+            const response = await axios.get(`${API_URL}/profile/struktur-organisasi-image`)
 
             if (response.data.data) {
                 setItemLink(response.data.data.desc)

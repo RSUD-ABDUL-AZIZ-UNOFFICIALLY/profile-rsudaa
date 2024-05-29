@@ -19,7 +19,7 @@ const Section = () => {
     const API_URL = process.env.API_URL
     const getData = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/article`)
+            const response = await axios.get(`${API_URL}/article`)
 
             if (response.data.success == true) {
                 setData(response.data.data)
@@ -31,7 +31,7 @@ const Section = () => {
 
     const handleDelete = async (articleID: string) => {
         try {
-            const response = await axios.delete(`${API_URL}/api/article/${articleID}`, {
+            const response = await axios.delete(`${API_URL}/article/${articleID}`, {
                 headers: {
                     Authorization: `Bearer ${access_token}`
                 }

@@ -12,7 +12,7 @@ const Section = () => {
 
     const getData = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/maklumat-pelayanan`)
+            const response = await axios.get(`${API_URL}/maklumat-pelayanan`)
 
             if (response.data.success == true) {
                 setData(response.data.data)
@@ -24,7 +24,7 @@ const Section = () => {
 
     const getDesc = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/maklumat-pelayanan`)
+            const response = await axios.get(`${API_URL}/profile/maklumat-pelayanan`)
 
             if (response.data.data) {
                 setItemDesc(response.data.data.desc)
@@ -36,7 +36,7 @@ const Section = () => {
 
     const getDirektur = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/nameDirektur`)
+            const response = await axios.get(`${API_URL}/profile/nameDirektur`)
             if (response.data.data) {
                 setDirektur(response.data.data.desc)
             }
@@ -47,7 +47,7 @@ const Section = () => {
 
     const getSignDirektur = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/signDirektur`)
+            const response = await axios.get(`${API_URL}/profile/signDirektur`)
 
             if (response.data.data) {
                 setSignDirektur(response.data.data.desc)

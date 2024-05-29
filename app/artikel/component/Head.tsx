@@ -8,7 +8,7 @@ const Head = () => {
     const API_URL = process.env.API_URL
     const getArtikel = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/article`)
+            const response = await axios.get(`${API_URL}/profile/article`)
 
             if (response.data.data) {
                 setData(response.data.data)

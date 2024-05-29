@@ -12,7 +12,7 @@ const Section = () => {
 
     const getDesc = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/pendaftaranOnline`)
+            const response = await axios.get(`${API_URL}/profile/pendaftaranOnline`)
 
             if (response.data.data) {
                 setDesc(response.data.data.desc)
@@ -24,7 +24,7 @@ const Section = () => {
 
     const getLink = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/pendaftaranOnlineLink`)
+            const response = await axios.get(`${API_URL}/profile/pendaftaranOnlineLink`)
 
             if (response.data.data) {
                 setLink(response.data.data.desc)

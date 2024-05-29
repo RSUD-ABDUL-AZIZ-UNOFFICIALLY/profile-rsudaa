@@ -23,7 +23,7 @@ const Section = () => {
 
     const getData = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/link-aplikasi`)
+            const response = await axios.get(`${API_URL}/link-aplikasi`)
 
             if (response.data.success == true) {
                 setData(response.data.data)
@@ -35,7 +35,7 @@ const Section = () => {
 
     const handleCreate: SubmitHandler<Inputs> = async (data) => {
         try {
-            const response = await axios.post(`${API_URL}/api/link-aplikasi`, data, {
+            const response = await axios.post(`${API_URL}/link-aplikasi`, data, {
                 headers: {
                     Authorization: `Bearer ${access_token}`
                 }
@@ -57,7 +57,7 @@ const Section = () => {
     const handleDelete = async (id: string) => {
         setDeleteSelect(null)
         try {
-            const response = await axios.delete(`${API_URL}/api/link-aplikasi/${id}`, {
+            const response = await axios.delete(`${API_URL}/link-aplikasi/${id}`, {
                 headers: {
                     Authorization: `Bearer ${access_token}`
                 }

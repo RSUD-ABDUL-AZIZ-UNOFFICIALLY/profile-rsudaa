@@ -24,7 +24,7 @@ const Section: React.FC<props> = ({ id }) => {
 
     const getData = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/link-aplikasi?id=${id}`)
+            const response = await axios.get(`${API_URL}/link-aplikasi?id=${id}`)
 
             if (response.data.success == true) {
                 setValue('name', response.data.data.name)
@@ -37,7 +37,7 @@ const Section: React.FC<props> = ({ id }) => {
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         try {
-            const response = await axios.put(`${API_URL}/api/link-aplikasi/${id}`, data, {
+            const response = await axios.put(`${API_URL}/link-aplikasi/${id}`, data, {
                 headers: {
                     Authorization: `Bearer ${access_token}`
                 }

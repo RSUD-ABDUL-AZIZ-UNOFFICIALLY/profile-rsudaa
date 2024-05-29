@@ -12,7 +12,7 @@ const FormMisi = () => {
     const [alertUpdate, setAlertUpdate] = useState<boolean>(false)
     const getData = useCallback(async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/misi`)
+            const response = await axios.get(`${API_URL}/profile/misi`)
 
             if (response.data) {
                 setData(response.data.data.desc)
@@ -24,7 +24,7 @@ const FormMisi = () => {
 
     const handleUpdate = async () => {
         try {
-            const response = await axios.post(`${API_URL}/api/profile/update/misi`, {
+            const response = await axios.post(`${API_URL}/profile/update/misi`, {
                 desc: data
             }, {
                 headers: {

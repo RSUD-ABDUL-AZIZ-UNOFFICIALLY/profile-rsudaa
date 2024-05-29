@@ -21,7 +21,7 @@ const Section = () => {
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         try {
-            const response = await axios.post(`${API_URL}/api/loker/post`, data, {
+            const response = await axios.post(`${API_URL}/loker/post`, data, {
                 headers: {
                     Authorization: `Bearer ${access_token}`
                 }

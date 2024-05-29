@@ -33,7 +33,7 @@ const Section: React.FC<props> = ({ articleID }) => {
 
     const getData = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/article?articleID=${articleID}`)
+            const response = await axios.get(`${API_URL}/article?articleID=${articleID}`)
 
             if (response.data.success == true) {
                 const dataArticle: articleResponse = response.data.data
@@ -77,7 +77,7 @@ const Section: React.FC<props> = ({ articleID }) => {
                 dataUploadFile = upload.data.data.url
             }
 
-            const response = await axios.put(`${API_URL}/api/article/${articleID}`, {
+            const response = await axios.put(`${API_URL}/article/${articleID}`, {
                 title: data.title,
                 desc: data.desc,
                 images: dataUploadFile

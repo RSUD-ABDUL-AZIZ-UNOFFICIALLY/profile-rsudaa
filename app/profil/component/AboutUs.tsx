@@ -10,7 +10,7 @@ const AboutUs = () => {
     const API_URL = process.env.API_URL
     const getAboutUs = async () => {
         try {
-            const data = await axios.get(`${API_URL}/api/profile/about-us`)
+            const data = await axios.get(`${API_URL}/profile/about-us`)
 
             if (data.data.data) {
                 setAboutUs(data.data.data)

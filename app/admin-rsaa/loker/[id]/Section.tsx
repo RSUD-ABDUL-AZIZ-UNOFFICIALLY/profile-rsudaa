@@ -25,7 +25,7 @@ const Section: React.FC<props> = ({ id }) => {
     const navigation = useRouter()
     const getData = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/loker?id=${id}`)
+            const response = await axios.get(`${API_URL}/loker?id=${id}`)
 
             if (response.data.data) {
                 setData(response.data.data)
@@ -38,7 +38,7 @@ const Section: React.FC<props> = ({ id }) => {
     const handleDelete = async (id: string) => {
         setDeleteSelect(null)
         try {
-            const response = await axios.post(`${API_URL}/api/loker/delete/${id}`, {}, {
+            const response = await axios.post(`${API_URL}/loker/delete/${id}`, {}, {
                 headers: {
                     Authorization: `Bearer ${access_token}`
                 }

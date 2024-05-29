@@ -13,7 +13,7 @@ const Section = () => {
 
     const getSKM = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/skm`)
+            const response = await axios.get(`${API_URL}/profile/skm`)
 
             if (response.data.data) {
                 setSkmDesc(response.data.data.desc)
@@ -25,7 +25,7 @@ const Section = () => {
 
     const getSKMLink = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/skmLink`)
+            const response = await axios.get(`${API_URL}/profile/skmLink`)
 
             if (response.data.data) {
                 setSkmLink(response.data.data.desc)

@@ -35,7 +35,7 @@ const SectionKegiatan = () => {
 
     const getActivity = useCallback(async () => {
         try {
-            const res: AxiosResponse<any> = await axios.get(`${API_URL}/api/activity`);
+            const res: AxiosResponse<any> = await axios.get(`${API_URL}/activity`);
 
             const responseData: activityResponse[] = res.data.data;
 
@@ -60,7 +60,7 @@ const SectionKegiatan = () => {
 
     const getArticle = useCallback(async () => {
         try {
-            const res: AxiosResponse<any> = await axios.get(`${API_URL}/api/article`);
+            const res: AxiosResponse<any> = await axios.get(`${API_URL}/article`);
 
             const responseData: articleResponse[] = res.data.data;
 

@@ -12,7 +12,7 @@ const FormAboutUs = () => {
     const [alertUpdate, setAlertUpdate] = useState<boolean>(false)
     const getData = useCallback(async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/about-us`)
+            const response = await axios.get(`${API_URL}/profile/about-us`)
 
             if (response.data) {
                 setData(response.data.data.desc)
@@ -24,7 +24,7 @@ const FormAboutUs = () => {
 
     const handleUpdate = async () => {
         try {
-            const response = await axios.post(`${API_URL}/api/profile/update/about-us`, {
+            const response = await axios.post(`${API_URL}/profile/update/about-us`, {
                 desc: data
             }, {
                 headers: {

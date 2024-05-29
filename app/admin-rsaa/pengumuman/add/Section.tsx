@@ -56,7 +56,7 @@ const Section = () => {
                 setValue('images', upload.data.data.url)
                 console.log(upload.data.data.url);
 
-                const response = await axios.post(`${API_URL}/api/announcement`, {
+                const response = await axios.post(`${API_URL}/announcement`, {
                     title: data.title,
                     desc: data.desc,
                     images: upload.data.data.url

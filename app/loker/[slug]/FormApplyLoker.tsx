@@ -70,7 +70,7 @@ const FormApplyLoker: React.FC<Props> = ({ item }) => {
             formData.append('fileApply', data.fileApply)
             formData.append('fileOther', data.fileOther)
 
-            const response = await axios.post(`${API_URL}/api/app-loker/post`, data)
+            const response = await axios.post(`${API_URL}/app-loker/post`, data)
 
             if (response.data.success == true) {
                 window.scroll({

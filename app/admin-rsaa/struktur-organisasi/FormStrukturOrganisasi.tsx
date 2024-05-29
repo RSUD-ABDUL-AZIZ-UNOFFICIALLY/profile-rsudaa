@@ -12,7 +12,7 @@ const FormStrukturOrganisasi = () => {
     const [alertUpdate, setAlertUpdate] = useState<boolean>(false)
     const getData = useCallback(async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/struktur-organisasi`)
+            const response = await axios.get(`${API_URL}/profile/struktur-organisasi`)
 
             if (response.data) {
                 setData(response.data.data.desc)
@@ -24,7 +24,7 @@ const FormStrukturOrganisasi = () => {
 
     const handleUpdate = async () => {
         try {
-            const response = await axios.post(`${API_URL}/api/profile/update/struktur-organisasi`, {
+            const response = await axios.post(`${API_URL}/profile/update/struktur-organisasi`, {
                 desc: data
             }, {
                 headers: {

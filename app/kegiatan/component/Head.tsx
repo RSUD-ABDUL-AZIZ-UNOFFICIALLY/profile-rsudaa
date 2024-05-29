@@ -10,7 +10,7 @@ const Head = () => {
 
     const getArtikel = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/activity`)
+            const response = await axios.get(`${API_URL}/profile/activity`)
 
             if (response.data.data) {
                 setData(response.data.data)

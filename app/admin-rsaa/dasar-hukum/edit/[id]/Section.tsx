@@ -32,7 +32,7 @@ const Section: React.FC<props> = ({ id }) => {
 
     const getData = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/dasar-hukum?id=${id}`)
+            const response = await axios.get(`${API_URL}/dasar-hukum?id=${id}`)
 
             if (response.data.success == true) {
                 setValue('name', response.data.data.name)
@@ -62,7 +62,7 @@ const Section: React.FC<props> = ({ id }) => {
                     setValue('file', upload.data.data.url)
                 }
 
-                const response = await axios.put(`${API_URL}/api/dasar-hukum/${id}`, data, {
+                const response = await axios.put(`${API_URL}/dasar-hukum/${id}`, data, {
                     headers: {
                         Authorization: `Bearer ${access_token}`
                     }

@@ -26,7 +26,7 @@ const Section: React.FC<props> = ({ id }) => {
 
     const getData = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/loker?id=${id}`)
+            const response = await axios.get(`${API_URL}/loker?id=${id}`)
 
             if (response.data.data) {
                 const data: LokerResponse = response.data.data
@@ -43,7 +43,7 @@ const Section: React.FC<props> = ({ id }) => {
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         try {
-            const response = await axios.post(`${API_URL}/api/loker/update/${id}`, data, {
+            const response = await axios.post(`${API_URL}/loker/update/${id}`, data, {
                 headers: {
                     Authorization: `Bearer ${access_token}`
                 }

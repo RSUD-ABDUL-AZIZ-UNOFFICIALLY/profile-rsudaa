@@ -25,7 +25,7 @@ const Kegiatan = () => {
 
     const getData = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/activity`)
+            const response = await axios.get(`${API_URL}/activity`)
 
             if (response.data.data) {
                 setMaxNumberData(response.data.data.length)

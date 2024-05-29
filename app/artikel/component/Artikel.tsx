@@ -16,7 +16,7 @@ const Artikel = () => {
     const API_URL = process.env.API_URL
     const getData = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/article`)
+            const response = await axios.get(`${API_URL}/article`)
 
             if (response.data.data) {
                 setMaxNumberData(response.data.data.length)

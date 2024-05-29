@@ -18,7 +18,7 @@ const Section: React.FC<Props> = ({ slug }) => {
     const [apply, setApply] = useState<boolean>(false)
     const getData = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/magang?id=${slug}`)
+            const response = await axios.get(`${API_URL}/magang?id=${slug}`)
             if (response.data.data) {
                 setData(response.data.data)
             }

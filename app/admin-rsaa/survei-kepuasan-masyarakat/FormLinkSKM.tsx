@@ -12,7 +12,7 @@ const FormLinkSKM = () => {
     const [alertUpdate, setAlertUpdate] = useState<boolean>(false)
     const getData = useCallback(async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/skmLink`)
+            const response = await axios.get(`${API_URL}/profile/skmLink`)
 
             if (response.data) {
                 setData(response.data.data.desc)
@@ -24,7 +24,7 @@ const FormLinkSKM = () => {
 
     const handleUpdate = async () => {
         try {
-            const response = await axios.post(`${API_URL}/api/profile/update/skmLink`, {
+            const response = await axios.post(`${API_URL}/profile/update/skmLink`, {
                 desc: data
             }, {
                 headers: {

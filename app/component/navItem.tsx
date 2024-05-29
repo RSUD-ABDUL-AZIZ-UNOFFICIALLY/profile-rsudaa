@@ -45,7 +45,7 @@ const Aplikasi = () => {
 
     const getDataAplikasi = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/link-aplikasi`)
+            const response = await axios.get(`${API_URL}/link-aplikasi`)
             if (response.data.success == true) {
                 setAplikasi(response.data.data)
             }
@@ -77,7 +77,7 @@ const DasarHukum = () => {
 
     const getDataAplikasi = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/dasar-hukum`)
+            const response = await axios.get(`${API_URL}/dasar-hukum`)
             if (response.data.success == true) {
                 setDasarHukum(response.data.data)
             }

@@ -10,7 +10,7 @@ const VisiMisi = () => {
     const API_URL = process.env.API_URL
     const getVisi = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/visi`)
+            const response = await axios.get(`${API_URL}/profile/visi`)
 
             if (response.data.data) {
                 setVisi(response.data.data)
@@ -22,7 +22,7 @@ const VisiMisi = () => {
 
     const getMisi = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/misi`)
+            const response = await axios.get(`${API_URL}/profile/misi`)
 
             if (response.data.data) {
                 setMisi(response.data.data)

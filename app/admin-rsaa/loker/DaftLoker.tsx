@@ -18,7 +18,7 @@ const DaftLoker = () => {
     const navigation = useRouter()
     const getData = useCallback(async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/loker`)
+            const response = await axios.get(`${API_URL}/loker`)
 
             if (response.data) {
                 setData(response.data.data)
@@ -31,7 +31,7 @@ const DaftLoker = () => {
     const handleDelete = async (id: string) => {
         setDeleteSelect(null)
         try {
-            const response = await axios.post(`${API_URL}/api/loker/delete/${id}`, {}, {
+            const response = await axios.post(`${API_URL}/loker/delete/${id}`, {}, {
                 headers: {
                     Authorization: `Bearer ${access_token}`
                 }

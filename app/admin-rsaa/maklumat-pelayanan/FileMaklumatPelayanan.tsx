@@ -33,7 +33,7 @@ const FileMaklumatPelayanan = () => {
 
     const getData = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/maklumat-pelayanan`)
+            const response = await axios.get(`${API_URL}/maklumat-pelayanan`)
 
             if (response.data) {
                 setData(response.data.data)
@@ -57,7 +57,7 @@ const FileMaklumatPelayanan = () => {
                     }
                 })
 
-                const response = await axios.post(`${API_URL}/api/maklumat-pelayanan`, {
+                const response = await axios.post(`${API_URL}/maklumat-pelayanan`, {
                     file: upload.data.data.url
                 }, {
                     headers: {
@@ -82,7 +82,7 @@ const FileMaklumatPelayanan = () => {
     const handleDelete = async (id: string) => {
         setDeleteSelect(null)
         try {
-            const response = await axios.delete(`${API_URL}/api/maklumat-pelayanan/${id}`, {
+            const response = await axios.delete(`${API_URL}/maklumat-pelayanan/${id}`, {
                 headers: {
                     Authorization: `Bearer ${access_token}`
                 }

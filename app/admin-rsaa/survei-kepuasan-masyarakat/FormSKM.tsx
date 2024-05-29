@@ -12,7 +12,7 @@ const FormSKM = () => {
     const [alertUpdate, setAlertUpdate] = useState<boolean>(false)
     const getData = useCallback(async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/profile/skm`)
+            const response = await axios.get(`${API_URL}/profile/skm`)
 
             if (response.data) {
                 setData(response.data.data.desc)
@@ -24,7 +24,7 @@ const FormSKM = () => {
 
     const handleUpdate = async () => {
         try {
-            const response = await axios.post(`${API_URL}/api/profile/update/skm`, {
+            const response = await axios.post(`${API_URL}/profile/update/skm`, {
                 desc: data
             }, {
                 headers: {
