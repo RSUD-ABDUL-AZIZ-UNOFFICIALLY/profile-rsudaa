@@ -34,7 +34,7 @@ const SectionLogin = () => {
             formData.append('otp', data.otp)
 
             const response = await axios.post(`${API_URL}/auth/login`, data)
-            console.log(response.data);
+            //console.log(response.data);
 
             if (response.data.success == true) {
                 Cookies.set('access_token', response.data.data.token)
@@ -78,7 +78,7 @@ const SectionLogin = () => {
     }
 
     useEffect(() => {
-        console.log(watch('no_wa'));
+        //console.log(watch('no_wa'));
 
     }, [watch('no_wa')])
 

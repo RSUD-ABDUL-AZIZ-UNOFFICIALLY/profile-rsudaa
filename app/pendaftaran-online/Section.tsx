@@ -18,7 +18,7 @@ const Section = () => {
                 setDesc(response.data.data.desc)
             }
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
 
@@ -30,7 +30,7 @@ const Section = () => {
                 setLink(response.data.data.desc)
             }
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
 

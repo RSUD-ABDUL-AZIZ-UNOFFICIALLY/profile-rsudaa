@@ -44,7 +44,7 @@ const SectionKegiatan = () => {
             }
 
         } catch (error) {
-            console.error('Failed to fetch activity:', error);
+            //console.error('Failed to fetch activity:', error);
         }
     }, [dataActivity]);
 
@@ -69,7 +69,7 @@ const SectionKegiatan = () => {
             }
 
         } catch (error) {
-            console.error('Failed to fetch activity:', error);
+            //console.error('Failed to fetch activity:', error);
         }
     }, [dataArticle]);
 

@@ -19,7 +19,7 @@ const Section = () => {
                 setSkmDesc(response.data.data.desc)
             }
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
 
@@ -31,7 +31,7 @@ const Section = () => {
                 setSkmLink(response.data.data.desc)
             }
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
 

@@ -108,7 +108,7 @@ const FormMagangLoker: React.FC<Props> = ({ item }) => {
                 setValue('fileResume', response.data.data.url)
             }
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
 
@@ -127,7 +127,7 @@ const FormMagangLoker: React.FC<Props> = ({ item }) => {
                 setValue('fileApply', response.data.data.url)
             }
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
 
@@ -146,7 +146,7 @@ const FormMagangLoker: React.FC<Props> = ({ item }) => {
                 setValue('fileOther', response.data.data.url)
             }
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
 

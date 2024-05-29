@@ -16,7 +16,7 @@ const VisiMisi = () => {
                 setVisi(response.data.data)
             }
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
 
@@ -28,7 +28,7 @@ const VisiMisi = () => {
                 setMisi(response.data.data)
             }
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
 
@@ -37,7 +37,7 @@ const VisiMisi = () => {
         getMisi()
     }, [])
 
-    console.log(visi?.desc);
+    //console.log(visi?.desc);
 
 
     return (

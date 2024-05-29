@@ -30,7 +30,7 @@ const Section = () => {
                 setItemDesc(response.data.data.desc)
             }
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
 
@@ -41,7 +41,7 @@ const Section = () => {
                 setDirektur(response.data.data.desc)
             }
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
 
@@ -53,7 +53,7 @@ const Section = () => {
                 setSignDirektur(response.data.data.desc)
             }
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
 

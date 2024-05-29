@@ -98,7 +98,7 @@ const Section: React.FC<props> = ({ announcementID }) => {
                 }, 3000)
             }
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
 

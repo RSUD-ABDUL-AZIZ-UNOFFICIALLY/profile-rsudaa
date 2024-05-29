@@ -54,7 +54,7 @@ const Section = () => {
                 })
 
                 setValue('images', upload.data.data.url)
-                console.log(upload.data.data.url);
+                //console.log(upload.data.data.url);
 
                 const response = await axios.post(`${API_URL}/activity`, {
                     title: data.title,
@@ -66,7 +66,7 @@ const Section = () => {
                     }
                 })
 
-                console.log(response.data);
+                //console.log(response.data);
 
 
                 if (response.data.data) {
@@ -79,7 +79,7 @@ const Section = () => {
                     }, 3000)
                 }
             } catch (error) {
-                console.log(error);
+                //console.log(error);
 
             }
         }

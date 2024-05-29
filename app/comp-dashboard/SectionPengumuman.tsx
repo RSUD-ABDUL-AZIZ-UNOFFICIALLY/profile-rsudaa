@@ -23,7 +23,7 @@ const SectionPengumuman = () => {
             }
 
         } catch (error) {
-            console.error('Failed to fetch announcement:', error);
+            //console.error('Failed to fetch announcement:', error);
         }
     }, [dataAnnouncement]);
 

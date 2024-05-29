@@ -25,7 +25,7 @@ const SectionKamar = () => {
                 setNumberData(response.data.data.length)
             }
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
 

@@ -54,7 +54,7 @@ const FormUpdateImage = () => {
                     }
                 })
 
-                console.log('upload', upload.data.data.url);
+                //console.log('upload', upload.data.data.url);
 
 
                 if (upload.data) {
@@ -76,7 +76,7 @@ const FormUpdateImage = () => {
                     }, 5000)
                 }
             } catch (error) {
-                console.log(error);
+                //console.log(error);
             }
         }
     }

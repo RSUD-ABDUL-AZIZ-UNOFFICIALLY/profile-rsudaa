@@ -5,16 +5,17 @@ import axios from 'axios'
 
 const History = () => {
     const [History, setHistory] = useState<ProfileResponse>()
+    const API_URL = process.env.API_URL
     const getHistory = async () => {
         try {
-            const data = await axios.get('http://localhost:4444/api/profile/history')
+            const data = await axios.get(`${API_URL}/profile/history`)
 
             if (data.data.data) {
                 setHistory(data.data.data)
             }
 
         } catch (error) {
-            console.error(error);
+            //console.error(error);
         }
     }
 
