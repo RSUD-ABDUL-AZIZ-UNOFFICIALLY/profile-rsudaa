@@ -9,11 +9,14 @@ import iconPengaduan from "../../public/icon/pengaduan.svg";
 import iconJadwal from "../../public/icon/jadwal.svg";
 import iconFasilitas from "../../public/icon/fasiltas.svg";
 import iconRegistrasi from "../../public/icon/registrasi.svg";
+import { useRouter } from 'next/navigation';
 
 const SectionPelayananPublik = () => {
     const motionRef = useRef(null)
     const isInView = useInView(motionRef, { once: true })
     const mainControls = useAnimation()
+
+    const navigation = useRouter()
 
     useEffect(() => {
         if (isInView) {
@@ -40,8 +43,8 @@ const SectionPelayananPublik = () => {
                             animate={mainControls}
                             transition={{ duration: 0.5, delay: 0 }}
                         >
-                            <div className="grid lg:md:grid-cols-7 grid-cols-3 lg:gap-5 gap-4 justify-center">
-                                <button className="button button-white shadow-sm aspect-square w-full">
+                            <div className="grid lg:md:grid-cols-6 grid-cols-3 lg:gap-5 gap-4 justify-center">
+                                <button onClick={() => navigation.push(`/survei-kepuasan-masyarakat`)} className="button button-white shadow-sm aspect-square w-full">
                                     <div className="h-[70%] flex justify-center items-center">
                                         <Image
                                             src={iconSurveiKepuasan}
@@ -55,7 +58,7 @@ const SectionPelayananPublik = () => {
                                         Survei Kepuasan Masyarakat
                                     </div>
                                 </button>
-                                <button className="button button-white shadow-sm aspect-square w-full">
+                                <button onClick={() => navigation.push(`/layanan-informasi`)} className="button button-white shadow-sm aspect-square w-full">
                                     <div className="h-[70%] flex justify-center items-center">
                                         <Image
                                             src={iconInformation}
@@ -70,23 +73,7 @@ const SectionPelayananPublik = () => {
                                     </div>
                                 </button>
                                 <div className="">
-                                    <button className="button button-white shadow-sm aspect-square w-full">
-                                        <div className="h-[70%] flex justify-center items-center">
-                                            <Image
-                                                src={iconPengaduan}
-                                                alt="Picture of the author"
-                                                // height={80}
-                                                className="lg:md:h-[60%] h-[60%]"
-                                            // className='h-full'
-                                            />
-                                        </div>
-                                        <div className="h-[30%] lg:md:text-[15px] text-[10px] uppercase font-bold text-primary flex items-center justify-center text-center">
-                                            Pengaduan
-                                        </div>
-                                    </button>
-                                </div>
-                                <div className="">
-                                    <button className="button button-white shadow-sm aspect-square w-full">
+                                    <button onClick={() => navigation.push(``)} className="button button-white shadow-sm aspect-square w-full">
                                         <div className="h-[70%] flex justify-center items-center">
                                             <Image
                                                 src={iconPoli}
@@ -102,7 +89,7 @@ const SectionPelayananPublik = () => {
                                     </button>
                                 </div>
                                 <div className="">
-                                    <button className="button button-white shadow-sm aspect-square w-full">
+                                    <button onClick={() => navigation.push(`/informasi-poliklinik`)} className="button button-white shadow-sm aspect-square w-full">
                                         <div className="h-[70%] flex justify-center items-center">
                                             <Image
                                                 src={iconJadwal}
@@ -118,7 +105,7 @@ const SectionPelayananPublik = () => {
                                     </button>
                                 </div>
                                 <div className="">
-                                    <button className="button button-white shadow-sm aspect-square w-full">
+                                    <button onClick={() => navigation.push(`/fasilitas-tarif`)} className="button button-white shadow-sm aspect-square w-full">
                                         <div className="h-[70%] flex justify-center items-center">
                                             <Image
                                                 src={iconFasilitas}
@@ -134,7 +121,7 @@ const SectionPelayananPublik = () => {
                                     </button>
                                 </div>
                                 <div className="">
-                                    <button className="button button-white shadow-sm aspect-square w-full">
+                                    <button onClick={() => navigation.push(`/pendaftaran-online`)} className="button button-white shadow-sm aspect-square w-full">
                                         <div className="h-[70%] flex justify-center items-center">
                                             <Image
                                                 src={iconRegistrasi}

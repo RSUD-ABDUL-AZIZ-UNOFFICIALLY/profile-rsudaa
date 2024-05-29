@@ -3,6 +3,7 @@ import React from 'react'
 
 import FormUpdateImage from './FormUpdateImage'
 import FormMaklumatPelayanan from './FormMaklumatPelayanan'
+import FileMaklumatPelayanan from './FileMaklumatPelayanan'
 
 const Section = () => {
     return (
@@ -19,7 +20,11 @@ const Section = () => {
                         <div className="">
                             <FormUpdateImage />
                         </div>
+                        <div className="lg:col-span-2">
+                            <FileMaklumatPelayanan />
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>

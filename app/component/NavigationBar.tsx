@@ -121,7 +121,7 @@ const NavigationBar = () => {
                         <Link className='item' href="/laporan-tahunan">Laporan Tahunan</Link>
                     </div>
                     <div className="nm-item">
-                        <Link className='item' href="/">Faq</Link>
+                        <Link className='item' href="/faq">Faq</Link>
                     </div>
                 </motion.div>
             </div >

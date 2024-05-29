@@ -2,11 +2,11 @@
 import React, { useContext, useRef, useEffect, useCallback, useState } from 'react'
 import { motion, useInView, useAnimation } from "framer-motion"
 import axios, { AxiosResponse } from 'axios'
-import { ActivityResponse } from '../Model/activity.model'
+import { activityResponse } from '../Model/activity.model'
 import itemImage from "../../public/hospital.webp";
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArticleResponse } from '../Model/article.model'
+import { articleResponse } from '../Model/article.model'
 import moment from 'moment'
 import ModalKegiatan from '../component/ModalKegiatan'
 import { BaseContext } from '../context/BaseContext'
@@ -28,16 +28,16 @@ const SectionKegiatan = () => {
 
     const baseContext = useContext(BaseContext)
 
-    const [dataActivity, setDataActivity] = useState<ActivityResponse[]>()
-    const [dataArticle, setDataArticle] = useState<ArticleResponse[]>()
+    const [dataActivity, setDataActivity] = useState<activityResponse[]>()
+    const [dataArticle, setDataArticle] = useState<articleResponse[]>()
 
     const API_URL = process.env.API_URL
 
     const getActivity = useCallback(async () => {
         try {
-            const res: AxiosResponse<any> = await axios.get(`${API_URL}/api/activity?data=2`);
+            const res: AxiosResponse<any> = await axios.get(`${API_URL}/api/activity`);
 
-            const responseData: ActivityResponse[] = res.data.data.activity;
+            const responseData: activityResponse[] = res.data.data;
 
             if (responseData) {
                 setDataActivity(responseData);
@@ -48,21 +48,21 @@ const SectionKegiatan = () => {
         }
     }, [dataActivity]);
 
-    const handleActivityModal = (item: ActivityResponse) => {
+    const handleActivityModal = (item: activityResponse) => {
         baseContext.setModalActivity(true)
         baseContext.setModalActivityItem(item)
     }
 
-    const handleArticleModal = (item: ArticleResponse) => {
+    const handleArticleModal = (item: articleResponse) => {
         baseContext.setModalArticle(true)
         baseContext.setModalArticleItem(item)
     }
 
     const getArticle = useCallback(async () => {
         try {
-            const res: AxiosResponse<any> = await axios.get(`${API_URL}/api/article?data=2`);
+            const res: AxiosResponse<any> = await axios.get(`${API_URL}/api/article`);
 
-            const responseData: ArticleResponse[] = res.data.data.article;
+            const responseData: articleResponse[] = res.data.data;
 
             if (responseData) {
                 setDataArticle(responseData);
@@ -129,27 +129,29 @@ const SectionKegiatan = () => {
                     >
                         {dataActivity ?
                             <>
-                                {dataActivity.map((item: ActivityResponse, index: number) => {
+                                {dataActivity.map((item: activityResponse, index: number) => {
                                     const desc: any = item.desc
                                     const shortString = desc.split(" ").slice(0, 50).join(" "); // Ambil 100 kata pertama
 
                                     const truncatedString = desc.slice(0, 250) + "...";
                                     // const truncatedString = shortString + "..."; // Tambahkan "---" di belakangnya
-                                    return (
-                                        <div key={index} className='grid lg:md:grid-cols-10 gap-1'>
-                                            <div className="lg:col-span-4 overflow-hidden">
-                                                <Image src={itemImage} alt="Picture of the author" sizes='100%' style={{ objectFit: 'cover' }} />
-                                            </div>
-                                            <div className="lg:col-span-6 lg:md:pl-3 lg:md:pr-3 text-black h-full">
-                                                <div className="lg:md:text-xl text-xl font-bold uppercase">{item.title}</div>
-                                                <div className="text-primary text-xs w-fit rounded-sm">
-                                                    {moment(item.createdAt).format('HH:mm DD MMMM YYYY')}
+                                    if (index < 2) {
+                                        return (
+                                            <div key={index} className='grid lg:md:grid-cols-10 gap-1'>
+                                                <div className="lg:col-span-4 overflow-hidden">
+                                                    <img src={item.images ? item.images : '/page/default.jpg'} alt="Picture of the author" sizes='100%' style={{ objectFit: 'cover' }} />
                                                 </div>
-                                                <div className="text-justify p-3 overflow-hidden">{truncatedString}</div>
-                                                <button onClick={() => handleActivityModal(item)} className='hover:scale-105 active:scale-95 duration-200 text-primary text-2xl'>...</button>
+                                                <div className="lg:col-span-6 lg:md:pl-3 lg:md:pr-3 text-black h-full">
+                                                    <div className="lg:md:text-xl text-xl font-bold uppercase">{item.title}</div>
+                                                    <div className="text-primary text-xs w-fit rounded-sm">
+                                                        {moment(item.createdAt).format('HH:mm DD MMMM YYYY')}
+                                                    </div>
+                                                    <div className="text-justify p-3 overflow-hidden">{truncatedString}</div>
+                                                    <button onClick={() => handleActivityModal(item)} className='hover:scale-105 active:scale-95 duration-200 text-primary text-2xl'>...</button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    )
+                                        )
+                                    }
                                 })}
                                 <button onClick={() => handleNavigation('/kegiatan')} className='btn btn-ghost hover:bg-transparent hover:scale-105 hover:underline active:scale-95 duration-200 text-left mt-4 w-fit rounded-none'>Semua Kegiatan {`>`}</button>
                             </>
@@ -197,27 +199,29 @@ const SectionKegiatan = () => {
                     >
                         {dataArticle ?
                             <>
-                                {dataArticle.map((item: ArticleResponse, index: number) => {
+                                {dataArticle.map((item: articleResponse, index: number) => {
                                     const desc: any = item.desc
                                     const shortString = desc.split(" ").slice(0, 50).join(" "); // Ambil 100 kata pertama
 
                                     const truncatedString = desc.slice(0, 250) + "...";
                                     // const truncatedString = shortString + "..."; // Tambahkan "---" di belakangnya
-                                    return (
-                                        <div key={index} className='grid lg:md:grid-cols-10 gap-1'>
-                                            <div className="lg:col-span-4 overflow-hidden">
-                                                <Image src={itemImage} alt="Picture of the author" sizes='100%' style={{ objectFit: 'cover' }} />
-                                            </div>
-                                            <div className="lg:col-span-6 lg:md:pl-3 lg:md:pr-3 text-black h-full">
-                                                <div className="lg:md:text-xl text-xl font-bold uppercase">{item.title}</div>
-                                                <div className="text-primary text-xs w-fit rounded-sm">
-                                                    {moment(item.createdAt).format('HH:mm DD MMMM YYYY')}
+                                    if (index < 2) {
+                                        return (
+                                            <div key={index} className='grid lg:md:grid-cols-10 gap-1'>
+                                                <div className="lg:col-span-4 overflow-hidden">
+                                                    <img src={item.images ? item.images : '/page/default.jpg'} alt="Picture of the author" sizes='100%' style={{ objectFit: 'cover' }} />
                                                 </div>
-                                                <div className="text-justify p-3 overflow-hidden">{truncatedString}</div>
-                                                <button onClick={() => handleArticleModal(item)} className='hover:scale-105 active:scale-95 duration-200 text-primary text-2xl'>...</button>
+                                                <div className="lg:col-span-6 lg:md:pl-3 lg:md:pr-3 text-black h-full">
+                                                    <div className="lg:md:text-xl text-xl font-bold uppercase">{item.title}</div>
+                                                    <div className="text-primary text-xs w-fit rounded-sm">
+                                                        {moment(item.createdAt).format('HH:mm DD MMMM YYYY')}
+                                                    </div>
+                                                    <div className="text-justify p-3 overflow-hidden">{truncatedString}</div>
+                                                    <button onClick={() => handleArticleModal(item)} className='hover:scale-105 active:scale-95 duration-200 text-primary text-2xl'>...</button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    )
+                                        )
+                                    }
                                 })}
                                 <button onClick={() => handleNavigation('/artikel')} className='btn btn-ghost hover:bg-transparent hover:scale-105 hover:underline active:scale-95 duration-200 text-left mt-4 w-fit rounded-none'>Semua Artikel {`>`}</button>
                             </>

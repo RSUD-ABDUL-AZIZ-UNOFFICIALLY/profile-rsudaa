@@ -1,5 +1,10 @@
+'use client'
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { AplikasiResponse } from "../Model/aplikasi.model";
+import axios from "axios";
+import { DasarHukumResponse } from "../Model/dasarHukum.model";
+
 
 const TentangKami = () => {
     return (
@@ -35,12 +40,31 @@ const Karir = () => {
 }
 
 const Aplikasi = () => {
+    const [aplikasi, setAplikasi] = useState<AplikasiResponse[]>()
+    const API_URL = process.env.API_URL
+
+    const getDataAplikasi = async () => {
+        try {
+            const response = await axios.get(`${API_URL}/api/link-aplikasi`)
+            if (response.data.success == true) {
+                setAplikasi(response.data.data)
+            }
+        } catch (error) {
+
+        }
+    }
+
+    useEffect(() => {
+        getDataAplikasi()
+    }, [])
+
     return (
         <React.Fragment>
-            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+            {aplikasi && aplikasi.length > 0 && aplikasi.map((item: AplikasiResponse, index: number) => {
+                return (
+                    <Link target="_blank" key={index} href={item.link ? item.link : '#'} className="dropdown-item">{item.name}</Link>
+                )
+            })}
         </React.Fragment>
     )
 }
@@ -48,12 +72,30 @@ const Aplikasi = () => {
 
 
 const DasarHukum = () => {
+    const [dasarHukum, setDasarHukum] = useState<DasarHukumResponse[]>()
+    const API_URL = process.env.API_URL
+
+    const getDataAplikasi = async () => {
+        try {
+            const response = await axios.get(`${API_URL}/api/dasar-hukum`)
+            if (response.data.success == true) {
+                setDasarHukum(response.data.data)
+            }
+        } catch (error) {
+
+        }
+    }
+
+    useEffect(() => {
+        getDataAplikasi()
+    }, [])
     return (
         <React.Fragment>
-            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
-            <Link href={`#`} className="dropdown-item">Lorem ipsum</Link>
+            {dasarHukum && dasarHukum.length > 0 && dasarHukum.map((item: DasarHukumResponse, index: number) => {
+                return (
+                    <Link key={index} href={'#'} className="dropdown-item">{item.name}</Link>
+                )
+            })}
         </React.Fragment>
     )
 }
