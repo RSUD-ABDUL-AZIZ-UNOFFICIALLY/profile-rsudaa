@@ -1,20 +1,20 @@
 'use client'
 
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { ActivityResponse } from "../Model/activity.model";
-import { ArticleResponse } from "../Model/article.model";
+import { activityResponse } from "../Model/activity.model";
+import { articleResponse } from "../Model/article.model";
 
 interface BaseContextType {
     modalActivity: boolean
-    modalActivityItem: ActivityResponse
+    modalActivityItem: activityResponse
     modalArticle: boolean
     alertSuccessApplyLoker: boolean
-    modalArticleItem: ArticleResponse
+    modalArticleItem: articleResponse
     setAlertSuccessApplyLoker: React.Dispatch<React.SetStateAction<boolean>>
     setModalActivity: React.Dispatch<React.SetStateAction<boolean>>
-    setModalActivityItem: React.Dispatch<React.SetStateAction<ActivityResponse>>
+    setModalActivityItem: React.Dispatch<React.SetStateAction<activityResponse>>
     setModalArticle: React.Dispatch<React.SetStateAction<boolean>>
-    setModalArticleItem: React.Dispatch<React.SetStateAction<ArticleResponse>>
+    setModalArticleItem: React.Dispatch<React.SetStateAction<articleResponse>>
 }
 
 export const BaseContext = createContext<BaseContextType>({
@@ -32,10 +32,10 @@ export const BaseContext = createContext<BaseContextType>({
 
 export const BaseProvider = ({ children }: { children: any }) => {
     const [modalActivity, setModalActivity] = useState<boolean>(false)
-    const [modalActivityItem, setModalActivityItem] = useState<ActivityResponse>({})
+    const [modalActivityItem, setModalActivityItem] = useState<activityResponse>({})
 
     const [modalArticle, setModalArticle] = useState<boolean>(false)
-    const [modalArticleItem, setModalArticleItem] = useState<ArticleResponse>({})
+    const [modalArticleItem, setModalArticleItem] = useState<articleResponse>({})
 
     const [alertSuccessApplyLoker, setAlertSuccessApplyLoker] = useState<boolean>(false)
 
