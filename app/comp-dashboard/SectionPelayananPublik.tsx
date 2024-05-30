@@ -44,7 +44,7 @@ const SectionPelayananPublik = () => {
                             transition={{ duration: 1, delay: 0 }}
                         >
                             <div className="grid lg:md:grid-cols-6 grid-cols-3 lg:gap-5 gap-4 justify-center">
-                                <button onClick={() => navigation.push(`/survei-kepuasan-masyarakat`)} className="button button-white shadow-sm aspect-square w-full">
+                                <button onClick={() => navigation.push(`/skm`)} className="button button-white shadow-sm aspect-square w-full">
                                     <div className="h-[70%] flex justify-center items-center">
                                         <Image
                                             src={iconSurveiKepuasan}

@@ -21,7 +21,7 @@ const TentangKami = () => {
 const PelayananPublik = () => {
     return (
         <React.Fragment>
-            <Link href={`/survei-kepuasan-masyarakat`} className="dropdown-item">Survey Kepuasan Masyarakat</Link>
+            <Link href={`/skm`} className="dropdown-item">Survey Kepuasan Masyarakat</Link>
             <Link href={`/layanan-informasi`} className="dropdown-item">Layanan Informasi & Pengaduan</Link>
             <Link href={`/informasi-poliklinik`} className="dropdown-item">Informasi Poliklinik</Link>
             <Link href={`/jadwal-praktek`} className="dropdown-item">Jadwal Praktek</Link>
