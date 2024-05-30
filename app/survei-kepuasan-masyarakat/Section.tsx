@@ -4,7 +4,7 @@ import skm from "../../public/icon/skm.gif";
 import Link from "next/link";
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import IKM from "../../public/IKM.jpg";
 const Section = () => {
     // const skmLink: string = process.env.SKM_LINK ? process.env.SKM_LINK : 'https://rsudaa.singkawangkota.go.id/survei/'
     const API_URL = process.env.API_URL
@@ -69,6 +69,11 @@ const Section = () => {
                         <Link href={skmLink} className="btn btn-primary" target="_blank">Form Survei Kepuasan Masyarakat</Link>
                     </div>
                 }
+                <div className="flex justify-center mt-4">
+                    <div className="lg:w-[60%]">
+                        <Image alt="" src={IKM} />
+                    </div>
+                </div>
             </div>
         </div>
     )

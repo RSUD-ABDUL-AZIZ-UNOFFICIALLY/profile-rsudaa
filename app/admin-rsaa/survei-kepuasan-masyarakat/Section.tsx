@@ -2,9 +2,7 @@
 import React from 'react'
 import FormSKM from './FormSKM'
 import FormLinkSKM from './FormLinkSKM'
-
-
-
+import FormUpdateImage from './FormUpdateImage'
 
 const Section = () => {
     return (
@@ -20,6 +18,9 @@ const Section = () => {
                         </div>
                         <div className="">
                             <FormLinkSKM />
+                        </div>
+                        <div className="">
+                            <FormUpdateImage />
                         </div>
                     </div>
                 </div>
