@@ -33,15 +33,25 @@ const Section: React.FC<Props> = ({ id }) => {
         <div>
             {/* <UnderMaintenance /> */}
             <div className="flex justify-center p-4">
-                <div className="lg:w-[80%] w-[100%]">
-                    <Iframe url={data && data.file ? data.file : '#'}
-                        id=""
-                        className="w-full h-[80vh]"
-                        // display="block"
-                        // position="relative"
-                        scrolling='no'
-                        allowFullScreen
-                    />
+                <div className="lg:w-[80%] w-[100%] ">
+                    {data && data.file ?
+                        <Iframe url={data.file}
+                            id=""
+                            className="w-full h-[80vh]"
+                            // display="block"
+                            // position="relative"
+                            scrolling='no'
+                            allowFullScreen
+                        />
+                        :
+                        <>
+                            <div className="flex justify-center items-center h-[20vh] uppercase font-bold">
+                                <p>
+                                    TIDAK ADA FILE DASAR HUKUM <span className='p-1 bg-yellow-400 rounded-sm'>{data?.name}</span>
+                                </p>
+                            </div>
+                        </>
+                    }
                 </div>
             </div>
         </div>

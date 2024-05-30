@@ -10,6 +10,7 @@ const Section = () => {
     const API_URL = process.env.API_URL
     const [skmDesc, setSkmDesc] = useState<string>('')
     const [skmLink, setSkmLink] = useState<string>('')
+    const [skmImage, setSkmImage] = useState<string>('')
 
     const getSKM = async () => {
         try {
@@ -23,6 +24,17 @@ const Section = () => {
         }
     }
 
+    const getSKMImage = async () => {
+        try {
+            const response = await axios.get(`${API_URL}/profile/skmImage`)
+
+            if (response.data.data) {
+                setSkmImage(response.data.data.desc)
+            }
+        } catch (error) {
+            //console.log(error);
+        }
+    }
     const getSKMLink = async () => {
         try {
             const response = await axios.get(`${API_URL}/profile/skmLink`)
@@ -38,6 +50,7 @@ const Section = () => {
     useEffect(() => {
         getSKM()
         getSKMLink()
+        getSKMImage()
     }, [])
 
     return (
@@ -71,7 +84,7 @@ const Section = () => {
                 }
                 <div className="flex justify-center mt-4">
                     <div className="lg:w-[60%]">
-                        <Image alt="" src={IKM} />
+                        <img src={skmImage ? skmImage : '/page/default.jpg'} alt="ikm" />
                     </div>
                 </div>
             </div>
