@@ -51,7 +51,9 @@ const VisiMisi = () => {
                             </div>
                         </div>
                         <div className="lg:md:text-md text-lg">
-                            {visi ? visi.desc :
+                            {visi ?
+                                <div className="" dangerouslySetInnerHTML={{ __html: visi.desc ? visi.desc : '' }} />
+                                :
                                 <>
                                     <div className="flex justify-center items-center min-h-24">
                                         <span className="loading loading-ring loading-md"></span>
@@ -68,7 +70,9 @@ const VisiMisi = () => {
                             </div>
                         </div>
                         <div className="lg:md:text-md text-lg">
-                            {misi ? misi.desc :
+                            {misi ?
+                                <div className="" dangerouslySetInnerHTML={{ __html: misi.desc ? misi.desc : '' }} />
+                                :
                                 <>
                                     <div className="flex justify-center items-center min-h-24">
                                         <span className="loading loading-ring loading-md"></span>

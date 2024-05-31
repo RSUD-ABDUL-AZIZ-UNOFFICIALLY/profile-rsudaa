@@ -30,9 +30,7 @@ const History = () => {
                         <div className="uppercase text-2xl font-bold text-primary">History</div>
                         <div className="min-h-full flex items-center p-4 text-justify">
                             {History ?
-                                <div className='text-lg text-slate-300'>
-                                    {History.desc}
-                                </div>
+                                <div className='text-lg text-slate-300' dangerouslySetInnerHTML={{ __html: History.desc ? History.desc : '' }} />
                                 :
                                 <div className="flex justify-center">
                                     <span className="loading loading-dots loading-xs"></span>

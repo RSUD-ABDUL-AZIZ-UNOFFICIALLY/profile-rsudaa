@@ -37,9 +37,7 @@ const AboutUs = () => {
                         {/* <div className="uppercase text-2xl font-bold text-primary">Profile</div> */}
                         <div className="min-h-full flex items-center p-4 text-justify">
                             {AboutUs ?
-                                <div className='text-lg'>
-                                    {AboutUs.desc}
-                                </div>
+                                <div className='text-lg' dangerouslySetInnerHTML={{ __html: AboutUs.desc ? AboutUs.desc : '' }} />
                                 :
                                 <>
                                     <div className="flex flex-col gap-4 w-full">

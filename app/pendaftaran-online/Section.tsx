@@ -47,7 +47,9 @@ const Section = () => {
                     <Image alt='' src={Icon} className='h-52 w-fit' />
                 </div>
                 <div className="p-5 font-thin text-center">
-                    {desc ? desc :
+                    {desc ?
+                        <div className="" dangerouslySetInnerHTML={{ __html: desc }} />
+                        :
                         <>
                             <div className="flex justify-center items-center min-h-24">
                                 <span className="loading loading-ring loading-md"></span>

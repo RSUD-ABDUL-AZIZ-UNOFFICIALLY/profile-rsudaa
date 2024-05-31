@@ -55,7 +55,7 @@ const Section = () => {
                     {itemDesc ?
                         <>
                             <span className='m-1 bg-primary text-white rounded-sm p-1'>Struktur Organisasi RSUD dr Abdul Aziz</span>
-                            {itemDesc}
+                            <div className="" dangerouslySetInnerHTML={{ __html: itemDesc }} />
                         </>
                         :
                         <>

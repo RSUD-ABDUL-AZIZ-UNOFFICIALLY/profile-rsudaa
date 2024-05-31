@@ -48,7 +48,7 @@ const ModalArticle: React.FC<props> = ({ handleModalActive, item }) => {
                             </div>
                             <div className="text-white font-bold text-2xl">{item.title}</div>
                             <div className="text-white text-xl">{moment(item.createdAt).format(`DD MMMM YYYY`)}</div>
-                            <div className="font-thin text-slate-200 p-4">{item.desc}</div>
+                            <div className="font-thin text-slate-200 p-4" dangerouslySetInnerHTML={{ __html: item.desc ? item.desc : '' }} />
                         </div>
                     </div>
                 </div>

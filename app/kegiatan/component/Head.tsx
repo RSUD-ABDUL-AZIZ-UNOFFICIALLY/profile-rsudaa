@@ -34,7 +34,7 @@ const Head = () => {
                     <div className="col-span-9 flex items-center p-5">
                         {Data ?
                             <>
-                                {Data.desc}
+                                <div className="" dangerouslySetInnerHTML={{ __html: Data.desc ? Data.desc : '' }} />
                             </>
                             :
                             <>

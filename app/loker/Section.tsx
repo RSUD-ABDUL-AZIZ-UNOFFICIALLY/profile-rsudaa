@@ -48,7 +48,9 @@ const Section = () => {
             <div className="lg:w-[70%] shadow-sm rounded-sm p-4">
                 <div className="font-bold uppercase text-xl">Lowongan Pekerjaan <br /> RSUD dr Abdul Aziz</div>
                 <div className="font-thin text-sm p-4">
-                    {desc ? desc :
+                    {desc ?
+                        <div className="" dangerouslySetInnerHTML={{ __html: desc }} />
+                        :
                         <>
                             <div className="flex justify-center items-center min-h-24">
                                 <span className="loading loading-ring loading-md"></span>

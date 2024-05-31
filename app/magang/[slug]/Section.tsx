@@ -41,7 +41,7 @@ const Section: React.FC<Props> = ({ slug }) => {
                     {data ?
                         <>
                             <div className="">
-                                <div className="font-thin">{data.desc}</div>
+                                <div className="font-thin" dangerouslySetInnerHTML={{ __html: data.desc ? data.desc : '' }} />
                                 <div className="mt-3 grid gap-2">
                                     <ul> Tanggal Mulai : <span className='text-white p-1 bg-primary'>{moment(data.dateStart).format('DD MMMM YYYY')}</span></ul>
                                     <ul> Tanggal Berakhir : <span className='text-white p-1 bg-primary'>{moment(data.dateEnd).format('DD MMMM YYYY')}</span></ul>

@@ -24,12 +24,27 @@ const Section = () => {
         }
     }
 
+    const [desc, setDesc] = useState<string>('')
+
+    const getDescLaporanTahunan = async () => {
+        try {
+            const response = await axios.get(`${API_URL}/profile/laporanTahunan`)
+
+            if (response.data.success) {
+                setDesc(response.data.data.desc)
+            }
+        } catch (error) {
+
+        }
+    }
+
     const handleNavigation = (e: string) => {
         navigation.push(`laporan-tahunan/${e}`)
     }
 
     useEffect(() => {
         getDataLaporanTahunan()
+        getDescLaporanTahunan()
     }, [])
     return (
         <div className='flex justify-center p-2'>
@@ -38,7 +53,8 @@ const Section = () => {
                     <Image alt='report-icon' src={reportIcon} className='h-64 w-fit' />
                 </div>
                 <div className="text-center text-lg">
-                    <span className="p-1 bg-primary text-white rounded-sm m-1">Laporan Tahunan RSUD dr Abdul Aziz </span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam excepturi eos hic est, ea suscipit reiciendis rerum perferendis facilis quasi assumenda asperiores maxime vitae necessitatibus et doloremque alias similique quod ut. Suscipit reprehenderit id, aliquam alias blanditiis dolorum est! Eligendi doloremque corporis eos maiores nostrum atque distinctio reiciendis voluptates veniam quis, ex adipisci placeat quae harum suscipit rem nobis provident, architecto exercitationem itaque neque necessitatibus rerum! Suscipit minus eos corporis reprehenderit vero a dicta rerum, libero ad beatae accusantium eum consequatur eaque explicabo voluptatem at dolorum ex odit. Tempore reprehenderit inventore aspernatur voluptas possimus fugit quisquam ducimus vel aliquam. Vel!
+                    <span className="p-1 bg-primary text-white rounded-sm m-1">Laporan Tahunan RSUD dr Abdul Aziz </span>
+                    <div className="" dangerouslySetInnerHTML={{ __html: desc }} />
                 </div>
                 <div className="flex-wrap flex justify-center gap-5 mt-4">
                     {data ? data.map((item: laporanTahunanResponse, index: number) => {

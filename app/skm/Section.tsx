@@ -63,7 +63,7 @@ const Section = () => {
                     {skmDesc ?
                         <>
                             <span className='m-1 bg-primary text-white rounded-sm p-1'>Survei Kepuasan Masyarakat RSUD dr Abdul Aziz</span>
-                            {skmDesc}
+                            <div className="" dangerouslySetInnerHTML={{ __html: skmDesc }} />
                         </>
                         :
                         <>
