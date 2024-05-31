@@ -56,8 +56,12 @@ const Section = () => {
                 <div className="lg:w-[80%] p-2">
                     {itemDesc ?
                         <div className="text-center text-lg flex justify-center items-center min-h-[30vh] lg:p-10 p-5">
-                            <span className='m-1 bg-primary text-white rounded-sm p-1'>Maklumat Pelayanan RSUD dr Abdul Aziz</span>
-                            {itemDesc}
+                            <div className="text-center">
+                                <span className='m-1 bg-primary text-white rounded-sm p-1'>Maklumat Pelayanan RSUD dr Abdul Aziz</span>
+                                <div className="">
+                                    {itemDesc}
+                                </div>
+                            </div>
                         </div>
                         :
                         <>
