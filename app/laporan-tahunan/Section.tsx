@@ -39,7 +39,7 @@ const Section = () => {
     }
 
     const handleNavigation = (e: string) => {
-        navigation.push(`laporan-tahunan/${e}`)
+        navigation.push(`${e}`)
     }
 
     useEffect(() => {
@@ -59,7 +59,7 @@ const Section = () => {
                 <div className="flex-wrap flex justify-center gap-5 mt-4">
                     {data ? data.map((item: laporanTahunanResponse, index: number) => {
                         return (
-                            <button key={index} onClick={() => handleNavigation(`${item.name}`)} className="lg:w-[30%] w-[40%] shadow-lg text-xl p-3 rounded-lg uppercase font-bold hover:scale-105 active:scale-95 duration-200 aspect-video">
+                            <button key={index} onClick={() => handleNavigation(`${item.desc}`)} className="lg:w-[30%] w-[40%] shadow-lg text-xl p-3 rounded-lg uppercase font-bold hover:scale-105 active:scale-95 duration-200 aspect-video">
                                 {item.name}
                             </button>
                         )
