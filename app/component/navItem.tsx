@@ -27,6 +27,7 @@ const PelayananPublik = () => {
             <Link href={`/jadwal-praktek`} className="dropdown-item">Jadwal Praktek</Link>
             <Link href={`/fasilitas-tarif`} className="dropdown-item">Fasilitas & Tarif</Link>
             <Link href={`/pendaftaran-online`} className="dropdown-item">Pendaftaran Online</Link>
+            <Link href={`/permintaan-informasi-publik`} className="dropdown-item">Permintaan Informasi Publik</Link>
         </React.Fragment>
     )
 }

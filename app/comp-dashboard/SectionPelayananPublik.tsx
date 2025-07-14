@@ -136,6 +136,22 @@ const SectionPelayananPublik = () => {
                                         </div>
                                     </button>
                                 </div>
+                                <div className="">
+                                    <button onClick={() => navigation.push(`/permintaan-informasi-publik`)} className="button button-white shadow-sm aspect-square w-full">
+                                        <div className="h-[70%] flex justify-center items-center">
+                                            <Image
+                                                src={iconRegistrasi}
+                                                alt="Picture of the author"
+                                                // height={80}
+                                                className="lg:md:h-[60%] h-[60%]"
+                                            // className='h-full'
+                                            />
+                                        </div>
+                                        <div className="h-[30%] lg:md:text-[15px] text-[10px] uppercase font-bold text-primary flex items-center justify-center text-center">
+                                            Permintaan Informasi Publik
+                                        </div>
+                                    </button>
+                                </div>
                             </div>
                         </motion.div>
                     </div>

@@ -32,20 +32,20 @@ const Footer = () => {
                 <footer className="footer p-10 text-white">
                     <nav>
                         <h6 className="footer-title">Pelayanan Publik</h6>
-                        <Link href={`#`} className="link link-hover">Survei Kepuasan Masyarakat</Link>
-                        <Link href={`#`} className="link link-hover">Layanan Informasi & Pengaduan</Link>
-                        <Link href={`#`} className="link link-hover">Informasi Poliklinik</Link>
-                        <Link href={`#`} className="link link-hover">Jadwal Praktek</Link>
-                        <Link href={`#`} className="link link-hover">Fasiltas & Tarif</Link>
-                        <Link href={`#`} className="link link-hover">Pendaftaran Online</Link>
+                        <Link href={`/skm`} className="link link-hover">Survei Kepuasan Masyarakat</Link>
+                        <Link href={`/layanan-informasi`} className="link link-hover">Layanan Informasi & Pengaduan</Link>
+                        <Link href={`/informasi-poliklinik`} className="link link-hover">Informasi Poliklinik</Link>
+                        <Link href={`/jadwal-praktek`} className="link link-hover">Jadwal Praktek</Link>
+                        <Link href={`/fasilitas-tarif`} className="link link-hover">Fasiltas & Tarif</Link>
+                        <Link href={`/permintaan-informasi-publik`} className="link link-hover">Permintaan Informasi Publik</Link>
                     </nav>
                     <nav>
                         <h6 className="footer-title">Tentang Kami</h6>
-                        <Link href={`#`} className="link link-hover">Profil Rumah Sakit</Link>
-                        <Link href={`#`} className="link link-hover">Struktur Organisasi</Link>
-                        <Link href={`#`} className="link link-hover">Maklumat Pelayanan</Link>
-                        <Link href={`#`} className="link link-hover">Kegiatan</Link>
-                        <Link href={`#`} className="link link-hover">Artikel</Link>
+                        <Link href={`/profil`} className="link link-hover">Profil Rumah Sakit</Link>
+                        <Link href={`/struktur-organisasi`} className="link link-hover">Struktur Organisasi</Link>
+                        <Link href={`/maklumat-pelayanan`} className="link link-hover">Maklumat Pelayanan</Link>
+                        <Link href={`/kegiatan`} className="link link-hover">Kegiatan</Link>
+                        <Link href={`/artikel`} className="link link-hover">Artikel</Link>
                     </nav>
                     <nav>
                         <h6 className="footer-title">Dasar Hukum</h6>
