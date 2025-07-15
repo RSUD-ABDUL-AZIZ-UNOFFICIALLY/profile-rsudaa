@@ -68,7 +68,7 @@ const Section = () => {
                     </a>
 
                     <a
-                        href="https://forms.gle/SKoxSTsn18t73Z1s8"
+                        href="https://forms.gle/YN2dk7yP7HjdSQNG7"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-green-600 text-white py-3 px-6 rounded-lg text-center hover:bg-green-700 transition w-full sm:w-auto"
@@ -78,7 +78,7 @@ const Section = () => {
                     </a>
 
                     <a
-                        href="https://forms.gle/YN2dk7yP7HjdSQNG7"
+                        href="https://forms.gle/SKoxSTsn18t73Z1s8"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-yellow-600 text-white py-3 px-6 rounded-lg text-center hover:bg-yellow-700 transition w-full sm:w-auto"
