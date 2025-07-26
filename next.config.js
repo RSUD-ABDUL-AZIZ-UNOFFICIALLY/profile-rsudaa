@@ -13,7 +13,10 @@ const nextConfig = {
         SIMRS_PASSWORD: process.env.SIMRS_PASSWORD,
         TOKEN: process.env.TOKEN,
         SKM_LINK: process.env.SKM_LINK
-    }
+    },
+    images: {
+        domains: ['api.rsudaa.singkawangkota.go.id'], // ✅ daftarkan domain gambar
+    },
 }
 
 module.exports = nextConfig

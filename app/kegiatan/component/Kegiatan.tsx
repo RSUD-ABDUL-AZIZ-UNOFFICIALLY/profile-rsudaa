@@ -5,6 +5,7 @@ import moment from 'moment'
 import { activityResponse } from '@/app/Model/activity.model';
 import { BaseContext } from '@/app/context/BaseContext';
 import ModalKegiatan from '@/app/component/ModalKegiatan';
+import Link from 'next/link';
 require('moment/locale/id');
 moment.locale('id');
 
@@ -63,17 +64,18 @@ const Kegiatan = () => {
                                     <React.Fragment key={index}>
                                         <div className="card bg-slate-100 rounded-md overflow-hidden">
                                             <div className="grid grid-cols-2">
-                                                <button onClick={() => handleOpenModal(item)} className=" overflow-hidden h-full">
+                                                <Link href={`/activity/${item.activityID}`} className="overflow-hidden h-full block">
                                                     <img src={item.images ? item.images : `/page/default.jpg`} className='h-full object-cover active:scale-110 hover:scale-125 duration-200' alt="" />
-                                                </button>
+                                                </Link>
                                                 <div className="card-body">
                                                     <div className="font-bold text-2xl uppercase">{item.title}</div>
                                                     <div className="text-sm p-1 bg-primary rounded-sm w-fit text-white">{moment(item.createdAt).format('DD MMMM YYYY')}</div>
                                                     <div className="p-3 text-sm">{truncatedString}</div>
                                                     <div className="flex justify-end mt-4">
-                                                        <button onClick={() => handleOpenModal(item)} className='btn btn-ghost'>
+                                                        {/* <button onClick={() => handleOpenModal(item)} className='btn btn-ghost'>
                                                             <div className="">...</div>
-                                                        </button>
+                                                        </button> */}
+                                                        <Link href={`/activity/${item.activityID}`}><button className='hover:scale-105 active:scale-95 duration-200 text-primary text-2xl'>...</button></Link>
                                                     </div>
                                                 </div>
                                             </div>

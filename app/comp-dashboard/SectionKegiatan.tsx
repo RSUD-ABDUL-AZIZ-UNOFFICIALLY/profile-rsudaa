@@ -147,7 +147,8 @@ const SectionKegiatan = () => {
                                                         {moment(item.createdAt).format('HH:mm DD MMMM YYYY')}
                                                     </div>
                                                     <div className="text-justify p-3 overflow-hidden">{truncatedString}</div>
-                                                    <button onClick={() => handleActivityModal(item)} className='hover:scale-105 active:scale-95 duration-200 text-primary text-2xl'>...</button>
+                                                    {/* <button onClick={() => handleActivityModal(item)} className='hover:scale-105 active:scale-95 duration-200 text-primary text-2xl'>...kegiatan</button> */}
+                                                    <Link href={`/activity/${item.activityID}`}><button className='hover:scale-105 active:scale-95 duration-200 text-primary text-2xl'>...</button></Link>
                                                 </div>
                                             </div>
                                         )
@@ -217,7 +218,8 @@ const SectionKegiatan = () => {
                                                         {moment(item.createdAt).format('HH:mm DD MMMM YYYY')}
                                                     </div>
                                                     <div className="text-justify p-3 overflow-hidden">{truncatedString}</div>
-                                                    <button onClick={() => handleArticleModal(item)} className='hover:scale-105 active:scale-95 duration-200 text-primary text-2xl'>...</button>
+                                                    {/* <button onClick={() => handleArticleModal(item)} className='hover:scale-105 active:scale-95 duration-200 text-primary text-2xl'>...Artikel</button> */}
+                                                    <Link href={`/artikels/${item.articleID}`}><button className='hover:scale-105 active:scale-95 duration-200 text-primary text-2xl'>...</button></Link>
                                                 </div>
                                             </div>
                                         )
