@@ -50,7 +50,7 @@ const Section = () => {
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <a
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSeM_nAVRK_ZC9Jei33WbYJp7K7z3wsM1Am48kW45RNztfTNCA/viewform"
+                        href="https://ppid.singkawangkota.go.id/front/dokumen/detail/500403132"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-blue-600 text-white py-3 px-6 rounded-lg text-center hover:bg-blue-700 transition w-full sm:w-auto"
@@ -59,7 +59,7 @@ const Section = () => {
                     </a>
 
                     <a
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSfXovxeF8x_PVaY2fy3jby_T23bXMslP3dGr1BLE0Q7QU4WJA/viewform"
+                        href="https://ppid.singkawangkota.go.id/front/dokumen/detail/500403133"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-red-600 text-white py-3 px-6 rounded-lg text-center hover:bg-red-700 transition w-full sm:w-auto"
