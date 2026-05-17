@@ -1,74 +1,44 @@
-'use client';
-import NavigationBar from '../../component/NavigationBar'
-import { NextUIProvider } from "@nextui-org/system";
-import { BaseProvider } from '../../context/BaseContext';
-import Footer from '../../component/Footer';
-import JumbotronPage from '../../component/JumbotronPage';
+import { Metadata } from 'next';
 import axios from 'axios';
-import Section from './Section';
-import { useEffect, useState } from 'react';
-
+import ActivityClient from './ActivityClient';
 
 interface HomeProps {
   params: {
     slug: string;
   };
 }
+
 const API_URL = process.env.API_URL;
 
+async function getActivity(slug: string) {
+  try {
+    const response = await axios.get(`${API_URL}/activity?activityID=${slug}`);
+    return response.data?.data || null;
+  } catch (err) {
+    console.error('Gagal fetch activity:', err);
+    return null;
+  }
+}
 
-export default function Home({ params }: HomeProps) {
+export async function generateMetadata({ params }: HomeProps): Promise<Metadata> {
   const { slug } = params;
+  const data = await getActivity(slug);
 
-  interface ArticleData {
-    title: string;
-    images?: string;
-    desc?: string;
-    // add other properties as needed
+  if (!data) {
+    return {
+      title: 'Activity Not Found',
+    };
   }
 
-  const [data, setData] = useState<ArticleData | null>(null);
+  return {
+    title: data.title,
+    description: data.desc || 'Detail kegiatan RSUD dr. Abdul Aziz Kota Singkawang',
+  };
+}
 
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const response = await axios.get(`${API_URL}/activity?activityID=${slug}`);
-        if (response.data?.data) {
-          setData(response.data.data);
-        }
-      } catch (err) {
-        console.error('Gagal fetch:', err);
-      }
-    };
+export default async function Home({ params }: HomeProps) {
+  const { slug } = params;
+  const data = await getActivity(slug);
 
-    if (slug) {
-      getData();
-    }
-  }, [slug]);
-
-  // ✅ Tidak tampilkan apapun sampai data siap
-  if (!data) return null;
-  // const dataJSON = data ? JSON.stringify(data, null, 2) : 'Loading...';
-  // console.log(dataJSON);
-
-
-  if (!data) return null;
-
-  return (
-    <NextUIProvider>
-      <BaseProvider>
-        <main>
-          <NavigationBar />
-          {/* <JumbotronPage title={data?.data.title || 'Artikel'} /> */}
-          <JumbotronPage title={data.title} />
-          {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-          <Section title={data.title}
-            image={data.images ?? ''}
-            content={data.desc ?? ''}
-             />
-          <Footer />
-        </main>
-      </BaseProvider>
-    </NextUIProvider>
-  );
+  return <ActivityClient data={data} />;
 }

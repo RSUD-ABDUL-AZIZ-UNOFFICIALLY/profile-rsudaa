@@ -1,31 +1,34 @@
 'use client';
-import { useEffect } from 'react';
 import Image from 'next/image';
 
 interface SectionProps {
     title: string;
     image: string;
     content: string;
+    createdAt: Date;
 }
 
-const Section = ({ title, image, content }: SectionProps) => {
- 
+const Section = ({ title, image, content, createdAt }: SectionProps) => {
+    createdAt = new Date(createdAt).toDateString();
     return (
         <div className="flex justify-center p-2">
-            <div className="max-w-3xl">
-                <h2 className="text-3xl font-bold mb-4">{title}</h2>
+            <div className="max-w-3xl w-full">
+                <h2 className="text-3xl font-bold mb-4 text-center">{title}</h2>
+                <p>{createdAt}</p>
                 <div className="relative w-full mb-6">
                     <Image
                         src={image}
                         title={title}
-                        className="w-full h-64 rounded-lg"
                         alt={title}
-                        layout="responsive"
                         width={500}
                         height={300}
+                        sizes="(max-width: 768px) 100vw, 768px"
+                        // w-full makes it span the container, h-auto keeps the aspect ratio
+                        className="w-full h-auto rounded-lg"
                     />
                 </div>
-                <p className="text-lg leading-relaxed">{content}</p>
+
+                <p className="text-lg leading-relaxed justify-center">{content}</p>
             </div>
         </div>
     );
