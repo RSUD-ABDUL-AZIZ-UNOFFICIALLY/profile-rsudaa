@@ -10,7 +10,7 @@ interface ArticleData {
   title: string;
   images?: string;
   desc?: string;
-  createdAt?: string;
+  createdAt?: Date;
 }
 
 interface ActivityClientProps {
@@ -29,7 +29,7 @@ export default function ActivityClient({ data }: ActivityClientProps) {
           <ArtikelPage title={data.title}
             image={data.images ?? ''}
             content={data.desc ?? ''}
-            createdAt={data.createdAt ?? ''}
+            createdAt={data.createdAt ?? new Date()}
              />
           <Footer />
         </main>

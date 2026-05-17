@@ -9,12 +9,10 @@ interface SectionProps {
 }
 
 const Section = ({ title, image, content, createdAt }: SectionProps) => {
-    createdAt = new Date(createdAt).toDateString();
     return (
         <div className="flex justify-center p-2">
             <div className="max-w-3xl w-full">
                 <h2 className="text-3xl font-bold mb-4 text-center">{title}</h2>
-                <p>{createdAt}</p>
                 <div className="relative w-full mb-6">
                     <Image
                         src={image}
