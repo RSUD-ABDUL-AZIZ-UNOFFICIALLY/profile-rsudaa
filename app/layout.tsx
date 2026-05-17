@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+// @ts-ignore: CSS module declaration not present in this environment
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -20,9 +21,10 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
       </head>
-      <body className={inter.className}>{children}</body>
-      <script src="https://cdn.userway.org/widget.js" data-account="9eIEeYlO7y"></script>
-      <script src="https://count.spairum.my.id/repo/js/counter.min.js"></script>
+      <body className={inter.className}>{children}
+        <script src="https://cdn.userway.org/widget.js" data-account="9eIEeYlO7y"></script>
+        <script src="https://count.spairum.my.id/repo/js/counter.min.js"></script>
+      </body>
     </html>
   )
 }
