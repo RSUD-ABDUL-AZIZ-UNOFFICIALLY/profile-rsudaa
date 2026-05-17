@@ -14,13 +14,6 @@ const Section = ({ title, image, content }: SectionProps) => {
         <div className="flex justify-center p-2">
             <div className="max-w-3xl">
                 <h2 className="text-3xl font-bold mb-4">{title}</h2>
-                {/* <div className="relative w-full mb-6">
-                    <iframe
-                        src={image}
-                        title={title}
-                        className="w-full h-64 rounded-lg"
-                    />
-                </div> */}
                 <div className="relative w-full mb-6">
                     <Image
                         src={image}
@@ -28,7 +21,6 @@ const Section = ({ title, image, content }: SectionProps) => {
                         className="w-full h-64 rounded-lg"
                         alt={title}
                         layout="responsive"
-                        objectFit="cover"
                         width={500}
                         height={300}
                     />

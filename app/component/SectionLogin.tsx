@@ -24,29 +24,57 @@ const SectionLogin = () => {
 
     const [alertOtp, setAlertOtp] = useState<boolean>(false)
     const [alertLogin, setAlertLogin] = useState<boolean>(false)
+    const [alertError, setAlertError] = useState<boolean>(false)
+    const [errorMessage, setErrorMessage] = useState<string>('')
 
-    const API_URL = process.env.API_URL
+    const API_URL = process.env.SIMRS_URL
 
     const handleLogin: SubmitHandler<Inputs> = async (data) => {
         try {
             const formData = new FormData
-            formData.append('no_wa', data.no_wa)
-            formData.append('otp', data.otp)
+            formData.append('phone', data.no_wa)
+            formData.append('token', data.otp)
 
-            const response = await axios.post(`${API_URL}/auth/login`, data)
-            //console.log(response.data);
+            const response = await axios.post(`${API_URL}/rest/login`, {
+                phone: data.no_wa,
+                otp: data.otp
+            })
+            console.log(response);
 
-            if (response.data.success == true) {
-                Cookies.set('access_token', response.data.data.token)
-                setAlertLogin(true)
-                setTimeout(() => {
-                    setAlertLogin(false)
-                    router.push('/admin-rsaa')
-                }, 5000)
+            if (response.status === 200) {
+                if (response.data.permission.includes('web_rsud')) {
+                    console.log(response.data); Cookies.set('access_token', response.data.token_api, { expires: 60 * 60 * 24 })
+                    setAlertLogin(true)
+                    setTimeout(() => {
+                        setAlertLogin(false)
+                        router.push('/admin-rsaa')
+                    }, 5000)
+                } else {
+                    setAlertError(true)
+                    setErrorMessage(response.data.message)
+                    setTimeout(() => {
+                        setAlertError(false)
+                    }, 5000)
+                }
             }
 
         } catch (error) {
+            setAlertError(true)
+            // 1. Check if the error is from Axios
+            if (axios.isAxiosError(error) && error.response) {
+                // error.response.data contains the body sent by your API
+                // Adjust '.message' based on how your backend structures the JSON error response
+                const serverError = error.response.data;
 
+                // Example: if your API sends { "message": "Invalid OTP" }
+                setErrorMessage(serverError.message || JSON.stringify(serverError));
+            } else {
+                // 2. Fallback for network errors (no response) or generic code errors
+                setErrorMessage((error as Error).message);
+            }
+            setTimeout(() => {
+                setAlertError(false)
+            }, 5000)
         }
     }
 
@@ -56,12 +84,28 @@ const SectionLogin = () => {
             const no_wa = watch('no_wa')
 
             formData.append('no_wa', no_wa)
+            if (no_wa == '') {
+                setAlertError(true)
+                setErrorMessage('No Whatsapp Tidak Boleh Kosong')
+                setTimeout(() => {
+                    setAlertError(false)
+                }, 5000)
+            }
+            if (no_wa.length < 10) {
+                setAlertError(true)
+                setErrorMessage('No Whatsapp Tidak Valid')
+                setTimeout(() => {
+                    setAlertError(false)
+                }, 5000)
+            }
 
-            const response = await axios.post(`${API_URL}/auth/getOtp`, {
-                no_wa: no_wa
+            const response = await axios.post(`${API_URL}/rest/getOtp`, {
+                phone: no_wa,
+                app_name: 'web_rsud'
             })
+            console.log(response.status === 200);
 
-            if (response.data.success == true) {
+            if (response.status === 200) {
                 setAlertOtp(true)
                 setTimeout(() => {
                     setAlertOtp(false)
@@ -69,6 +113,22 @@ const SectionLogin = () => {
             }
 
         } catch (error) {
+            setAlertError(true)
+            // 1. Check if the error is from Axios
+            if (axios.isAxiosError(error) && error.response) {
+                // error.response.data contains the body sent by your API
+                // Adjust '.message' based on how your backend structures the JSON error response
+                const serverError = error.response.data;
+
+                // Example: if your API sends { "message": "Invalid OTP" }
+                setErrorMessage(serverError.message || JSON.stringify(serverError));
+            } else {
+                // 2. Fallback for network errors (no response) or generic code errors
+                setErrorMessage((error as Error).message);
+            }
+            setTimeout(() => {
+                setAlertError(false)
+            }, 5000)
 
         }
     }
@@ -96,8 +156,11 @@ const SectionLogin = () => {
                         </div>
                     </div>
                     <div className={`p-2 bg-lime-400 rounded-sm font-bold text-center absolute w-full m-2  duration-200  ${alertOtp ? `visible translate-y-[20%]` : `translate-y-[-150%]`}`}>
-                        Sent OTP Successfully
+                        <div className="text-sm font-normal">OTP Telah Terkirim</div>
                         <div className="text-sm font-normal">Cek Your Whatsapp</div>
+                    </div>
+                    <div className={`p-2 bg-red-400 rounded-sm font-bold text-center absolute w-full m-2  duration-200  ${alertError ? `visible translate-y-[20%]` : `translate-y-[-150%]`}`}>
+                        <div className="text-sm font-normal">{errorMessage}</div>
                     </div>
                     <div className={`p-2 bg-lime-400 rounded-sm font-bold text-center absolute w-full m-2  duration-200  ${alertLogin ? `visible translate-y-[20%]` : `translate-y-[-150%]`}`}>
                         Login Successfully
