@@ -98,43 +98,34 @@ const ArtikelPage = ({ title, image, content, createdAt }: ArtikelPageProps) => 
             {/* Image Preview Modal */}
             {previewOpen && (
                 <div
-                    role="dialog"
-                    aria-modal="true"
-                    aria-label="Pratinjau foto"
-                    className="fixed inset-0 z-50 flex items-center justify-center  backdrop-blur-sm p-4 animate-fade-in"
-                    onClick={() => setPreviewOpen(false)}
+                    className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+                    onClick={() => setPreviewOpen(false)} // Tutup saat klik background (di luar gambar)
                 >
-                    {/* Close button */}
+                    {/* Tombol Tutup (X) */}
                     <button
-                        type="button"
+                        className="absolute top-6 right-6 text-white hover:text-gray-300 text-5xl leading-none z-[60] transition-colors"
                         onClick={() => setPreviewOpen(false)}
-                        className="absolute top-4 right-4 text-dark hover:text-primary transition-colors rounded-full w-9 h-9 flex items-center justify-center text-xl font-bold z-10"
                         aria-label="Tutup pratinjau"
                     >
-                        ×
+                        &times;
                     </button>
 
-                    {/* Image container */}
+                    {/* Wrapper Gambar (hentikan event klik agar tidak menutup modal saat gambar diklik) */}
                     <div
-                        className="relative max-w-4xl w-full max-h-[90vh] rounded-2xl overflow-hidden shadow-2xl"
+                        className="relative flex flex-col items-center justify-center w-full max-w-5xl"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <div className="relative w-full h-[70vh]">
-                            <Image
-                                src={image}
-                                alt={title}
-                                fill
-                                sizes="100vw"
-                                className="object-contain"
-                                priority
-                            />
-                        </div>
-                        
-                    </div>
+                        <img
+                            src={image}
+                            alt="Pratinjau Dokumen"
+                            className="w-auto h-auto max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
+                        />
 
-                    <p className="absolute bottom-4 text-gray-500 left-1/2 -translate-x-1/2  text-xs">
-                        Klik di luar atau tekan Esc untuk menutup
-                    </p>
+                        {/* Hint Text */}
+                        <p className="text-white/80 mt-6 text-sm md:text-base font-light tracking-wide bg-black/30 px-4 py-2 rounded-full">
+                            Klik di luar atau tekan <kbd className="font-sans bg-white/20 px-2 py-0.5 rounded text-white">Esc</kbd> untuk menutup
+                        </p>
+                    </div>
                 </div>
             )}
         </>
