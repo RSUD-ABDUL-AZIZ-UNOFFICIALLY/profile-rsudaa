@@ -22,7 +22,6 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
       </head>
       <body className={inter.className}>{children}
-        <script src="https://cdn.userway.org/widget.js" data-account="9eIEeYlO7y"></script>
         <script src="https://count.spairum.my.id/repo/js/counter.min.js"></script>
       </body>
     </html>
