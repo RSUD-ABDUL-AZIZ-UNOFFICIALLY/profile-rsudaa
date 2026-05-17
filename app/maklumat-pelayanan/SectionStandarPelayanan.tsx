@@ -83,7 +83,7 @@ const SectionStandarPelayanan = () => {
                                 <div
                                     className={`carousel-item relative group overflow-hidden cursor-pointer lg:w-72 w-72 h-auto rounded-xl ${index < data.length - 1 ? 'mr-2' : ''}`}
                                     key={index}
-                                    onClick={() => setSelectedImage(item.file)}
+                                    onClick={() => setSelectedImage(item.file ?? null)}
                                 >
                                     {/* Efek Hover Zoom pada gambar */}
                                     <img
