@@ -32,30 +32,22 @@ const SectionLogin = () => {
     const handleLogin: SubmitHandler<Inputs> = async (data) => {
         try {
             const formData = new FormData
-            formData.append('phone', data.no_wa)
-            formData.append('token', data.otp)
+            formData.append('no_wa', data.no_wa)
+            formData.append('otp', data.otp)
 
-            const response = await axios.post(`${API_URL}/rest/login`, {
+            const response = await axios.post(`${API_URL}/auth/login`, {
                 phone: data.no_wa,
                 otp: data.otp
             })
             console.log(response);
 
-            if (response.status === 200) {
-                if (response.data.permission.includes('web_rsud')) {
-                    console.log(response.data); Cookies.set('access_token', response.data.token_api, { expires: 60 * 60 * 24 })
-                    setAlertLogin(true)
-                    setTimeout(() => {
-                        setAlertLogin(false)
-                        router.push('/admin-rsaa')
-                    }, 5000)
-                } else {
-                    setAlertError(true)
-                    setErrorMessage(response.data.message)
-                    setTimeout(() => {
-                        setAlertError(false)
-                    }, 5000)
-                }
+            if (response.data.success == true) {
+                Cookies.set('access_token', response.data.data.token)
+                setAlertLogin(true)
+                setTimeout(() => {
+                    setAlertLogin(false)
+                    router.push('/admin-rsaa')
+                }, 5000)
             }
 
         } catch (error) {
@@ -99,13 +91,11 @@ const SectionLogin = () => {
                 }, 5000)
             }
 
-            const response = await axios.post(`${API_URL}/rest/getOtp`, {
-                phone: no_wa,
-                app_name: 'web_rsud'
+            const response = await axios.post(`${API_URL}/auth/getOtp`, {
+                no_wa: no_wa
             })
-            console.log(response.status === 200);
 
-            if (response.status === 200) {
+            if (response.data.success == true) {
                 setAlertOtp(true)
                 setTimeout(() => {
                     setAlertOtp(false)
