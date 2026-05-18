@@ -5,6 +5,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Architecture
 This is a Next.js application structured with the `app` directory for routing and features, utilizing TypeScript, Tailwind CSS, and Next.js specific configuration.
 
+## Memory & Task Rules
+- JANGAN MEMBACA seluruh direktori sekaligus. Cukup baca file yang relevan dengan tugas.
+- Jika tugas selesai, rangkum perubahan dalam 1 kalimat di log chat.
+
 **Key Directories and Files:**
 - **`app/`**: Contains the core application routes and logic (e.g., `app/page.tsx`). This is the primary area for feature development.
 - **`middleware.ts`**: Handles request routing and middleware logic for the application.
