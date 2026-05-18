@@ -35,7 +35,7 @@ const SectionLogin = () => {
             formData.append('no_wa', data.no_wa)
             formData.append('otp', data.otp)
 
-            const response = await axios.post(`${API_URL}/auth/login`, {
+            const response = await axios.post(`${API_URL}/api/web-profile/auth/login`, {
                 phone: data.no_wa,
                 otp: data.otp
             })
@@ -91,7 +91,7 @@ const SectionLogin = () => {
                 }, 5000)
             }
 
-            const response = await axios.post(`${API_URL}/auth/getOtp`, {
+            const response = await axios.post(`${API_URL}/api/web-profile/auth/getOtp`, {
                 no_wa: no_wa
             })
 
