@@ -36,7 +36,7 @@ const SectionLogin = () => {
             formData.append('otp', data.otp)
 
             const response = await axios.post(`${API_URL}/api/web-profile/auth/login`, {
-                phone: data.no_wa,
+                no_wa: data.no_wa,
                 otp: data.otp
             })
             console.log(response);
