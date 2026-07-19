@@ -15,7 +15,7 @@ const nextConfig = {
         SKM_LINK: process.env.SKM_LINK
     },
     images: {
-        domains: ['api.spairum.my.id'], // ✅ daftarkan domain gambar
+        domains: ['api.spairum.my.id', 'count.spairum.my.id'], // ✅ daftarkan domain gambar
     },
 }
 
