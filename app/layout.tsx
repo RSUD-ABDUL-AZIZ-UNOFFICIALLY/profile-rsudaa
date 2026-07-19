@@ -27,7 +27,7 @@ export default function RootLayout({
         {children}
         <Script
           src="https://count.spairum.my.id/repo/js/pages.min.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </body>
     </html>
