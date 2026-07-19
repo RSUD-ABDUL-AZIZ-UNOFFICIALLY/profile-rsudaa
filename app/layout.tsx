@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Script from 'next/script' // <-- Add this import
+import VisitorTracker from "./component/VisitorTracker";
 
 // @ts-ignore: CSS module declaration not present in this environment
 import './globals.css'
@@ -24,11 +24,8 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
       </head>
       <body className={inter.className}>
+        <VisitorTracker />
         {children}
-        <Script
-          src="https://count.spairum.my.id/repo/js/pages.min.js"
-          strategy="lazyOnload"
-        />
       </body>
     </html>
   )
