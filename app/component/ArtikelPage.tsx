@@ -7,9 +7,10 @@ interface ArtikelPageProps {
     image: string;
     content: string;
     createdAt: Date;
+    views: number;
 }
 
-const ArtikelPage = ({ title, image, content, createdAt }: ArtikelPageProps) => {
+const ArtikelPage = ({ title, image, content, createdAt, views }: ArtikelPageProps) => {
     const [previewOpen, setPreviewOpen] = useState(false);
 
     const formattedDate = new Date(createdAt).toLocaleDateString('id-ID', {
@@ -63,7 +64,7 @@ const ArtikelPage = ({ title, image, content, createdAt }: ArtikelPageProps) => 
                                 />
                             </div>
                             {/* Hover overlay */}
-                            <span className="absolute inset-0  transition-colors duration-300 flex items-center justify-center">
+                            <span className="absolute inset-0 transition-colors duration-300 flex items-center justify-center">
                                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-primary text-xs font-semibold px-3 py-1.5 rounded-full shadow">
                                     🔍 Lihat foto
                                 </span>
@@ -82,26 +83,41 @@ const ArtikelPage = ({ title, image, content, createdAt }: ArtikelPageProps) => 
                     </div>
 
                     {/* Content */}
-                    <p className=" text-lg leading-relaxed font-normal whitespace-pre-wrap">
+                    <p className="text-lg leading-relaxed font-normal whitespace-pre-wrap">
                         {content}
                     </p>
 
-                    {/* Footer */}
+                    {/* Footer dengan penambahan Views */}
                     <footer className="mt-16 pt-8 border-t border-primary flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-primary">
-                        <span className="uppercase tracking-widest">Artikel</span>
-                        <span>{formattedDate}</span>
+                        <span className="uppercase tracking-widest font-semibold">Artikel</span>
+
+                        {/* Wrapper untuk Views dan Tanggal */}
+                        <div className="flex items-center gap-3">
+                            <span className="flex items-center gap-1.5" title={`${views || 0} kali dilihat`}>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                                {/* Menggunakan toLocaleString agar format ribuan rapi (misal: 1.200 tayangan) */}
+                                {views ? views.toLocaleString('id-ID') : 0} tayangan
+                            </span>
+
+                            {/* Titik pemisah antara views dan tanggal */}
+                            <span className="w-1 h-1 rounded-full bg-primary/50"></span>
+
+                            <span>{formattedDate}</span>
+                        </div>
                     </footer>
 
                 </div>
             </article>
 
-            {/* Image Preview Modal */}
+            {/* Image Preview Modal (Tidak ada perubahan) */}
             {previewOpen && (
                 <div
                     className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/70 backdrop-blur-sm p-4"
-                    onClick={() => setPreviewOpen(false)} // Tutup saat klik background (di luar gambar)
+                    onClick={() => setPreviewOpen(false)}
                 >
-                    {/* Tombol Tutup (X) */}
                     <button
                         className="absolute top-6 right-6 text-white hover:text-gray-300 text-5xl leading-none z-[60] transition-colors"
                         onClick={() => setPreviewOpen(false)}
@@ -110,7 +126,6 @@ const ArtikelPage = ({ title, image, content, createdAt }: ArtikelPageProps) => 
                         &times;
                     </button>
 
-                    {/* Wrapper Gambar (hentikan event klik agar tidak menutup modal saat gambar diklik) */}
                     <div
                         className="relative flex flex-col items-center justify-center w-full max-w-5xl"
                         onClick={(e) => e.stopPropagation()}
@@ -121,7 +136,6 @@ const ArtikelPage = ({ title, image, content, createdAt }: ArtikelPageProps) => 
                             className="w-auto h-auto max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
                         />
 
-                        {/* Hint Text */}
                         <p className="text-white/80 mt-6 text-sm md:text-base font-light tracking-wide bg-black/30 px-4 py-2 rounded-full">
                             Klik di luar atau tekan <kbd className="font-sans bg-white/20 px-2 py-0.5 rounded text-white">Esc</kbd> untuk menutup
                         </p>
