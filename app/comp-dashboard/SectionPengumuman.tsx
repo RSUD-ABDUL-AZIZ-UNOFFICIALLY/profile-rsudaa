@@ -58,7 +58,10 @@ const SectionPengumuman = () => {
                                         <Link href={''} className='active:scale-95 duration-200 font-bold  text-black uppercase text-lg text-left'>{item.title}</Link>
                                     </div>
                                     <div className="text-xs w-fit rounded-sm text-dark">{moment(item.createdAt).format('DD MMMM YYYY')}</div>
-                                    <div className="text-sm p-2 pl-3 pr-3 ">{truncatedString}</div>
+                                    <div className="text-sm p-2 pl-3 pr-3 "><div
+                                        className="prose prose-lg max-w-none prose-img:rounded-xl prose-a:text-blue-600"
+                                        dangerouslySetInnerHTML={{ __html: truncatedString }}
+                                    /></div>
                                 </div>
                             </React.Fragment>
                         )
@@ -86,7 +89,7 @@ const SectionPengumuman = () => {
                     </>
                 }
                 {dataAnnouncement &&
-                    <Link href={''} className='hover:underline active:scale-95 duration-200  text-left'>Pengumuman Lainnya {`>>>`}</Link>
+                    <Link href={'#'} className='hover:underline active:scale-95 duration-200  text-left'>Pengumuman Lainnya {`>>>`}</Link>
                 }
             </div>
         </motion.div>

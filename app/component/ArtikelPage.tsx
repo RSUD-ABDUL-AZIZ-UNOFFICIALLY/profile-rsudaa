@@ -82,10 +82,10 @@ const ArtikelPage = ({ title, image, content, createdAt, views }: ArtikelPagePro
                         <span className="w-8 h-px bg-primary" />
                     </div>
 
-                    {/* Content */}
-                    <p className="text-lg leading-relaxed font-normal whitespace-pre-wrap">
-                        {content}
-                    </p>
+                    <div
+                        className="prose prose-lg max-w-none prose-img:rounded-xl prose-a:text-blue-600"
+                        dangerouslySetInnerHTML={{ __html: content }}
+                    />
 
                     {/* Footer dengan penambahan Views */}
                     <footer className="mt-16 pt-8 border-t border-primary flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-primary">

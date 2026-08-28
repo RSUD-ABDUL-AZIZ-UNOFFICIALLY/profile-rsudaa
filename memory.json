@@ -1,0 +1,19 @@
+{
+    "entities": [
+    {
+        "name": "LanguagePreference",
+        "entityType": "Preference",
+        "observations": [
+            "Indonesia"
+        ]
+    },
+    {
+        "name": "UIComponentRule",
+        "entityType": "Rule",
+        "observations": [
+            "When asked to create a UI component, use Tailwind CSS for styling.",
+            "Separate state logic into memory.json."
+        ]
+    }
+]
+}

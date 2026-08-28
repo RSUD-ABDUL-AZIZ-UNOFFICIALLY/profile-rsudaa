@@ -27,7 +27,7 @@ const SectionLogin = () => {
     const [alertError, setAlertError] = useState<boolean>(false)
     const [errorMessage, setErrorMessage] = useState<string>('')
 
-    const API_URL = process.env.SIMRS_URL
+    const API_URL = process.env.API_URL
 
     const handleLogin: SubmitHandler<Inputs> = async (data) => {
         try {
@@ -35,7 +35,7 @@ const SectionLogin = () => {
             formData.append('no_wa', data.no_wa)
             formData.append('otp', data.otp)
 
-            const response = await axios.post(`${API_URL}/api/web-profile/auth/login`, {
+            const response = await axios.post(`${API_URL}/auth/login`, {
                 no_wa: data.no_wa,
                 otp: data.otp
             })
@@ -91,7 +91,7 @@ const SectionLogin = () => {
                 }, 5000)
             }
 
-            const response = await axios.post(`${API_URL}/api/web-profile/auth/getOtp`, {
+            const response = await axios.post(`${API_URL}/auth/getOtp`, {
                 no_wa: no_wa
             })
 

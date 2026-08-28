@@ -68,7 +68,10 @@ const Artikel = () => {
                                                 <div className="card-body">
                                                     <div className="font-bold text-2xl uppercase">{item.title}</div>
                                                     <div className="text-sm p-1 bg-primary rounded-sm w-fit text-white">{moment(item.createdAt).format('DD MMMM YYYY')}</div>
-                                                    <div className="p-3 text-sm">{truncatedString}</div>
+                                                    <div className="p-3 text-sm"><div
+                                                        className="prose prose-lg max-w-none prose-img:rounded-xl prose-a:text-blue-600"
+                                                        dangerouslySetInnerHTML={{ __html: truncatedString }}
+                                                    /></div>
                                                     <div className="flex justify-end mt-4">
                                                         {/* <button onClick={() => handleOpenModal(item)} className='btn btn-ghost'>
                                                             <div className="">...</div>

@@ -104,7 +104,11 @@ const Section = () => {
                                         </div>
                                         <div className="text-sm p-1 bg-slate-100 rounded-sm w-fit">{moment(item.createdAt).format('DD MMMM YYYY')}</div>
                                         <div className=" p-2 font-sm text-justify">
-                                            {truncate}
+                                            <div
+                                                className="text-lg leading-relaxed font-normal whitespace-pre-wrap"
+                                                dangerouslySetInnerHTML={{ __html: truncate }}
+                                            />
+
                                         </div>
                                         <div className="flex justify-end gap-3 mt-4">
                                             <button onClick={() => navigation.push(`/admin-rsaa/kegiatan/edit/${item.activityID}`)} className='btn btn-warning'>
