@@ -22,6 +22,7 @@ export default function RootLayout({
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <meta name="google-site-verification" content="UQ6E4DHmk55GDXhSRReASIA6Ypax8fiX4gsAhQS03kk" />
       </head>
       <body className={inter.className}>
         <VisitorTracker />
