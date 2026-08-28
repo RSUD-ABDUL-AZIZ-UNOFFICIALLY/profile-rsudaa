@@ -27,7 +27,7 @@ require('moment/locale/id');
 moment.locale('id');
 
 interface props {
-    activityID: string
+    articleID: string
 }
 
 const Section: React.FC<props> = ({ articleID }) => {
