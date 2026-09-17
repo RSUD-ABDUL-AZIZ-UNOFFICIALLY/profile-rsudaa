@@ -59,7 +59,7 @@ const Section: React.FC<props> = ({ id }) => {
 
 
                 if (upload.data) {
-                    setValue('file', upload.data.data.url)
+                    setValue('file', upload.data.url)
                 }
 
                 const response = await axios.put(`${API_URL}/dasar-hukum/${id}`, data, {
