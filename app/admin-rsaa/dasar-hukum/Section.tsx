@@ -59,9 +59,8 @@ const Section = () => {
 
                 //console.log(upload.data);
 
-
                 if (upload.data) {
-                    setValue('file', upload.data.url)
+                    setValue('file', upload.data.data.url)
                 }
 
                 const response = await axios.post(`${API_URL}/dasar-hukum`, data, {
