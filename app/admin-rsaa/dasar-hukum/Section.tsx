@@ -59,24 +59,39 @@ const Section = () => {
 
                 //console.log(upload.data);
 
-
                 if (upload.data) {
-                    setValue('file', upload.data.data.url)
-                }
+                    // setValue('file', upload.data.data.url)
+                    data.file = upload.data.data.url
+                    try {
+                        const response = await axios.post(`${API_URL}/dasar-hukum`, data, {
+                            headers: {
+                                Authorization: `Bearer ${access_token}`
+                            }
+                        });
 
-                const response = await axios.post(`${API_URL}/dasar-hukum`, data, {
-                    headers: {
-                        Authorization: `Bearer ${access_token}`
+                        // Success handling (Axios resolves 2xx here)
+                        console.log(response.data);
+                        if (response.data.data) {
+                            setValue('name', '')
+                            setValue('file', '')
+                            setAddSuccess(true)
+                            setTimeout(() => {
+                                navigation.push('/admin-rsaa/dasar-hukum')
+                            }, 3000)
+                        }
+
+                    } catch (error) {
+                        if (axios.isAxiosError(error)) {
+                            // Server responded with a status code outside 2xx
+                            const errorMessage = error.response?.data?.message || error.message;
+                            alert(errorMessage);
+                        } else {
+                            // Non-Axios error (e.g., network error, syntax error)
+                            alert('An unexpected error occurred.');
+                            console.error(error);
+                        }
                     }
-                })
 
-                if (response.data.data) {
-                    setValue('name', '')
-                    setValue('file', '')
-                    setAddSuccess(true)
-                    setTimeout(() => {
-                        setAddSuccess(false)
-                    }, 3000)
                 }
             } catch (error) {
                 //console.log(error);
@@ -116,7 +131,7 @@ const Section = () => {
                             <div className="">
                                 Yakin ingin menghapus data ?
                                 <div className="">
-                                    <div className="text-xs p-2 bg-red-500 text-white w-fit rounded">nama magang : {deleteSelect.name}</div>
+                                    <div className="text-xs p-2 bg-red-500 text-white w-fit rounded">Dasar Hukum : {deleteSelect.name}</div>
                                 </div>
                             </div>
                             <div className="flex gap-2 mt-5 justify-center">

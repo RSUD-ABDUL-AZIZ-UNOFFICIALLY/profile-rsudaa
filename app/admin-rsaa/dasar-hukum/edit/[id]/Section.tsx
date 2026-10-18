@@ -56,26 +56,44 @@ const Section: React.FC<props> = ({ id }) => {
                         Authorization: `Bearer ${GeneralToken}`
                     }
                 })
-
+                // console.log(upload.data.data.url);
 
                 if (upload.data) {
-                    setValue('file', upload.data.data.url)
-                }
+                    // setValue('file', upload.data.data.url)
+                    data.file = upload.data.data.url
+                    try {
+                        const response = await axios.put(`${API_URL}/dasar-hukum/${id}`, data, {
+                            headers: {
+                                Authorization: `Bearer ${access_token}`
+                            }
+                        });
 
-                const response = await axios.put(`${API_URL}/dasar-hukum/${id}`, data, {
-                    headers: {
-                        Authorization: `Bearer ${access_token}`
+                        // Success handling (Axios resolves 2xx here)
+                        console.log(response.data);
+                        if (response.data.data) {
+                            setValue('name', '')
+                            setValue('file', '')
+                            setEditSuccess(true)
+                            setTimeout(() => {
+                                navigation.push('/admin-rsaa/dasar-hukum')
+                            }, 3000)
+                        }
+
+                    } catch (error) {
+                        if (axios.isAxiosError(error)) {
+                            // Server responded with a status code outside 2xx
+                            const errorMessage = error.response?.data?.message || error.message;
+                            alert(errorMessage);
+                        } else {
+                            // Non-Axios error (e.g., network error, syntax error)
+                            alert('An unexpected error occurred.');
+                            console.error(error);
+                        }
                     }
-                })
 
-                if (response.data.data) {
-                    setValue('name', '')
-                    setValue('file', '')
-                    setEditSuccess(true)
-                    setTimeout(() => {
-                        navigation.push('/admin-rsaa/dasar-hukum')
-                    }, 3000)
                 }
+
+
             } catch (error) {
                 //console.log(error);
 
