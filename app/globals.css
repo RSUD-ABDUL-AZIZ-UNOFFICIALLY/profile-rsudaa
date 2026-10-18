@@ -663,3 +663,38 @@ button.button-circle.button-warning:hover {
 }
 
 /*# sourceMappingURL=globals.css.map */
+
+/* --- ACCESSIBILITY WIDGET OVERRIDES --- */
+
+/* 1. High Contrast */
+.a11y-high-contrast {
+  filter: contrast(150%) saturate(120%);
+}
+.a11y-high-contrast body {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/* 2. Large Text (Root rem modifier) */
+.a11y-large-text {
+  font-size: 115% !important; /* Scale up base rem size */
+}
+
+/* 3. Dyslexia Font (Gunakan OpenDyslexic atau font sans-serif dasar) */
+.a11y-dyslexia-font,
+.a11y-dyslexia-font * {
+  font-family: 'Comic Sans MS', 'OpenDyslexic', sans-serif !important;
+  letter-spacing: 0.1em !important;
+  word-spacing: 0.2em !important;
+}
+
+/* 4. Highlight Links */
+.a11y-highlight-links a, 
+.a11y-highlight-links button {
+  text-decoration: underline !important;
+  text-decoration-color: #ffeb3b !important;
+  text-decoration-thickness: 4px !important;
+  background-color: rgba(255, 235, 59, 0.2) !important;
+  outline: 2px solid #ffeb3b !important;
+  outline-offset: 2px;
+}

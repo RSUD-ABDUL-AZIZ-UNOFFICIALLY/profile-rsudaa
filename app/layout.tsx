@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import VisitorTracker from "./component/VisitorTracker";
+import { AccessibilityProvider } from './providers/AccessibilityProvider';
+import AccessibilityWidget from './component/AccessibilityWidget';
 
 // @ts-ignore: CSS module declaration not present in this environment
 import './globals.css'
@@ -26,7 +28,16 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <VisitorTracker />
-        {children}
+        {/* Inject Provider untuk Global State Accessibility */}
+        <AccessibilityProvider>
+
+          {children} {/* Konten aplikasi Anda di sini */}
+
+          {/* Inject Widget secara global */}
+          <AccessibilityWidget />
+
+        </AccessibilityProvider>
+        {/* {children} */}
       </body>
     </html>
   )
