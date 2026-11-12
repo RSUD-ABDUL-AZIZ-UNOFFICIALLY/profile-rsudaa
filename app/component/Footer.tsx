@@ -1,85 +1,239 @@
 'use client'
+
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
-import skw from "../../public/skw.png";
-import Link from 'next/link';
-import { DasarHukumResponse } from '../Model/dasarHukum.model';
-import axios from 'axios';
+import Link from 'next/link'
+import React, { useCallback, useEffect, useState } from 'react'
+import axios from 'axios'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+    faLocationDot,
+    faPhone,
+    faEnvelope,
+    faScaleBalanced,
+    faChevronRight,
+} from '@fortawesome/free-solid-svg-icons'
+import {
+    faFacebookF,
+    faInstagram,
+    faYoutube,
+    faTiktok
+} from '@fortawesome/free-brands-svg-icons'
+import skw from '../../public/skw.png'
+import { DasarHukumResponse } from '../Model/dasarHukum.model'
 
-const Footer = () => {
-    const API_URL = process.env.API_URL
+const API_URL = process.env.API_URL || ''
+
+const PELAYANAN_LINKS = [
+    { label: 'Survei Kepuasan Masyarakat', href: '/skm' },
+    { label: 'Layanan Informasi & Pengaduan', href: '/layanan-informasi' },
+    { label: 'Informasi Poliklinik', href: '/informasi-poliklinik' },
+    { label: 'Jadwal Praktek', href: '/jadwal-praktek' },
+    { label: 'Fasilitas & Tarif', href: '/fasilitas-tarif' },
+    { label: 'Permintaan Informasi Publik', href: '/permintaan-informasi-publik' },
+]
+
+const TENTANG_KAMI_LINKS = [
+    { label: 'Profil Rumah Sakit', href: '/profil' },
+    { label: 'Struktur Organisasi', href: '/struktur-organisasi' },
+    { label: 'Maklumat Pelayanan', href: '/maklumat-pelayanan' },
+    { label: 'Kegiatan', href: '/kegiatan' },
+    { label: 'Artikel Kesehatan', href: '/artikel' },
+]
+
+const SOCIAL_LINKS = [
+    { label: 'Facebook RSUD dr. Abdul Aziz', href: 'https://www.facebook.com/rsudaa', icon: faFacebookF },
+    { label: 'Instagram RSUD dr. Abdul Aziz', href: 'https://www.instagram.com/rsuddr.abdulazizsingkawang?utm_source=ig_web_button_share_sheet&exln=ZDNlZDc0MzIxNw==', icon: faInstagram },
+    { label: 'YouTube RSUD dr. Abdul Aziz', href: 'https://www.youtube.com/@RSUDdr.AbdulAziz', icon: faYoutube },
+    { label: 'Tiktok RSUD dr. Abdul Aziz', href: 'https://www.tiktok.com/@rsuddr.abdulazizskw', icon: faTiktok },
+]
+
+const Footer: React.FC = () => {
     const [dataDasarHukum, setDataDasarHukum] = useState<DasarHukumResponse[]>([])
+    const [isLoading, setIsLoading] = useState<boolean>(true)
 
-    const getDasarHukum = async () => {
+    const fetchDasarHukum = useCallback(async (signal?: AbortSignal) => {
         try {
-            const response = await axios.get(`${API_URL}/dasar-hukum`)
+            const response = await axios.get(`${API_URL}/dasar-hukum`, { signal })
+            if (signal?.aborted) return
 
-            if (response.data.success == true) {
+            if (response.data?.success && Array.isArray(response.data?.data)) {
                 setDataDasarHukum(response.data.data)
             }
         } catch (error) {
-
+            if (!axios.isCancel(error)) {
+                console.error('Error fetching dasar hukum:', error)
+            }
+        } finally {
+            if (!signal?.aborted) {
+                setIsLoading(false)
+            }
         }
-    }
-
-    useEffect(() => {
-        getDasarHukum()
     }, [])
 
-    return (
-        <div className="flex justify-center p-2 bg-primary">
-            <div className="lg:w-[80%] w-full">
-                <footer className="footer p-10 text-white">
-                    <nav>
-                        <h6 className="footer-title">Pelayanan Publik</h6>
-                        <Link href={`/skm`} className="link link-hover">Survei Kepuasan Masyarakat</Link>
-                        <Link href={`/layanan-informasi`} className="link link-hover">Layanan Informasi & Pengaduan</Link>
-                        <Link href={`/informasi-poliklinik`} className="link link-hover">Informasi Poliklinik</Link>
-                        <Link href={`/jadwal-praktek`} className="link link-hover">Jadwal Praktek</Link>
-                        <Link href={`/fasilitas-tarif`} className="link link-hover">Fasiltas & Tarif</Link>
-                        <Link href={`/permintaan-informasi-publik`} className="link link-hover">Permintaan Informasi Publik</Link>
-                    </nav>
-                    <nav>
-                        <h6 className="footer-title">Tentang Kami</h6>
-                        <Link href={`/profil`} className="link link-hover">Profil Rumah Sakit</Link>
-                        <Link href={`/struktur-organisasi`} className="link link-hover">Struktur Organisasi</Link>
-                        <Link href={`/maklumat-pelayanan`} className="link link-hover">Maklumat Pelayanan</Link>
-                        <Link href={`/kegiatan`} className="link link-hover">Kegiatan</Link>
-                        <Link href={`/artikel`} className="link link-hover">Artikel</Link>
-                    </nav>
-                    <nav>
-                        <h6 className="footer-title">Dasar Hukum</h6>
+    useEffect(() => {
+        const controller = new AbortController()
+        fetchDasarHukum(controller.signal)
 
-                        {dataDasarHukum && dataDasarHukum.map((item: DasarHukumResponse, index: number) => {
-                            return (
-                                <Link key={index} href={`#`} className="link link-hover">{item.name}</Link>
-                            )
-                        })}
-                    </nav>
-                </footer>
-                <footer className="footer px-10 py-4 border-t border-zinc-900">
-                    <aside className="items-center grid-flow-col">
-                        <div className="p-3 rounded-full shadow-xl">
-                            <Image alt='logo' src={skw} className='h-14 w-fit' />
+        return () => controller.abort()
+    }, [fetchDasarHukum])
+
+    const currentYear = new Date().getFullYear()
+
+    return (
+        <footer className="foot-bar mt-auto" role="contentinfo">
+            <div className="max-w-6xl mx-auto">
+                {/* Grid Utama 4 Kolom */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-10">
+                    {/* Kolom 1: Identitas & Kontak RSUD */}
+                    <div className="lg:col-span-4 space-y-4">
+                        <div className="flex items-center gap-3.5">
+                            <div className="bg-white p-2.5 rounded-xl shadow-md shrink-0">
+                                <Image
+                                    src={skw}
+                                    alt="Logo RSUD dr. Abdul Aziz Singkawang"
+                                    className="h-12 w-auto object-contain"
+                                />
+                            </div>
+                            <div>
+                                <p className="font-bold text-base sm:text-lg text-white leading-tight">
+                                    RSUD dr. Abdul Aziz
+                                </p>
+                                <p className="text-xs sm:text-sm text-white/80 mt-0.5">
+                                    Kota Singkawang, Kalimantan Barat
+                                </p>
+                            </div>
                         </div>
-                        <p className='text-black rounded-lg font-bold p-2 bg-yellow-500'>RSUD dr Abdul Aziz <br />Kota Singkawang, Kalimantan Barat</p>
-                    </aside>
-                    <nav className="md:place-self-center md:justify-self-end">
-                        <div className="grid grid-flow-col gap-4">
-                            <Link href={'#'}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
-                            </Link>
-                            <Link href={'#'}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg>
-                            </Link>
-                            <Link href={'#'}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg>
-                            </Link>
+
+                        <p className="text-xs sm:text-sm text-white/85 leading-relaxed">
+                            Memberikan pelayanan kesehatan rujukan yang profesional, bermutu, dan berorientasi pada keselamatan pasien.
+                        </p>
+
+                        <ul className="space-y-2 text-xs sm:text-sm text-white/90 pt-1">
+                            <li className="flex items-start gap-2.5">
+                                <FontAwesomeIcon
+                                    icon={faLocationDot}
+                                    className="w-3.5 h-3.5 text-secondary mt-1 shrink-0"
+                                />
+                                <span>Jl. Dr. Soetomo No. 28, Pasiran, Singkawang Barat, Kota Singkawang</span>
+                            </li>
+                            <li className="flex items-center gap-2.5">
+                                <FontAwesomeIcon
+                                    icon={faPhone}
+                                    className="w-3.5 h-3.5 text-secondary shrink-0"
+                                />
+                                <span>(0562) 631798</span>
+                            </li>
+                            <li className="flex items-center gap-2.5">
+                                <FontAwesomeIcon
+                                    icon={faEnvelope}
+                                    className="w-3.5 h-3.5 text-secondary shrink-0"
+                                />
+                                <span>rsudaa@singkawangkota.go.id</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Kolom 2: Pelayanan Publik */}
+                    <nav aria-label="Pelayanan Publik" className="lg:col-span-3 foot-bar-item">
+                        <h2 className="head">Pelayanan Publik</h2>
+                        <ul className="body space-y-2.5 !px-0">
+                            {PELAYANAN_LINKS.map((item) => (
+                                <li key={item.href}>
+                                    <Link
+                                        href={item.href}
+                                        className="group inline-flex items-center gap-2 text-xs sm:text-sm text-white/85 hover:text-warning transition-colors"
+                                    >
+                                        <FontAwesomeIcon
+                                            icon={faChevronRight}
+                                            className="w-2.5 h-2.5 text-secondary group-hover:translate-x-0.5 transition-transform"
+                                        />
+                                        <span>{item.label}</span>
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
+
+                    {/* Kolom 3: Tentang Kami */}
+                    <nav aria-label="Tentang Kami" className="lg:col-span-2 foot-bar-item">
+                        <h2 className="head">Tentang Kami</h2>
+                        <ul className="body space-y-2.5 !px-0">
+                            {TENTANG_KAMI_LINKS.map((item) => (
+                                <li key={item.href}>
+                                    <Link
+                                        href={item.href}
+                                        className="group inline-flex items-center gap-2 text-xs sm:text-sm text-white/85 hover:text-warning transition-colors"
+                                    >
+                                        <FontAwesomeIcon
+                                            icon={faChevronRight}
+                                            className="w-2.5 h-2.5 text-secondary group-hover:translate-x-0.5 transition-transform"
+                                        />
+                                        <span>{item.label}</span>
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
+
+                    {/* Kolom 4: Dasar Hukum */}
+                    <nav aria-label="Dasar Hukum" className="lg:col-span-3 foot-bar-item">
+                        <h2 className="head">Dasar Hukum</h2>
+                        <div className="body !px-0">
+                            {isLoading ? (
+                                <div className="space-y-2.5 animate-pulse">
+                                    <div className="h-3.5 bg-white/20 rounded w-4/5" />
+                                    <div className="h-3.5 bg-white/20 rounded w-3/4" />
+                                    <div className="h-3.5 bg-white/20 rounded w-5/6" />
+                                </div>
+                            ) : dataDasarHukum.length > 0 ? (
+                                <ul className="space-y-2.5">
+                                    {dataDasarHukum.slice(0, 6).map((item, index) => (
+                                        <li key={item.id ?? index}>
+                                            <Link
+                                                href={item.file || '/dasar-hukum'}
+                                                target={item.file ? '_blank' : undefined}
+                                                rel={item.file ? 'noopener noreferrer' : undefined}
+                                                className="group inline-flex items-start gap-2 text-xs sm:text-sm text-white/85 hover:text-warning transition-colors"
+                                            >
+                                                <FontAwesomeIcon
+                                                    icon={faScaleBalanced}
+                                                    className="w-3 h-3 text-secondary mt-1 shrink-0"
+                                                />
+                                                <span className="line-clamp-2">{item.name}</span>
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            ) : (
+                                <p className="text-xs text-white/70 italic">
+                                    Dokumen dasar hukum belum tersedia.
+                                </p>
+                            )}
                         </div>
                     </nav>
-                </footer>
+                </div>
+
+                {/* Bottom Bar: Hak Cipta & Media Sosial */}
+                <div className="pt-6 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p className="text-xs sm:text-sm text-white/80 text-center sm:text-left">
+                        &copy; {currentYear} RSUD dr. Abdul Aziz Kota Singkawang. Hak Cipta Dilindungi.
+                    </p>
+
+                    <div className="flex items-center gap-3">
+                        {SOCIAL_LINKS.map((soc) => (
+                            <Link
+                                key={soc.label}
+                                href={soc.href}
+                                aria-label={soc.label}
+                                className="w-9 h-9 rounded-full bg-white/10 hover:bg-warning text-white hover:text-black flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
+                            >
+                                <FontAwesomeIcon icon={soc.icon} className="w-4 h-4" />
+                            </Link>
+                        ))}
+                    </div>
+                </div>
             </div>
-        </div>
+        </footer>
     )
 }
 

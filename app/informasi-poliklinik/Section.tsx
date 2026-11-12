@@ -28,7 +28,7 @@ const Section = () => {
     }, [])
     return (
         <div className='flex justify-center p-2'>
-            <div className="lg:w-[90%] w-[100%]">
+            <div className="lg:w-[90%] w-full">
                 <div className="grid lg:grid-cols-4 gap-4">
                     {dataPoli && dataPoli.length > 0 ? dataPoli.map((item: poliklinikResponse, index: number) => {
                         return (

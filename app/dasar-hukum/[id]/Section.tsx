@@ -33,7 +33,7 @@ const Section: React.FC<Props> = ({ id }) => {
         <div>
             {/* <UnderMaintenance /> */}
             <div className="flex justify-center p-4">
-                <div className="lg:w-[80%] w-[100%] ">
+                <div className="lg:w-[80%] w-full ">
                     {data && data.file ?
                         <Iframe url={data.file}
                             id=""

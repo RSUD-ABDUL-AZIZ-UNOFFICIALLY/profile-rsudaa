@@ -1,163 +1,110 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
-import { motion, useInView, useAnimation } from "framer-motion"
-import Image from 'next/image'
-import iconSurveiKepuasan from "../../public/icon/surveiKepuasan.svg";
-import iconPoli from "../../public/icon/poli.svg";
-import iconInformation from "../../public/icon/information.svg";
-import iconPengaduan from "../../public/icon/pengaduan.svg";
-import iconJadwal from "../../public/icon/jadwal.svg";
-import iconFasilitas from "../../public/icon/fasiltas.svg";
-import iconRegistrasi from "../../public/icon/registrasi.svg";
-import { useRouter } from 'next/navigation';
 
-const SectionPelayananPublik = () => {
-    const motionRef = useRef(null)
-    const isInView = useInView(motionRef, { once: true })
-    const mainControls = useAnimation()
+import React from 'react'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+import {
+    faClipboardCheck,
+    faCircleInfo,
+    faHospitalUser,
+    faCalendarCheck,
+    faHospital,
+    faLaptopMedical,
+    faFileLines,
+} from '@fortawesome/free-solid-svg-icons'
 
-    const navigation = useRouter()
+interface LayananItem {
+    title: string
+    href: string
+    icon: IconDefinition
+}
 
-    useEffect(() => {
-        if (isInView) {
-            mainControls.start("visible")
-        }
-    }, [isInView])
+const LAYANAN_PUBLIK: LayananItem[] = [
+    {
+        title: 'Survei Kepuasan Masyarakat',
+        href: '/skm',
+        icon: faClipboardCheck,
+    },
+    {
+        title: 'Layanan Informasi',
+        href: '/layanan-informasi',
+        icon: faCircleInfo,
+    },
+    {
+        title: 'Informasi Poliklinik',
+        href: '/informasi-poliklinik',
+        icon: faHospitalUser,
+    },
+    {
+        title: 'Jadwal Praktek',
+        href: '/jadwal-praktek',
+        icon: faCalendarCheck,
+    },
+    {
+        title: 'Fasilitas & Tarif',
+        href: '/fasilitas-tarif',
+        icon: faHospital,
+    },
+    {
+        title: 'Pendaftaran Online',
+        href: '/pendaftaran-online',
+        icon: faLaptopMedical,
+    },
+    {
+        title: 'Permintaan Informasi Publik',
+        href: '/permintaan-informasi-publik',
+        icon: faFileLines,
+    },
+]
 
+const SectionPelayananPublik: React.FC = () => {
     return (
-        <div className='section'>
-            <div className="item-section">
-                <div className="grid grid-cols-10 gap-4 h-full">
-                    <div className="col-span-10 bg-white p-4">
-                        <div className="flex justify-right">
-                            <div className={`text-primary uppercase w-fit font-bold text-xl pb-2 pr-5 border-b-4 border-primary`}>Pelayanan Publik</div>
+        <section
+            aria-labelledby="heading-pelayanan-publik"
+            className="w-full bg-white border border-[#002722]/10 rounded-2xl shadow-sm p-4 sm:p-6 lg:p-8"
+        >
+            {/* Header Section */}
+            <header className="mb-5 sm:mb-8">
+                <h2
+                    id="heading-pelayanan-publik"
+                    className="text-primary uppercase w-fit font-bold text-base sm:text-xl lg:text-2xl pb-2 pr-5 border-b-4 border-primary tracking-tight"
+                >
+                    Pelayanan Publik
+                </h2>
+            </header>
+
+            {/* Grid Kartu Layanan Responsif (Mobile 2 Kolom -> Tablet 3/4 Kolom -> Desktop 7 Kolom) */}
+            <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4"
+            >
+                {LAYANAN_PUBLIK.map((item) => (
+                    <Link
+                        key={item.href}
+                        href={item.href}
+                        className="group flex flex-col items-center justify-center sm:justify-between bg-[#f8fbfa] hover:bg-white active:scale-[0.98] border border-[#002722]/10 hover:border-primary/50 rounded-xl p-3.5 sm:p-5 min-h-[120px] sm:min-h-[145px] shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                    >
+                        {/* Wadah FA-Icon */}
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl bg-info group-hover:bg-primary text-primary group-hover:text-white flex items-center justify-center mb-2.5 sm:mb-3.5 transition-colors duration-200 shrink-0">
+                            <FontAwesomeIcon
+                                icon={item.icon}
+                                className="text-xl sm:text-2xl lg:text-[26px] group-hover:scale-110 transition-transform duration-200"
+                            />
                         </div>
-                        <motion.div
-                            className="lg:md:mt-8 mt-4 w-full gap-4"
-                            ref={motionRef}
-                            variants={{
-                                hidden: { opacity: 0, x: -200 },
-                                visible: { opacity: 1, x: 0 }
-                            }}
-                            initial="hidden"
-                            animate={mainControls}
-                            transition={{ duration: 1, delay: 0 }}
-                        >
-                            <div className="grid lg:md:grid-cols-6 grid-cols-3 lg:gap-5 gap-4 justify-center">
-                                <button onClick={() => navigation.push(`/skm`)} className="button button-white shadow-sm aspect-square w-full">
-                                    <div className="h-[70%] flex justify-center items-center">
-                                        <Image
-                                            src={iconSurveiKepuasan}
-                                            alt="Picture of the author"
-                                            // height={80}
-                                            className="lg:md:h-[60%] h-[60%]"
-                                        // className='h-full'
-                                        />
-                                    </div>
-                                    <div className="h-[30%]  lg:md:text-[15px] text-[10px] uppercase font-bold text-primary flex items-center justify-center text-center">
-                                        Survei Kepuasan Masyarakat
-                                    </div>
-                                </button>
-                                <button onClick={() => navigation.push(`/layanan-informasi`)} className="button button-white shadow-sm aspect-square w-full">
-                                    <div className="h-[70%] flex justify-center items-center">
-                                        <Image
-                                            src={iconInformation}
-                                            alt="Picture of the author"
-                                            // height={80}
-                                            className="lg:md:h-[60%] h-[60%]"
-                                        // className='h-full'
-                                        />
-                                    </div>
-                                    <div className="h-[30%] lg:md:text-[15px] text-[10px] uppercase font-bold text-primary flex items-center justify-center text-center">
-                                        Layanan Informasi
-                                    </div>
-                                </button>
-                                <div className="">
-                                    <button onClick={() => navigation.push(``)} className="button button-white shadow-sm aspect-square w-full">
-                                        <div className="h-[70%] flex justify-center items-center">
-                                            <Image
-                                                src={iconPoli}
-                                                alt="Picture of the author"
-                                                // height={80}
-                                                className="lg:md:h-[60%] h-[60%]"
-                                            // className='h-full'
-                                            />
-                                        </div>
-                                        <div className="h-[30%] lg:md:text-[15px] text-[10px] uppercase font-bold text-primary flex items-center justify-center text-center">
-                                            Informasi Poliklinik
-                                        </div>
-                                    </button>
-                                </div>
-                                <div className="">
-                                    <button onClick={() => navigation.push(`/informasi-poliklinik`)} className="button button-white shadow-sm aspect-square w-full">
-                                        <div className="h-[70%] flex justify-center items-center">
-                                            <Image
-                                                src={iconJadwal}
-                                                alt="Picture of the author"
-                                                // height={80}
-                                                className="lg:md:h-[60%] h-[60%]"
-                                            // className='h-full'
-                                            />
-                                        </div>
-                                        <div className="h-[30%] lg:md:text-[15px] text-[10px] uppercase font-bold text-primary flex items-center justify-center text-center">
-                                            Jadwal Praktek
-                                        </div>
-                                    </button>
-                                </div>
-                                <div className="">
-                                    <button onClick={() => navigation.push(`/fasilitas-tarif`)} className="button button-white shadow-sm aspect-square w-full">
-                                        <div className="h-[70%] flex justify-center items-center">
-                                            <Image
-                                                src={iconFasilitas}
-                                                alt="Picture of the author"
-                                                // height={80}
-                                                className="lg:md:h-[60%] h-[60%]"
-                                            // className='h-full'
-                                            />
-                                        </div>
-                                        <div className="h-[30%] lg:md:text-[15px] text-[10px] uppercase font-bold text-primary flex items-center justify-center text-center">
-                                            Fasilitas & Tarif
-                                        </div>
-                                    </button>
-                                </div>
-                                <div className="">
-                                    <button onClick={() => navigation.push(`/pendaftaran-online`)} className="button button-white shadow-sm aspect-square w-full">
-                                        <div className="h-[70%] flex justify-center items-center">
-                                            <Image
-                                                src={iconRegistrasi}
-                                                alt="Picture of the author"
-                                                // height={80}
-                                                className="lg:md:h-[60%] h-[60%]"
-                                            // className='h-full'
-                                            />
-                                        </div>
-                                        <div className="h-[30%] lg:md:text-[15px] text-[10px] uppercase font-bold text-primary flex items-center justify-center text-center">
-                                            Pendaftaran Online
-                                        </div>
-                                    </button>
-                                </div>
-                                <div className="">
-                                    <button onClick={() => navigation.push(`/permintaan-informasi-publik`)} className="button button-white shadow-sm aspect-square w-full">
-                                        <div className="h-[70%] flex justify-center items-center">
-                                            <Image
-                                                src={iconRegistrasi}
-                                                alt="Picture of the author"
-                                                // height={80}
-                                                className="lg:md:h-[60%] h-[60%]"
-                                            // className='h-full'
-                                            />
-                                        </div>
-                                        <div className="h-[30%] lg:md:text-[15px] text-[10px] uppercase font-bold text-primary flex items-center justify-center text-center">
-                                            Permintaan Informasi Publik
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+                        {/* Label Layanan */}
+                        <span className="text-[11px] sm:text-xs font-bold uppercase text-dark group-hover:text-primary text-center leading-snug tracking-wide line-clamp-2 transition-colors">
+                            {item.title}
+                        </span>
+                    </Link>
+                ))}
+            </motion.div>
+        </section>
     )
 }
 

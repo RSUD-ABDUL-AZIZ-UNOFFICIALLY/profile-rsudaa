@@ -49,7 +49,7 @@ const ArtikelPage = ({ title, image, content, createdAt, views }: ArtikelPagePro
                         <button
                             type="button"
                             onClick={() => setPreviewOpen(true)}
-                            className="relative w-full aspect-[16/9] block cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                            className="relative w-full aspect-video block cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                             aria-label="Lihat pratinjau foto"
                         >
                             <div className="relative w-full h-full">
@@ -119,7 +119,7 @@ const ArtikelPage = ({ title, image, content, createdAt, views }: ArtikelPagePro
                     onClick={() => setPreviewOpen(false)}
                 >
                     <button
-                        className="absolute top-6 right-6 text-white hover:text-gray-300 text-5xl leading-none z-[60] transition-colors"
+                        className="absolute top-6 right-6 text-white hover:text-gray-300 text-5xl leading-none z-60 transition-colors"
                         onClick={() => setPreviewOpen(false)}
                         aria-label="Tutup pratinjau"
                     >

@@ -34,7 +34,7 @@ const SectionKamar = () => {
     }, [keyword])
     return (
         <div className='flex justify-center p-2'>
-            <div className="lg:w-[70%] w-[100%] p-2 ">
+            <div className="lg:w-[70%] w-full p-2 ">
                 <div className="text-3xl uppercase font-bold text-primary">DAFTAR KAMAR </div>
                 {data ?
                     <div className=" p-3 shadow-lg rounded-md">

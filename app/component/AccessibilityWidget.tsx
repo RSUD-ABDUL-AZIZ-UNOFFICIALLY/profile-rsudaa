@@ -10,7 +10,7 @@ export default function AccessibilityWidget() {
     const { settings, toggleSetting, resetSettings } = useAccessibility();
 
     return (
-        <div className="fixed bottom-6 right-6 z-[9999]">
+        <div className="fixed bottom-6 right-6 z-9999">
             {/* Menu Panel */}
             {isOpen && (
                 <div className="absolute bottom-16 right-0 w-64 bg-white dark:bg-gray-800 shadow-2xl rounded-lg p-4 border border-gray-200 dark:border-gray-700 transition-all">
