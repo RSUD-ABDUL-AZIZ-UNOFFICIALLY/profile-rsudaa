@@ -60,7 +60,7 @@ const extractPlainText = (html: string = '', maxLength: number = 200): string =>
 }
 
 interface ContentCardProps {
-    title: string
+    title?: string
     image?: string
     date?: string | Date
     description?: string

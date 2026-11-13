@@ -5,7 +5,6 @@ import axios from 'axios'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-    faBookOpenMedical,
     faCalendarDays,
     faArrowRight,
     faMagnifyingGlass,

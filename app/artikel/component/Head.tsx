@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-    faBookOpenMedical,
+    faBookMedical,
     faNotesMedical,
     faStethoscope,
 } from '@fortawesome/free-solid-svg-icons'
@@ -69,7 +69,7 @@ const Head: React.FC = () => {
                     {/* Kolom Kiri: Judul & Deskripsi Pengantar */}
                     <div className="lg:col-span-8 p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
                         <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary bg-info px-3.5 py-1 rounded-full border border-primary/20 w-fit mb-3">
-                            <FontAwesomeIcon icon={faBookOpenMedical} className="w-3.5 h-3.5" />
+                            <FontAwesomeIcon icon={faBookMedical} className="w-3.5 h-3.5" />
                             <span>Publikasi &amp; Literasi Kesehatan</span>
                         </span>
 

@@ -195,7 +195,7 @@ const Section: React.FC = () => {
                             if (!targetUrl) {
                                 return (
                                     <div
-                                        key={item.id ?? index}
+                                        key={index}
                                         className="flex flex-col justify-between bg-[#f8fbfa] border border-[#002722]/10 rounded-xl p-5 opacity-60 cursor-not-allowed"
                                     >
                                         {cardContent}
@@ -206,7 +206,7 @@ const Section: React.FC = () => {
                             if (external) {
                                 return (
                                     <a
-                                        key={item.id ?? index}
+                                        key={index}
                                         href={targetUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -219,7 +219,7 @@ const Section: React.FC = () => {
 
                             return (
                                 <Link
-                                    key={item.id ?? index}
+                                    key={index}
                                     href={targetUrl}
                                     className="group flex flex-col justify-between bg-[#f8fbfa] hover:bg-white border border-[#002722]/10 hover:border-primary/50 rounded-xl p-5 shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                                 >
