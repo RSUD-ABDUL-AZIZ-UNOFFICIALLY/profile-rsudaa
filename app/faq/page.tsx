@@ -19,8 +19,6 @@ export default function Home() {
           <NavigationBar />
           <JumbotronPage title='FAQ' />
           <Section />
-          <SectionPelayananPublik />
-          <SectionDokter />
           <Footer />
         </main>
       </BaseProvider>

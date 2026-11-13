@@ -1,206 +1,132 @@
 'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import React, { useCallback, useEffect, useState } from 'react'
-import sidebarIcon from '../../public/icon/sidebarIcon.svg'
-import skwLogo from '../../public/skw.png'
-import Sidebar from './Sidebar'
-import { TentangKami, PelayananPublik, Karir, DasarHukum, Aplikasi } from './navItem'
+import React, { useRef, useState, useEffect } from 'react'
+import sidebarIcon from "../../public/icon/sidebarIcon.svg";
+import skwLogo from "../../public/skw.png";
+import Sidebar from './Sidebar';
+import { motion, useInView, useAnimation } from "framer-motion"
+import { TentangKami, PelayananPublik, Karir, DasarHukum, Aplikasi } from './navItem';
 
-const NavigationBar: React.FC = () => {
-    const pathname = usePathname()
-    const [isScrolled, setIsScrolled] = useState<boolean>(false)
-    const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false)
+const NavigationBar = () => {
+    const navbarRef = useRef(null);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [sidebar, setSidebar] = useState<boolean>(false)
+    const motionRef = useRef(null)
+    const isInView = useInView(motionRef, { once: true })
+    const mainControls = useAnimation()
+    const mainControlsDropdown = useAnimation()
+    const mainControlsOffDropdown = useAnimation()
+    const handleSidebar = (e: boolean) => [
+        setSidebar(e)
+    ]
 
-    const handleSidebar = useCallback((open: boolean) => {
-        setIsSidebarOpen(open)
-    }, [])
+    const [hover, setHover] = useState<boolean>(false)
+    const onHover = () => {
+        setHover(true)
+        mainControlsDropdown.start("visible")
 
-    // Deteksi posisi scroll dengan passive listener untuk performa optimal
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 10)
-        }
-
-        handleScroll() // Cek posisi awal saat komponen mount
-        window.addEventListener('scroll', handleScroll, { passive: true })
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-        }
-    }, [])
-
-    // Tutup sidebar mobile otomatis saat rute berubah
-    useEffect(() => {
-        setIsSidebarOpen(false)
-    }, [pathname])
-
-    const isActiveLink = (href: string) => {
-        if (href === '/') return pathname === '/'
-        return pathname?.startsWith(href)
+    }
+    const offHover = () => {
+        setHover(false)
+        mainControlsDropdown.start("visible")
     }
 
-    return (
-        <>
-            <header
-                className={`navigation-bar ${isScrolled ? 'bottom' : 'top'}`}
-                role="banner"
-            >
-                {/* Kiri: Tombol Menu Mobile & Logo */}
-                <div className="nav-left">
-                    <button
-                        type="button"
-                        onClick={() => handleSidebar(true)}
-                        aria-label="Buka menu navigasi"
-                        aria-expanded={isSidebarOpen}
-                        className="button-sidebar button button-transparent"
-                    >
-                        <Image
-                            src={sidebarIcon}
-                            alt=""
-                            aria-hidden="true"
-                            className="h-5 w-5 object-contain"
-                        />
-                    </button>
+    useEffect(() => {
+        if (isInView) {
+            mainControls.start("visible")
+        }
 
-                    <Link
-                        href="/"
-                        className="nav-logo flex items-center"
-                        aria-label="Beranda RSUD dr. Abdul Aziz"
-                    >
+        const handleScroll = () => {
+            const scrollTop = window.scrollY;
+            const isTop = scrollTop < 10;
+
+            setIsScrolled(!isTop);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [isInView]);
+
+    return (
+        <div className={`navigation-bar p-0 ${isScrolled == true ? `bottom` : `top`}`} ref={navbarRef}>
+            <div className="nav-left">
+                <button onClick={(() => handleSidebar(true))} className="button-sidebar rounded-full button button-transparant">
+                    <Image
+                        src={sidebarIcon}
+                        alt="Picture of the author"
+                        className='h-[20px] w-auto'
+                    />
+                </button>
+                <div className="nav-logo h-full">
+                    <div className="">
                         <Image
                             src={skwLogo}
-                            alt="Logo RSUD dr. Abdul Aziz Singkawang"
-                            priority
-                            className="lg:h-[64px] h-[46px] w-auto object-contain"
+                            alt="Picture of the author"
+                            className='lg:h-[70px] h-[50px] w-auto'
                         />
-                    </Link>
+                    </div>
                 </div>
-
-                {/* Kanan: Menu Navigasi Desktop */}
-                <nav className="nav-right" aria-label="Navigasi Utama">
-                    <div className="nav-menu animation-popup">
-                        <div className="nm-item">
-                            <Link
-                                href="/"
-                                className={`item ${isActiveLink('/') ? 'bg-primary text-white' : ''}`}
-                            >
-                                Dashboard
-                            </Link>
-                        </div>
-
-                        <div className="nm-item">
-                            <button
-                                type="button"
-                                aria-haspopup="true"
-                                className="item gap-1.5"
-                            >
-                                <span>Tentang Kami</span>
-                                <ChevronIcon />
-                            </button>
-                            <div className="dropdown">
-                                <TentangKami />
-                            </div>
-                        </div>
-
-                        <div className="nm-item">
-                            <button
-                                type="button"
-                                aria-haspopup="true"
-                                className="item gap-1.5"
-                            >
-                                <span>Pelayanan Publik</span>
-                                <ChevronIcon />
-                            </button>
-                            <div className="dropdown">
-                                <PelayananPublik />
-                            </div>
-                        </div>
-
-                        <div className="nm-item">
-                            <button
-                                type="button"
-                                aria-haspopup="true"
-                                className={`item gap-1.5 ${isActiveLink('/loker') ? 'bg-primary text-white' : ''}`}
-                            >
-                                <span>Karir</span>
-                                <ChevronIcon />
-                            </button>
-                            <div className="dropdown">
-                                <Karir />
-                            </div>
-                        </div>
-
-                        <div className="nm-item">
-                            <button
-                                type="button"
-                                aria-haspopup="true"
-                                className="item gap-1.5"
-                            >
-                                <span>Aplikasi</span>
-                                <ChevronIcon />
-                            </button>
-                            <div className="dropdown">
-                                <Aplikasi />
-                            </div>
-                        </div>
-
-                        <div className="nm-item">
-                            <button
-                                type="button"
-                                aria-haspopup="true"
-                                className="item gap-1.5"
-                            >
-                                <span>Dasar Hukum</span>
-                                <ChevronIcon />
-                            </button>
-                            <div className="dropdown">
-                                <DasarHukum />
-                            </div>
-                        </div>
-
-                        <div className="nm-item">
-                            <Link
-                                href="/laporan-tahunan"
-                                className={`item ${isActiveLink('/laporan-tahunan') ? 'bg-primary text-white' : ''}`}
-                            >
-                                Laporan Tahunan
-                            </Link>
-                        </div>
-
-                        <div className="nm-item">
-                            <Link
-                                href="/faq"
-                                className={`item ${isActiveLink('/faq') ? 'bg-primary text-white' : ''}`}
-                            >
-                                FAQ
-                            </Link>
+            </div>
+            <Sidebar handleSidebar={handleSidebar} open={sidebar} />
+            <div className="nav-right text-sm">
+                <motion.div
+                    className="nav-menu"
+                    ref={motionRef}
+                    variants={{
+                        hidden: { opacity: 0, y: -75 },
+                        visible: { opacity: 1, y: 0 }
+                    }}
+                    initial="hidden"
+                    animate={mainControls}
+                    transition={{ duration: 0.5, delay: 0.25 }}
+                >
+                    <div className="nm-item">
+                        <Link className='item' href="/">Dashboard</Link>
+                    </div>
+                    <div className="nm-item" onMouseEnter={onHover} onMouseLeave={offHover}>
+                        <button className='item' >Tentang Kami</button>
+                        <div className="dropdown">
+                            {TentangKami()}
                         </div>
                     </div>
-                </nav>
-            </header>
-
-            {/* Drawer Sidebar Mobile (dipisahkan dari header agar tidak terpengaruh backdrop-filter) */}
-            <Sidebar handleSidebar={handleSidebar} open={isSidebarOpen} />
-        </>
+                    <div className="nm-item">
+                        <button className='item' >Pelayanan Publik</button>
+                        <div className="dropdown">
+                            {PelayananPublik()}
+                        </div>
+                    </div>
+                    <div className="nm-item">
+                        <button className='item'>Karir</button>
+                        <div className="dropdown">
+                            {Karir()}
+                        </div>
+                    </div>
+                    <div className="nm-item">
+                        <button className='item' >Aplikasi</button>
+                        <div className="dropdown">
+                            {Aplikasi()}
+                        </div>
+                    </div>
+                    <div className="nm-item">
+                        <button className='item'>Dasar Hukum</button>
+                        <div className="dropdown">
+                            {DasarHukum()}
+                        </div>
+                    </div>
+                    <div className="nm-item">
+                        <Link className='item' href="/laporan-tahunan">Laporan Tahunan</Link>
+                    </div>
+                    <div className="nm-item">
+                        <Link className='item' href="/faq">Faq</Link>
+                    </div>
+                </motion.div>
+            </div >
+        </div >
     )
 }
-
-const ChevronIcon = () => (
-    <svg
-        className="w-3.5 h-3.5 opacity-75 transition-transform duration-200 group-hover:rotate-180"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-        aria-hidden="true"
-    >
-        <path
-            fillRule="evenodd"
-            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-            clipRule="evenodd"
-        />
-    </svg>
-)
 
 export default NavigationBar
